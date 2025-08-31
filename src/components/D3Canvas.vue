@@ -2,59 +2,33 @@
     <div class="d3-canvas-container">
         <div class="canvas-controls">
             <button @click="resetView" class="control-btn">Сброс</button>
-            <button @click="toggleGrid" class="control-btn">{{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}</button>
-            <div class="zoom-info">
-                Масштаб: {{ Math.round(zoomLevel * 100) }}%
-            </div>
+            <button @click="toggleGrid" class="control-btn">
+                {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
+            </button>
+            <button @click="addNode" class="control-btn">Добавить ноду</button>
+            <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
         </div>
+
         <div ref="canvasContainer" class="canvas-container">
             <svg ref="svgRef" class="d3-canvas">
                 <defs>
-                    <!-- Повторяемый паттерн точек для сетки -->
                     <pattern :id="patternId" patternUnits="userSpaceOnUse" :width="grid.step" :height="grid.step">
-                        <!-- точка сетки -->
                         <circle :r="grid.dotRadius" :cx="grid.dotOffset" :cy="grid.dotOffset" :fill="grid.dotColor" />
                     </pattern>
                 </defs>
 
-                <!-- Зумируемая сцена (включая сетку) -->
-                <g ref="sceneRef">
-                    <!-- Сетка внутри сцены для масштабирования -->
+                <!-- ЕДИНАЯ зум-сцена: и сетка, и ноды -->
+                <g ref="viewportRef">
                     <rect v-if="showGrid" class="grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
 
-                    <!-- Демонстрационные рёбра -->
-                    <!-- <g class="edges">
-                        <line x1="200" y1="160" x2="520" y2="360" stroke="#5b7c99" stroke-width="2" opacity="0.8" />
-                        <line x1="400" y1="100" x2="300" y2="400" stroke="#5b7c99" stroke-width="2" opacity="0.8" />
-                    </g> -->
-
-                    <!-- Демонстрационные узлы -->
-                    <!-- <g class="nodes">
-                        <g class="node">
-                            <rect x="140" y="132" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
-                            <text x="200" y="164" text-anchor="middle" font-size="12" fill="#334">
-                                Node A
+                    <g class="nodes">
+                        <g v-for="node in nodes" :key="node.id" class="node" :data-node-id="node.id">
+                            <rect :x="node.x - 60" :y="node.y - 28" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
+                            <text :x="node.x" :y="node.y + 4" text-anchor="middle" font-size="12" fill="#334">
+                                {{ node.name }}: {{ node.x.toFixed(0) }}x{{ node.y.toFixed(0) }}
                             </text>
                         </g>
-                        <g class="node">
-                            <rect x="460" y="332" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
-                            <text x="520" y="364" text-anchor="middle" font-size="12" fill="#334">
-                                Node B
-                            </text>
-                        </g>
-                        <g class="node">
-                            <rect x="340" y="72" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
-                            <text x="400" y="104" text-anchor="middle" font-size="12" fill="#334">
-                                Node C
-                            </text>
-                        </g>
-                        <g class="node">
-                            <rect x="240" y="372" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
-                            <text x="300" y="404" text-anchor="middle" font-size="12" fill="#334">
-                                Node D
-                            </text>
-                        </g>
-                    </g> -->
+                    </g>
                 </g>
             </svg>
         </div>
@@ -62,107 +36,154 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, onMounted, onUnmounted, reactive } from 'vue'
+    import { ref, reactive, onMounted, onUnmounted, nextTick, computed, watch } from 'vue'
     import * as d3 from 'd3'
+    import { useNodesStore } from '@/stores/nodes'
 
-    // Состояние компонента
+    /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()
     const svgRef = ref<SVGSVGElement>()
-    const sceneRef = ref<SVGGElement>()
+    const viewportRef = ref<SVGGElement>()
     const showGrid = ref(true)
     const zoomLevel = ref(1)
 
-    // Размеры вьюпорта
+    /** Store */
+    const nodesStore = useNodesStore()
+    const nodes = computed(() => nodesStore.getNodes())
+
+    /** Viewport size */
     const view = reactive({ w: 800, h: 600 })
 
-    // Параметры сетки (точек)
+    /** Grid params */
     const grid = reactive({
-        step: 20,                // шаг сетки в px экрана
-        dotRadius: 1.2,          // радиус точки
-        dotOffset: 1.2,          // отступ точки внутри клетки
-        dotColor: '#c8d2db'      // цвет точки
+        step: 20,
+        dotRadius: 1.2,
+        dotOffset: 1.2,
+        dotColor: '#c8d2db'
     })
-
-    // Идентификатор паттерна (на случай нескольких холстов на странице)
     const patternId = `dot-grid-${Math.random().toString(36).slice(2)}`
 
-    // D3 переменные
+    /** D3 runtime */
     let zoomBehavior: d3.ZoomBehavior<SVGSVGElement, unknown> | null = null
+    let dragBehavior: d3.DragBehavior<Element, unknown, unknown> | null = null
     let currentTransform: d3.ZoomTransform = d3.zoomIdentity
 
-    // Пересчитать размеры при ресайзе контейнера
     function measure() {
         const el = canvasContainer.value
         const svg = svgRef.value
         if (!el || !svg) return
-
         const rect = el.getBoundingClientRect()
         view.w = Math.max(300, Math.floor(rect.width))
         view.h = Math.max(200, Math.floor(rect.height))
-
         svg.setAttribute('width', String(view.w))
         svg.setAttribute('height', String(view.h))
     }
 
-    // Инициализация D3
-    const initD3 = () => {
-        if (!svgRef.value || !sceneRef.value) return
-
+    function initZoom() {
+        if (!svgRef.value || !viewportRef.value) return
         const svg = d3.select(svgRef.value)
-        const scene = d3.select(sceneRef.value)
+        const viewport = d3.select(viewportRef.value)
 
-        // Инициализация зума/панорамирования
         zoomBehavior = d3.zoom<SVGSVGElement, unknown>()
-            .scaleExtent([0.1, 10])          // лимиты масштаба
+            .scaleExtent([0.1, 10])
             .filter((event) => {
-                // Разрешаем колесо/drag ЛКМ, запрещаем зум при нажатых модификаторах
+                // колёсико, ЛКМ без модификаторов
                 if (event.type === 'wheel') return true
                 if (event.type === 'mousedown') return (event as MouseEvent).button === 0
                 return true
             })
             .on('zoom', (event) => {
                 currentTransform = event.transform
-                zoomLevel.value = event.transform.k
-
-                // Применяем трансформ ко всей сцене (включая сетку)
-                scene.attr('transform', currentTransform.toString())
+                zoomLevel.value = currentTransform.k
+                viewport.attr('transform', currentTransform.toString())
             })
 
-        svg.call(zoomBehavior)
+        svg.call(zoomBehavior as any)
     }
 
-    // Сброс вида
-    const resetView = () => {
-        if (!svgRef.value || !zoomBehavior) return
+    function initDrag() {
+        if (!svgRef.value) return
+        const svgNode = svgRef.value
 
+        dragBehavior = d3.drag<Element, unknown>()
+            .on('start', (event) => {
+                event.sourceEvent.stopPropagation() // чтобы при начале перетаскивания не стартовал pan
+            })
+            .on('drag', (event) => {
+                const targetNode = (event.sourceEvent.target as Element)?.closest('.node') as SVGGElement | null
+                if (!targetNode) return
+                const nodeId = parseInt(targetNode.getAttribute('data-node-id') || '0', 10)
+                const node = nodes.value.find(n => n.id === nodeId)
+                if (!node) return
+
+                // координаты указателя внутри SVG
+                const [px, py] = d3.pointer(event.sourceEvent, svgNode)
+                // переводим в координаты сцены через инверсию текущего зума
+                const [sx, sy] = currentTransform.invert([px, py])
+
+                node.x = sx
+                node.y = sy
+            })
+
+        // навесим drag на все ноды
+        bindDragToNodes()
+    }
+
+    function bindDragToNodes() {
+        if (!svgRef.value || !dragBehavior) return
         const svg = d3.select(svgRef.value)
-        svg.transition().duration(750).call(
-            zoomBehavior.transform,
-            d3.zoomIdentity
-        )
+        svg.selectAll<SVGGElement, unknown>('.node').call(dragBehavior as any)
     }
 
-    // Переключение сетки
-    const toggleGrid = () => {
+    function resetView() {
+        if (!svgRef.value || !zoomBehavior) return
+        d3.select(svgRef.value)
+            .transition().duration(300)
+            .call(zoomBehavior.transform as any, d3.zoomIdentity)
+    }
+
+    function toggleGrid() {
         showGrid.value = !showGrid.value
     }
 
-    // Жизненный цикл
+    function addNode() {
+        const newNode = {
+            id: Date.now(),
+            name: `Node ${nodes.value.length + 1}`,
+            x: 0,
+            y: 0
+        }
+        // ставим в центр текущего экрана (в координатах сцены)
+        const cx = view.w / 2
+        const cy = view.h / 2
+        const [sx, sy] = currentTransform.invert([cx, cy])
+        newNode.x = sx
+        newNode.y = sy
+        nodesStore.addNode(newNode)
+    }
+
     onMounted(() => {
         measure()
-        initD3()
+        initZoom()
+        initDrag()
 
-        // Ресайз наблюдатель
+        // re-bind drag при любом изменении набора нод (добавление/удаление)
+        watch(
+            () => nodes.value.map(n => n.id),
+            async () => {
+                await nextTick()
+                bindDragToNodes()
+            },
+            { deep: false }
+        )
+
         const ro = new ResizeObserver(() => measure())
-        if (canvasContainer.value) {
-            ro.observe(canvasContainer.value)
-        }
-
+        if (canvasContainer.value) ro.observe(canvasContainer.value)
         onUnmounted(() => ro.disconnect())
     })
 
     onUnmounted(() => {
-        // очистка обработчиков, если нужно
+        // при необходимости — отписки
     })
 </script>
 
@@ -214,24 +235,14 @@
         background: #f8fafc;
     }
 
-    /* SVG-холст */
     .d3-canvas {
         display: block;
         width: 100%;
         height: 100%;
     }
 
-    /* Стили для сетки */
-    .grid-overlay {
-        /* сетка внутри сцены для масштабирования */
-    }
-
-    /* Стили для демонстрационных элементов */
+    /* лёгкая тень под блоками */
     :deep(.nodes .node rect) {
         filter: drop-shadow(0 1px 1px rgba(30, 41, 59, 0.06));
-    }
-
-    :deep(.edges line) {
-        color: #5b7c99;
     }
 </style>
