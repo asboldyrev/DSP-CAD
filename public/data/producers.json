@@ -1,0 +1,28 @@
+{
+    "miners": [
+        "mining-machine",
+        "advanced-mining-machine",
+        "ray-receiver",
+        "ray-receiver-pro",
+        "oil-extractor",
+        "water-pump",
+        "orbital-collector"
+    ],
+    "processors": [
+        "assembling-machine-1",
+        "assembling-machine-2",
+        "assembling-machine-3",
+        "df-recomposing-assembler",
+        "energy-exchanger",
+        "arc-smelter",
+        "plane-smelter",
+        "df-negentropy-smelter",
+        "oil-refinery",
+        "chemical-plant",
+        "quantum-chemical-plant",
+        "fractionator",
+        "miniature-particle-collider",
+        "matrix-lab",
+        "df-self-evolution-lab"
+    ]
+}

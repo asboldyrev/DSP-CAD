@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import type { Item } from '@/types/Item'
 
 const buildingsData = ref<Item[]>([])
+const producersData = ref<{ miners: string[], processors: string[] } | null>(null)
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
@@ -21,6 +22,18 @@ export const useItemsStore = () => {
       console.error('Error loading buildings:', err)
     } finally {
       isLoading.value = false
+    }
+  }
+
+  const loadProducers = async () => {
+    if (producersData.value !== null) return // Уже загружены
+    
+    try {
+      const response = await fetch('/data/producers.json')
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+      producersData.value = await response.json()
+    } catch (err) {
+      console.error('Error loading producers:', err)
     }
   }
 
@@ -48,17 +61,49 @@ export const useItemsStore = () => {
 
   const getAllBuildings = computed(() => buildingsData.value)
 
+  const getProducerBuildings = () => {
+    return computed(() => {
+      if (!producersData.value) return []
+      
+      const producerIds = [...producersData.value.miners, ...producersData.value.processors]
+      return buildingsData.value.filter(building => producerIds.includes(building.id))
+    })
+  }
+
+  const getProducerBuildingsGroupedByRow = () => {
+    return computed(() => {
+      if (!producersData.value) return {}
+      
+      const producerIds = [...producersData.value.miners, ...producersData.value.processors]
+      const producerBuildings = buildingsData.value.filter(building => producerIds.includes(building.id))
+      
+      const grouped: { [key: number]: Item[] } = {}
+      producerBuildings.forEach(item => {
+        const row = item.row ?? 0
+        if (!grouped[row]) {
+          grouped[row] = []
+        }
+        grouped[row].push(item)
+      })
+      return grouped
+    })
+  }
+
   return {
     // Состояние
     buildingsData: computed(() => buildingsData.value),
+    producersData: computed(() => producersData.value),
     isLoading: computed(() => isLoading.value),
     error: computed(() => error.value),
     
     // Методы
     loadBuildings,
+    loadProducers,
     getItemById,
     getBuildingsByRow,
     getBuildingsGroupedByRow,
-    getAllBuildings
+    getAllBuildings,
+    getProducerBuildings,
+    getProducerBuildingsGroupedByRow
   }
 }

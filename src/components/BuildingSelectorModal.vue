@@ -50,11 +50,11 @@
     const emit = defineEmits<Emits>()
 
     const itemsStore = useItemsStore()
-    const { loadBuildings, getBuildingsGroupedByRow, isLoading, error } = itemsStore
+    const { loadBuildings, loadProducers, getProducerBuildingsGroupedByRow, isLoading, error } = itemsStore
 
-    // Получаем строения, сгруппированные по строкам
+    // Получаем строения-производители, сгруппированные по строкам
     const buildingsGrouped = computed(() => {
-        const grouped = getBuildingsGroupedByRow()
+        const grouped = getProducerBuildingsGroupedByRow()
         return grouped.value || {}
     })
 
@@ -65,8 +65,8 @@
             .sort((a, b) => a - b)
     })
 
-    onMounted(() => {
-        loadBuildings()
+    onMounted(async () => {
+        await Promise.all([loadBuildings(), loadProducers()])
     })
 
     function closeModal() {
