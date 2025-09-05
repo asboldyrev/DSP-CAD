@@ -1,0 +1,5523 @@
+[
+    {
+        "category": "buildings",
+        "id": "tesla-tower",
+        "name": "Tesla Tower",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "buildings",
+        "id": "wireless-power-tower",
+        "name": "Wireless Power Tower",
+        "row": 0,
+        "stack": 100,
+        "machine": {
+            "drain": 90,
+            "type": "electric",
+            "usage": 4800
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "satellite-substation",
+        "name": "Satellite Substation",
+        "row": 0,
+        "stack": 30,
+        "machine": {
+            "drain": 720,
+            "type": "electric",
+            "usage": 0
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "wind-turbine",
+        "name": "Wind Turbine",
+        "row": 0,
+        "stack": 50,
+        "machine": {
+            "speed": 1,
+            "type": "electric",
+            "usage": -300
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "thermal-power-plant",
+        "name": "Thermal Power Plant",
+        "row": 0,
+        "stack": 50,
+        "machine": {
+            "fuelCategories": [
+                "chemical"
+            ],
+            "speed": 1,
+            "type": "burner"
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "solar-panel",
+        "name": "Solar Panel",
+        "row": 0,
+        "stack": 50,
+        "machine": {
+            "speed": 1,
+            "type": "electric",
+            "usage": -360
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "geothermal-power-station",
+        "name": "Geothermal Power Station",
+        "row": 0,
+        "stack": 50,
+        "machine": {
+            "speed": 1,
+            "type": "electric",
+            "usage": -4800
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "mini-fusion-power-plant",
+        "name": "Mini Fusion Power Plant",
+        "row": 0,
+        "stack": 50,
+        "machine": {
+            "fuelCategories": [
+                "nuclear"
+            ],
+            "speed": 1,
+            "type": "burner"
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "energy-exchanger",
+        "name": "Energy Exchanger",
+        "row": 0,
+        "stack": 20,
+        "machine": {
+            "speed": 1,
+            "type": "electric",
+            "usage": 54000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "accumulator",
+        "name": "Accumulator",
+        "row": 0,
+        "stack": 50
+    },
+    {
+        "category": "buildings",
+        "id": "accumulator-full",
+        "name": "Accumulator (full)",
+        "row": 0,
+        "stack": 50,
+        "fuel": {
+            "category": "accumulator",
+            "value": 540
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "ray-receiver",
+        "name": "Ray Receiver",
+        "row": 0,
+        "stack": 20,
+        "machine": {
+            "speed": 1,
+            "type": "electric",
+            "usage": 120000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "artificial-star",
+        "name": "Artificial Star",
+        "row": 0,
+        "stack": 20,
+        "machine": {
+            "fuelCategories": [
+                "antimatter"
+            ],
+            "speed": 1,
+            "type": "burner"
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "conveyor-belt-1",
+        "name": "Conveyor Belt MK.I",
+        "row": 1,
+        "stack": 300,
+        "belt": {
+            "speed": 6
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "conveyor-belt-2",
+        "name": "Conveyor Belt MK.II",
+        "row": 1,
+        "stack": 300,
+        "belt": {
+            "speed": 12
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "conveyor-belt-3",
+        "name": "Conveyor Belt MK.III",
+        "row": 1,
+        "stack": 300,
+        "belt": {
+            "speed": 30
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "splitter",
+        "name": "Splitter",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "buildings",
+        "id": "automatic-piler",
+        "name": "Automatic Piler",
+        "row": 1,
+        "stack": 50,
+        "machine": {
+            "drain": 9,
+            "speed": 1,
+            "type": "electric",
+            "usage": 144
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "traffic-monitor",
+        "name": "Traffic Monitor",
+        "row": 1,
+        "stack": 100,
+        "machine": {
+            "drain": 9,
+            "type": "electric",
+            "usage": 36
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "spray-coater",
+        "name": "Spray Coater",
+        "row": 1,
+        "stack": 50,
+        "machine": {
+            "drain": 4.5,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 90
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "storage-1",
+        "name": "Depot MK.I",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "buildings",
+        "id": "storage-2",
+        "name": "Depot MK.II",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "buildings",
+        "id": "storage-tank",
+        "name": "Storage Tank",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "buildings",
+        "id": "logistics-distributor",
+        "name": "Logistics Distributor",
+        "row": 1,
+        "stack": 50,
+        "machine": {
+            "drain": 18,
+            "speed": 1,
+            "type": "electric",
+            "usage": 9000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "planetary-logistics-station",
+        "name": "Planetary Logistics Station",
+        "row": 1,
+        "stack": 10,
+        "machine": {
+            "drain": 60,
+            "speed": 1,
+            "type": "electric",
+            "usage": 60000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "interstellar-logistics-station",
+        "name": "Interstellar Logistics Station",
+        "row": 1,
+        "stack": 10,
+        "machine": {
+            "drain": 60,
+            "speed": 1,
+            "type": "electric",
+            "usage": 300000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "orbital-collector",
+        "name": "Orbital Collector",
+        "row": 1,
+        "stack": 10,
+        "machine": {
+            "speed": 1
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "sorter-1",
+        "name": "Sorter MK.I",
+        "row": 2,
+        "stack": 200,
+        "machine": {
+            "drain": 9,
+            "speed": 1,
+            "type": "electric",
+            "usage": 18
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "sorter-2",
+        "name": "Sorter MK.II",
+        "row": 2,
+        "stack": 200,
+        "machine": {
+            "drain": 9,
+            "speed": 1,
+            "type": "electric",
+            "usage": 36
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "sorter-3",
+        "name": "Sorter MK.III",
+        "row": 2,
+        "stack": 200,
+        "machine": {
+            "drain": 9,
+            "speed": 1,
+            "type": "electric",
+            "usage": 72
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "sorter-4",
+        "name": "Pile Sorter",
+        "row": 2,
+        "stack": 200,
+        "machine": {
+            "drain": 9,
+            "speed": 1,
+            "type": "electric",
+            "usage": 144
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "mining-machine",
+        "name": "Mining Machine",
+        "row": 2,
+        "stack": 50,
+        "machine": {
+            "speed": 1,
+            "totalRecipe": true
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "advanced-mining-machine",
+        "name": "Advanced Mining Machine",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 168,
+            "speed": 2,
+            "type": "electric",
+            "usage": 2940,
+            "totalRecipe": true
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "water-pump",
+        "name": "Water Pump",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 12,
+            "speed": 1,
+            "type": "electric",
+            "usage": 300
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "oil-extractor",
+        "name": "Oil Extractor",
+        "row": 2,
+        "stack": 20,
+        "machine": {
+            "drain": 24,
+            "speed": 1,
+            "type": "electric",
+            "usage": 840
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "oil-refinery",
+        "name": "Oil Refinery",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 24,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 960
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "fractionator",
+        "name": "Fractionator",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 18,
+            "modules": 1,
+            "type": "electric",
+            "usage": 720
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "chemical-plant",
+        "name": "Chemical Plant",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 24,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 720
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "quantum-chemical-plant",
+        "name": "Quantum Chemical Plant",
+        "row": 2,
+        "stack": 30,
+        "machine": {
+            "drain": 36,
+            "modules": 1,
+            "speed": 2,
+            "type": "electric",
+            "usage": 2160
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "miniature-particle-collider",
+        "name": "Miniature Particle Collider",
+        "row": 2,
+        "stack": 20,
+        "machine": {
+            "drain": 120,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 12000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "arc-smelter",
+        "name": "Arc Smelter",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 12,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 360
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "plane-smelter",
+        "name": "Plane Smelter",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 48,
+            "modules": 1,
+            "speed": 2,
+            "type": "electric",
+            "usage": 1440
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-negentropy-smelter",
+        "name": "Negentropy Smelter",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 96,
+            "modules": 1,
+            "speed": 3,
+            "type": "electric",
+            "usage": 2880
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "assembling-machine-1",
+        "name": "Assembling Machine Mk.I",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 12,
+            "modules": 1,
+            "speed": 0.75,
+            "type": "electric",
+            "usage": 270
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "assembling-machine-2",
+        "name": "Assembling Machine Mk.II",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 18,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 540
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "assembling-machine-3",
+        "name": "Assembling Machine Mk.III",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 24,
+            "modules": 1,
+            "speed": 1.5,
+            "type": "electric",
+            "usage": 1080
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-recomposing-assembler",
+        "name": "Re-composing Assembler",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 54,
+            "modules": 1,
+            "speed": 3,
+            "type": "electric",
+            "usage": 2700
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "matrix-lab",
+        "name": "Matrix Lab",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 12,
+            "modules": 1,
+            "speed": 1,
+            "type": "electric",
+            "usage": 480
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-self-evolution-lab",
+        "name": "Self-evolution Lab",
+        "row": 3,
+        "stack": 50,
+        "machine": {
+            "drain": 48,
+            "modules": 1,
+            "speed": 3,
+            "type": "electric",
+            "usage": 1920
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "em-rail-ejector",
+        "name": "EM-Rail Ejector",
+        "row": 3,
+        "stack": 30,
+        "machine": {
+            "drain": 60,
+            "speed": 1,
+            "type": "electric",
+            "usage": 1800
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "vertical-launching-silo",
+        "name": "Vertical Launching Silo",
+        "row": 3,
+        "stack": 10,
+        "machine": {
+            "drain": 60,
+            "speed": 1,
+            "type": "electric",
+            "usage": 18000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-gauss-turret",
+        "name": "Gauss Turret",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 9,
+            "type": "electric",
+            "usage": 210
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-missile-turret",
+        "name": "Missile Turret",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 18,
+            "type": "electric",
+            "usage": 600
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-implosion-cannon",
+        "name": "Implosion Cannon",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 30,
+            "type": "electric",
+            "usage": 750
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-laser-turret",
+        "name": "Laser Turret",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 120,
+            "type": "electric",
+            "usage": 3000
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-plasma-turret",
+        "name": "Plasma Turret",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 84,
+            "type": "electric",
+            "usage": 1680
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-plasma-turret-sr",
+        "name": "SR Plasma Turret",
+        "row": 4,
+        "stack": 20,
+        "machine": {
+            "drain": 2100,
+            "type": "electric",
+            "usage": 4200
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-battlefield-analysis-base",
+        "name": "Battlefield Analysis Base",
+        "row": 4,
+        "stack": 20,
+        "machine": {
+            "drain": 60,
+            "type": "electric",
+            "usage": 2400
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-jammer-tower",
+        "name": "Jammer Tower",
+        "row": 4,
+        "stack": 50,
+        "machine": {
+            "drain": 90,
+            "type": "electric",
+            "usage": 1200
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-signal-tower",
+        "name": "Signal Tower",
+        "row": 4,
+        "stack": 20,
+        "machine": {
+            "drain": 1350,
+            "type": "electric",
+            "usage": 9600
+        }
+    },
+    {
+        "category": "buildings",
+        "id": "df-planetary-shield-generator",
+        "name": "Planetary Shield Generator",
+        "row": 4,
+        "stack": 20,
+        "machine": {
+            "drain": 12000,
+            "type": "electric",
+            "usage": 24000
+        }
+    },
+    {
+        "category": "buildings-alt",
+        "id": "ray-receiver-pro",
+        "name": "Ray Receiver (Graviton lens)",
+        "row": 0,
+        "stack": 20,
+        "machine": {
+            "fuelCategories": [
+                "lens"
+            ],
+            "modules": 1,
+            "speed": 1,
+            "type": "burner"
+        },
+        "icon": "ray-receiver"
+    },
+    {
+        "category": "components",
+        "id": "iron-ore",
+        "name": "Iron Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "copper-ore",
+        "name": "Copper Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "stone",
+        "name": "Stone",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "coal",
+        "name": "Coal",
+        "row": 0,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 2.7
+        }
+    },
+    {
+        "category": "components",
+        "id": "silicon-ore",
+        "name": "Silicon Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-ore",
+        "name": "Titanium Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "water",
+        "name": "Water",
+        "row": 0,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "crude-oil",
+        "name": "Crude Oil",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.05
+        }
+    },
+    {
+        "category": "components",
+        "id": "hydrogen",
+        "name": "Hydrogen",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 9
+        }
+    },
+    {
+        "category": "components",
+        "id": "deuterium",
+        "name": "Deuterium",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 9
+        }
+    },
+    {
+        "category": "components",
+        "id": "antimatter",
+        "name": "Antimatter",
+        "row": 0,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-core-element",
+        "name": "Core Element",
+        "row": 0,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "critical-photon",
+        "name": "Critical Photon",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "kimberlite-ore",
+        "name": "Kimberlite Ore",
+        "row": 0,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "iron-ingot",
+        "name": "Iron Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "copper-ingot",
+        "name": "Copper Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "stone-brick",
+        "name": "Stone Brick",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "energetic-graphite",
+        "name": "Energetic Graphite",
+        "row": 1,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 6.75
+        }
+    },
+    {
+        "category": "components",
+        "id": "high-purity-silicon",
+        "name": "High-purity Silicon",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-ingot",
+        "name": "Titanium Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "sulfuric-acid",
+        "name": "Sulfuric Acid",
+        "row": 1,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "refined-oil",
+        "name": "Refined Oil",
+        "row": 1,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.5
+        }
+    },
+    {
+        "category": "components",
+        "id": "hydrogen-fuel-rod",
+        "name": "Hydrogen Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "chemical",
+            "value": 54
+        }
+    },
+    {
+        "category": "components",
+        "id": "deuteron-fuel-rod",
+        "name": "Deuteron Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "nuclear",
+            "value": 600
+        }
+    },
+    {
+        "category": "components",
+        "id": "antimatter-fuel-rod",
+        "name": "Antimatter Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "antimatter",
+            "value": 7200
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-strange-annihilation-fuel-rod",
+        "name": "Strange Annihilation Fuel Rod",
+        "row": 1,
+        "stack": 50,
+        "fuel": {
+            "category": "antimatter",
+            "value": 72000
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-missile-set",
+        "name": "Missile Set",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "fractal-silicon",
+        "name": "Fractal Silicon",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "magnet",
+        "name": "Magnet",
+        "row": 2,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "magnetic-coil",
+        "name": "Magnetic Coil",
+        "row": 2,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "glass",
+        "name": "Glass",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "diamond",
+        "name": "Diamond",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.9
+        }
+    },
+    {
+        "category": "components",
+        "id": "crystal-silicon",
+        "name": "Crystal Silicon",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-alloy",
+        "name": "Titanium Alloy",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-combustible-unit",
+        "name": "Combustible Unit",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 9.72
+        }
+    },
+    {
+        "category": "components",
+        "id": "plastic",
+        "name": "Plastic",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "organic-crystal",
+        "name": "Organic Crystal",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 1.8
+        }
+    },
+    {
+        "category": "components",
+        "id": "graphene",
+        "name": "Graphene",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.096
+        }
+    },
+    {
+        "category": "components",
+        "id": "annihilation-constraint-sphere",
+        "name": "Annihilation Constraint Sphere",
+        "row": 2,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-magnum-ammo-box",
+        "name": "Magnum Ammo Box",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-supersonic-missile-set",
+        "name": "Supersonic Missile Set",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "optical-grating-crystal",
+        "name": "Grating Crystal",
+        "row": 2,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "steel",
+        "name": "Steel",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "circuit-board",
+        "name": "Circuit Board",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "prism",
+        "name": "Prism",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "electric-motor",
+        "name": "Electric Motor",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "microcrystalline-component",
+        "name": "Microcrystalline Component",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "proliferator-1",
+        "name": "Proliferator Mk.I",
+        "row": 3,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 3.24
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-explosive-unit",
+        "name": "Explosive Unit",
+        "row": 3,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 21.6
+        }
+    },
+    {
+        "category": "components",
+        "id": "strange-matter",
+        "name": "Strange Matter",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-crystal",
+        "name": "Titanium Crystal",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "carbon-nanotube",
+        "name": "Carbon Nanotube",
+        "row": 3,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.084
+        }
+    },
+    {
+        "category": "components",
+        "id": "particle-broadband",
+        "name": "Particle Broadband",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-titanium-ammo-box",
+        "name": "Titanium Ammo Box",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-gravity-missile-set",
+        "name": "Gravity Missile Set",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "spiniform-stalagmite-crystal",
+        "name": "Stalagmite Crystal",
+        "row": 3,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "gear",
+        "name": "Gear",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "plasma-exciter",
+        "name": "Plasma Exciter",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "photon-combiner",
+        "name": "Photon Combiner",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "electromagnetic-turbine",
+        "name": "Electromagnetic Turbine",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "processor",
+        "name": "Processor",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "proliferator-2",
+        "name": "Proliferator Mk.II",
+        "row": 4,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 8.856
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-crystal-explosive-unit",
+        "name": "Crystal Explosive Unit",
+        "row": 4,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 54
+        }
+    },
+    {
+        "category": "components",
+        "id": "casimir-crystal",
+        "name": "Casimir Crystal",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-glass",
+        "name": "Titanium Glass",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "plane-filter",
+        "name": "Plane Filter",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "quantum-chip",
+        "name": "Quantum Chip",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-superalloy-ammo-box",
+        "name": "Superalloy Ammo Box",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-shell-set",
+        "name": "Shell Set",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "unipolar-magnet",
+        "name": "Unipolar Magnet",
+        "row": 4,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-engine",
+        "name": "Engine",
+        "row": 5,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "thruster",
+        "name": "Thruster",
+        "row": 5,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "reinforced-thruster",
+        "name": "Reinforced Thruster",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "super-magnetic-ring",
+        "name": "Super-magnetic Ring",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "particle-container",
+        "name": "Particle Container",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "proliferator-3",
+        "name": "Proliferator Mk.III",
+        "row": 5,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 21.255
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-prototype",
+        "name": "Prototype",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-precision-drone",
+        "name": "Precision Drone",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-attack-drone",
+        "name": "Attack Drone",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-corvette",
+        "name": "Corvette",
+        "row": 5,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-destroyer",
+        "name": "Destroyer",
+        "row": 5,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-plasma-capsule",
+        "name": "Plasma Capsule",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-high-explosive-shell-set",
+        "name": "High-Explosive Shell Set",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "fire-ice",
+        "name": "Fire Ice",
+        "row": 5,
+        "stack": 50,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.8
+        }
+    },
+    {
+        "category": "components",
+        "id": "logistics-bot",
+        "name": "Logistics Bot",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "logistics-drone",
+        "name": "Logistics Drone",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "logistics-vessel",
+        "name": "Interstellar Logistics Vessel",
+        "row": 6,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "space-warper",
+        "name": "Space Warper",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "graviton-lens",
+        "name": "Graviton Lens",
+        "row": 6,
+        "stack": 100,
+        "fuel": {
+            "category": "lens",
+            "value": 1
+        }
+    },
+    {
+        "category": "components",
+        "id": "foundation",
+        "name": "Foundation",
+        "row": 6,
+        "stack": 1000
+    },
+    {
+        "category": "components",
+        "id": "solar-sail",
+        "name": "Solar Sail",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "frame-material",
+        "name": "Frame Material",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "dyson-sphere-component",
+        "name": "Dyson Sphere Component",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "small-carrier-rocket",
+        "name": "Small Carrier Rocket",
+        "row": 6,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-antimatter-capsule",
+        "name": "Antimatter Capsule",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-crystal-shell-set",
+        "name": "Crystal Shell Set",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "log",
+        "name": "Log",
+        "row": 6,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 1.5
+        }
+    },
+    {
+        "category": "components",
+        "id": "electromagnetic-matrix",
+        "name": "Electromagnetic Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "energy-matrix",
+        "name": "Energy Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "structure-matrix",
+        "name": "Structure Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "information-matrix",
+        "name": "Information Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "gravity-matrix",
+        "name": "Gravity Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "universe-matrix",
+        "name": "Universe Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-dark-fog-matrix",
+        "name": "Dark Fog Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-energy-shard",
+        "name": "Energy Shard",
+        "row": 7,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 3.6
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-silicon-based-neuron",
+        "name": "Silicon-based Neuron",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-negentropy-singularity",
+        "name": "Negentropy Singularity",
+        "row": 7,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-matter-recombinator",
+        "name": "Matter Recombinator",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-jamming-capsule",
+        "name": "Jamming Capsule",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-suppressing-capsule",
+        "name": "Suppressing Capsule",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "plant-fuel",
+        "name": "Plant Fuel",
+        "row": 7,
+        "stack": 500,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.5
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-1-products",
+        "name": "Proliferator Mk.I (Products)",
+        "module": {
+            "consumption": 0.3,
+            "limitation": "productivity",
+            "productivity": 0.125,
+            "proliferator": "proliferator-1",
+            "sprays": 12
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-2-products",
+        "name": "Proliferator Mk.II (Products)",
+        "module": {
+            "consumption": 0.7,
+            "limitation": "productivity",
+            "productivity": 0.2,
+            "proliferator": "proliferator-2",
+            "sprays": 24
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-3-products",
+        "name": "Proliferator Mk.III (Products)",
+        "module": {
+            "consumption": 1.5,
+            "limitation": "productivity",
+            "productivity": 0.25,
+            "proliferator": "proliferator-3",
+            "sprays": 60
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-1-speed",
+        "name": "Proliferator Mk.I (Speedup)",
+        "module": {
+            "consumption": 0.3,
+            "proliferator": "proliferator-1",
+            "speed": 0.25,
+            "sprays": 12
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-2-speed",
+        "name": "Proliferator Mk.II (Speedup)",
+        "module": {
+            "consumption": 0.7,
+            "proliferator": "proliferator-2",
+            "speed": 0.5,
+            "sprays": 24
+        }
+    },
+    {
+        "category": "effects",
+        "id": "proliferator-3-speed",
+        "name": "Proliferator Mk.III (Speedup)",
+        "module": {
+            "consumption": 1.5,
+            "proliferator": "proliferator-3",
+            "speed": 1,
+            "sprays": 60
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "applied-superconductor",
+        "name": "Applied Superconductor",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "graphene",
+                "graphene-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "artificial-star-technology",
+        "name": "Artificial Star",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction"
+            ],
+            "unlockedRecipes": [
+                "artificial-star"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "automatic-metallurgy",
+        "name": "Automatic Metallurgy",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "arc-smelter",
+                "glass"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-assembling-processes",
+        "name": "Basic Assembling",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-chemical-engineering",
+        "name": "Basic Chemical Engineering",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "fluid-storage-encapsulation",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "chemical-plant",
+                "plastic",
+                "sulfuric-acid"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-logistics-system",
+        "name": "Basic Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-1",
+                "storage-1",
+                "sorter-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "casimir-crystal-technology",
+        "name": "Casimir Crystal",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "structure-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "casimir-crystal",
+                "casimir-crystal-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "controlled-annihilation-reaction",
+        "name": "Controlled Annihilation Reaction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "dirac-inversion-mechanism"
+            ],
+            "unlockedRecipes": [
+                "annihilation-constraint-sphere",
+                "antimatter-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "crystal-smelting",
+        "name": "Crystal Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "smelting-purification"
+            ],
+            "unlockedRecipes": [
+                "crystal-silicon",
+                "diamond",
+                "diamond-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "deuterium-fractionation-technology",
+        "name": "Deuterium Fractionation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "thermal-power",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "fractionator",
+                "deuterium-fractionation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-antimatter-capsule-tech",
+        "name": "Antimatter Capsule",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction",
+                "df-plasma-turret-tech"
+            ],
+            "unlockedRecipes": [
+                "df-antimatter-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-attack-drone-tech",
+        "name": "Attack Drone",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "df-attack-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-battlefield-analysis-base-tech",
+        "name": "Battlefield Analysis Base",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system",
+                "df-engine-tech"
+            ],
+            "unlockedRecipes": [
+                "df-battlefield-analysis-base"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-combustible-unit-tech",
+        "name": "Combustible Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "df-combustible-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-corvette-tech",
+        "name": "Corvette",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system",
+                "df-precision-drone-tech"
+            ],
+            "unlockedRecipes": [
+                "df-corvette"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-crystal-explosive-unit-tech",
+        "name": "Crystal Explosive Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "casimir-crystal-technology"
+            ],
+            "unlockedRecipes": [
+                "df-crystal-explosive-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-crystal-shell-set-tech",
+        "name": "Crystal Shell Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-supersonic-missile-set-tech",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "df-crystal-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-destroyer-tech",
+        "name": "Destroyer",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-corvette-tech",
+                "df-attack-drone-tech"
+            ],
+            "unlockedRecipes": [
+                "df-destroyer"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-digital-analog-computation",
+        "name": "Digital Analog Computation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "df-self-evolution-lab"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-engine-tech",
+        "name": "Engine",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "df-engine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-explosive-unit-tech",
+        "name": "Explosive Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-crystal"
+            ],
+            "unlockedRecipes": [
+                "df-explosive-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-gravity-missile-set-tech",
+        "name": "Gravity Missile Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-crystal-shell-set-tech",
+                "strange-matter-technology"
+            ],
+            "unlockedRecipes": [
+                "df-gravity-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-high-density-controlled-annihilation",
+        "name": "High-Density Controlled Annihilation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction"
+            ],
+            "unlockedRecipes": [
+                "df-strange-annihilation-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-high-explosive-shell-set-tech",
+        "name": "High-Explosive Shell Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-implosion-cannon-tech",
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "df-high-explosive-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-implosion-cannon-tech",
+        "name": "Implosion Cannon",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "df-implosion-cannon",
+                "df-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-jammer-tower-tech",
+        "name": "Jammer Tower",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "processor-technology"
+            ],
+            "unlockedRecipes": [
+                "df-jammer-tower",
+                "df-jamming-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-matter-recombination",
+        "name": "Matter Recombination",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-printing-technology"
+            ],
+            "unlockedRecipes": [
+                "df-recomposing-assembler"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-missile-turret-tech",
+        "name": "Missile Turret",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-engine-tech",
+                "df-weapon-system",
+                "df-combustible-unit-tech"
+            ],
+            "unlockedRecipes": [
+                "df-missile-turret",
+                "df-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-negentropy-recursion",
+        "name": "Negentropy Recursion",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "plane-filter-smelting-technology"
+            ],
+            "unlockedRecipes": [
+                "df-negentropy-smelter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-planetary-defense-system",
+        "name": "Planetary Defense System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-implosion-cannon-tech",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "df-laser-turret",
+                "df-planetary-shield-generator"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-plasma-turret-tech",
+        "name": "Plasma Turret",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system",
+                "high-strength-glass"
+            ],
+            "unlockedRecipes": [
+                "df-plasma-turret",
+                "df-plasma-turret-sr",
+                "df-plasma-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-precision-drone-tech",
+        "name": "Precision Drone",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech",
+                "photon-frequency-conversion"
+            ],
+            "unlockedRecipes": [
+                "df-precision-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-prototype-tech",
+        "name": "Prototype",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-battlefield-analysis-base-tech",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "df-prototype"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-signal-tower-tech",
+        "name": "Signal Tower",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "df-signal-tower"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-superalloy-ammo-box-tech",
+        "name": "Superalloy Ammo Box",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-titanium-ammo-box-tech",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "df-superalloy-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-supersonic-missile-set-tech",
+        "name": "Supersonic Missile Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-high-explosive-shell-set-tech",
+                "thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "df-supersonic-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-suppressing-capsule-tech",
+        "name": "Suppressing Capsule",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-jammer-tower-tech"
+            ],
+            "unlockedRecipes": [
+                "df-suppressing-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-titanium-ammo-box-tech",
+        "name": "Titanium Ammo Box",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system",
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "df-titanium-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-weapon-system",
+        "name": "Weapon System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism",
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "df-gauss-turret",
+                "df-magnum-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "dirac-inversion-mechanism",
+        "name": "Dirac Inversion Mechanism",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-ionosphere-utilization"
+            ],
+            "unlockedRecipes": [
+                "critical-photon",
+                "critical-photon-graviton",
+                "mass-energy-storage"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "distribution-logistics-system",
+        "name": "Distribution Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "improved-logistics-system",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "logistics-distributor",
+                "logistics-bot"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "dyson-sphere-stress-system-1",
+        "name": "Dyson Sphere Stress System (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-launching-silo-technology"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetic-drive",
+        "name": "Electromagnetic Drive",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "electric-motor"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetic-matrix-technology",
+        "name": "Electromagnetic Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "matrix-lab",
+                "electromagnetic-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetism",
+        "name": "Electromagnetism",
+        "row": 0,
+        "technology": {
+            "unlockedRecipes": [
+                "tesla-tower",
+                "wind-turbine",
+                "mining-machine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "energy-matrix-technology",
+        "name": "Energy Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "energy-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "energy-storage",
+        "name": "Energy Storage",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "crystal-smelting",
+                "solar-collection",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "accumulator"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "environment-modification",
+        "name": "Reclamation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "steel-smelting"
+            ],
+            "unlockedRecipes": [
+                "foundation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "fluid-storage-encapsulation",
+        "name": "Fluid Storage Encapsulation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "storage-tank",
+                "water-pump"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gas-giants-exploitation",
+        "name": "Gas Giants Exploitation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "interstellar-logistics-system",
+                "interstellar-power-transmission"
+            ],
+            "unlockedRecipes": [
+                "orbital-collector",
+                "gas-giant",
+                "gas-giant-deuterium",
+                "gas-giant-hydrogen",
+                "ice-giant",
+                "ice-giant-gas-hydrate",
+                "ice-giant-hydrogen"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "geothermal-extraction",
+        "name": "Geothermal Extraction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "photon-frequency-conversion",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "geothermal-power-station"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gravitational-wave-refraction",
+        "name": "Gravitational Wave Refraction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "strange-matter-technology",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "graviton-lens",
+                "space-warper"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gravity-matrix-technology",
+        "name": "Gravity Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology",
+                "gravitational-wave-refraction"
+            ],
+            "unlockedRecipes": [
+                "space-warper-advanced",
+                "gravity-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-efficiency-logistics-system",
+        "name": "High-Efficiency Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "improved-logistics-system",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-2",
+                "storage-2",
+                "sorter-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-efficiency-plasma-control",
+        "name": "High-Efficiency Plasma Control",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "wireless-power-tower",
+                "prism",
+                "plasma-exciter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-speed-assembling-processes",
+        "name": "High-Speed Assembling",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes",
+                "processor-technology"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-crystal",
+        "name": "High-Strength Crystal",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "polymer-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "titanium-crystal"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-glass",
+        "name": "High-Strength Glass",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "titanium-glass"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-lightweight-structure",
+        "name": "High-Strength Lightweight Structure",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system",
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "frame-material",
+                "dyson-sphere-component"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-material",
+        "name": "High-Strength Material",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "applied-superconductor"
+            ],
+            "unlockedRecipes": [
+                "carbon-nanotube",
+                "carbon-nanotube-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-titanium-alloy",
+        "name": "High-Strength Titanium Alloy",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "titanium-alloy"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "hydrogen-fuel-rod-technology",
+        "name": "Hydrogen Fuel Rod",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "hydrogen-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "improved-logistics-system",
+        "name": "Upgraded Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-logistics-system"
+            ],
+            "unlockedRecipes": [
+                "splitter",
+                "traffic-monitor",
+                "sorter-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "information-matrix-technology",
+        "name": "Information Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "processor-technology",
+                "particle-control-technology"
+            ],
+            "unlockedRecipes": [
+                "information-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "integrated-logistics-system",
+        "name": "Integrated Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-efficiency-logistics-system",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "automatic-piler",
+                "sorter-4"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "interstellar-logistics-system",
+        "name": "Interstellar Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system",
+                "high-strength-titanium-alloy",
+                "reinforced-thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "interstellar-logistics-station",
+                "logistics-vessel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "interstellar-power-transmission",
+        "name": "Interstellar Power Transmission",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-titanium-alloy",
+                "energy-storage"
+            ],
+            "unlockedRecipes": [
+                "energy-exchanger",
+                "accumulator-discharge",
+                "accumulator-full"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "magnetic-levitation-technology",
+        "name": "Magnetic Levitation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetic-drive"
+            ],
+            "unlockedRecipes": [
+                "electromagnetic-turbine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "magnetic-particle-trap",
+        "name": "Magnetic Particle Trap",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "particle-container",
+                "particle-container-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mesoscopic-quantum-entanglement",
+        "name": "Mesoscopic Quantum Entanglement",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology",
+                "strange-matter-technology"
+            ],
+            "unlockedRecipes": [
+                "quantum-chemical-plant"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mini-fusion-power-generation",
+        "name": "Mini Fusion Power Generation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "deuterium-fractionation-technology",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "mini-fusion-power-plant",
+                "deuteron-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "miniature-particle-collider-technology",
+        "name": "Miniature Particle Collider",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "structure-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "miniature-particle-collider",
+                "deuterium"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mission-completed",
+        "name": "Mission Completed!",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-matrix-technology"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "particle-control-technology",
+        "name": "Particle Control",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "crystal-silicon-advanced",
+                "particle-broadband"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "photon-frequency-conversion",
+        "name": "Photon Frequency Conversion",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-collection"
+            ],
+            "unlockedRecipes": [
+                "photon-combiner",
+                "photon-combiner-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "photon-spotlight-mining-technology",
+        "name": "Photon Spotlight Mining",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "advanced-mining-machine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "plane-filter-smelting-technology",
+        "name": "Plane-Filter Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "wave-function-interference",
+                "crystal-smelting"
+            ],
+            "unlockedRecipes": [
+                "plane-smelter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "planetary-ionosphere-utilization",
+        "name": "Planetary Ionosphere Utilization",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-receiver-technology",
+                "gravitational-wave-refraction"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "planetary-logistics-system",
+        "name": "Planetary Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-efficiency-logistics-system",
+                "thruster-technology",
+                "vertical-construction-1"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-3",
+                "planetary-logistics-station",
+                "logistics-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "plasma-extract-refining",
+        "name": "Plasma Extract Refining",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "fluid-storage-encapsulation",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "oil-extractor",
+                "oil-refinery",
+                "plasma-refining"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "polymer-chemical-engineering",
+        "name": "Polymer chemical engineering",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "organic-crystal",
+                "organic-crystal-original"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "processor-technology",
+        "name": "Processor",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "semiconductor-material"
+            ],
+            "unlockedRecipes": [
+                "processor"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-1-technology",
+        "name": "Proliferator Mk.I",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "semiconductor-material",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "spray-coater",
+                "proliferator-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-2-technology",
+        "name": "Proliferator Mk.II",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "processor-technology",
+                "proliferator-1-technology"
+            ],
+            "unlockedRecipes": [
+                "proliferator-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-3-technology",
+        "name": "Proliferator Mk.III",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "proliferator-2-technology",
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "proliferator-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "quantum-chip-technology",
+        "name": "Quantum Chip",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology",
+                "wave-function-interference"
+            ],
+            "unlockedRecipes": [
+                "quantum-chip"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "quantum-printing-technology",
+        "name": "Quantum Printing",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-speed-assembling-processes",
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "ray-receiver-technology",
+        "name": "Ray Receiver",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system"
+            ],
+            "unlockedRecipes": [
+                "ray-receiver"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "reforming-refine-technology",
+        "name": "Reformed Refinement",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "x-ray-cracking-technology"
+            ],
+            "unlockedRecipes": [
+                "reforming-refine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "reinforced-thruster-technology",
+        "name": "Reinforced Thruster",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "reinforced-thruster"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "satellite-power-distribution-system",
+        "name": "Satellite Power Distribution System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "super-magnetic-field-generator",
+                "high-strength-lightweight-structure"
+            ],
+            "unlockedRecipes": [
+                "satellite-substation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "semiconductor-material",
+        "name": "Semiconductor Material",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "microcrystalline-component"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "smelting-purification",
+        "name": "Smelting Purification",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "high-purity-silicon",
+                "energetic-graphite",
+                "silicon-ore"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "solar-collection",
+        "name": "Solar Collection",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "smelting-purification",
+                "electromagnetic-matrix-technology",
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "solar-panel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "solar-sail-orbit-system",
+        "name": "Solar Sail Orbit System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "photon-frequency-conversion",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "em-rail-ejector",
+                "solar-sail"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "steel-smelting",
+        "name": "Steel Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "steel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "strange-matter-technology",
+        "name": "Strange Matter",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "miniature-particle-collider-technology"
+            ],
+            "unlockedRecipes": [
+                "strange-matter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "structure-matrix-technology",
+        "name": "Structure Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-crystal"
+            ],
+            "unlockedRecipes": [
+                "structure-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "super-magnetic-field-generator",
+        "name": "Super Magnetic Field Generator",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "super-magnetic-ring"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "thermal-power",
+        "name": "Thermal Power",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "thermal-power-plant"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "thruster-technology",
+        "name": "Thruster",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "hydrogen-fuel-rod-technology"
+            ],
+            "unlockedRecipes": [
+                "thruster"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "titanium-smelting",
+        "name": "Titanium Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "steel-smelting"
+            ],
+            "unlockedRecipes": [
+                "titanium-ingot"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "universe-matrix-technology",
+        "name": "Universe Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "dirac-inversion-mechanism"
+            ],
+            "unlockedRecipes": [
+                "universe-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "vertical-launching-silo-technology",
+        "name": "Vertical Launching Silo",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-lightweight-structure",
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "vertical-launching-silo",
+                "small-carrier-rocket"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "wave-function-interference",
+        "name": "Wave Function Interference",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-glass",
+                "casimir-crystal-technology"
+            ],
+            "unlockedRecipes": [
+                "plane-filter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "x-ray-cracking-technology",
+        "name": "X-Ray Cracking",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "x-ray-cracking"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-1",
+        "name": "Communication Control (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-2",
+        "name": "Communication Control (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-3",
+        "name": "Communication Control (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-4",
+        "name": "Communication Control (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-3",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-5",
+        "name": "Communication Control (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-6",
+        "name": "Communication Control (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-7",
+        "name": "Communication Control (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-6",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-1",
+        "name": "Auto Reconstruction Marking (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-2",
+        "name": "Auto Reconstruction Marking (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-3",
+        "name": "Auto Reconstruction Marking (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-4",
+        "name": "Auto Reconstruction Marking (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-5",
+        "name": "Auto Reconstruction Marking (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-6",
+        "name": "Auto Reconstruction Marking (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-1",
+        "name": "Combat Drone Attack Speed (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-2",
+        "name": "Combat Drone Attack Speed (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-3",
+        "name": "Combat Drone Attack Speed (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-4",
+        "name": "Combat Drone Attack Speed (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-5",
+        "name": "Combat Drone Attack Speed (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-1",
+        "name": "Combat Drone Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-2",
+        "name": "Combat Drone Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-3",
+        "name": "Combat Drone Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-4",
+        "name": "Combat Drone Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-5",
+        "name": "Combat Drone Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-1",
+        "name": "Combat Drone Durability (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-2",
+        "name": "Combat Drone Durability (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-3",
+        "name": "Combat Drone Durability (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-4",
+        "name": "Combat Drone Durability (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-5",
+        "name": "Combat Drone Durability (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-1",
+        "name": "EM Weapon Strength (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-jammer-tower-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-2",
+        "name": "EM Weapon Strength (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-3",
+        "name": "EM Weapon Strength (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-4",
+        "name": "EM Weapon Strength (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-5",
+        "name": "EM Weapon Strength (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-6",
+        "name": "EM Weapon Strength (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-1",
+        "name": "Energy Shield (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-2",
+        "name": "Energy Shield (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-3",
+        "name": "Energy Shield (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-4",
+        "name": "Energy Shield (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-5",
+        "name": "Energy Shield (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-6",
+        "name": "Energy Shield (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-7",
+        "name": "Energy Shield (Lv26)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-1",
+        "name": "Energy Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-2",
+        "name": "Energy Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-3",
+        "name": "Energy Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-4",
+        "name": "Energy Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-5",
+        "name": "Energy Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-6",
+        "name": "Energy Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-1",
+        "name": "Enhanced Structure (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-2",
+        "name": "Enhanced Structure (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-3",
+        "name": "Enhanced Structure (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-4",
+        "name": "Enhanced Structure (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-5",
+        "name": "Enhanced Structure (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-6",
+        "name": "Enhanced Structure (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-1",
+        "name": "Explosive Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combustible-unit-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-2",
+        "name": "Explosive Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-3",
+        "name": "Explosive Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-4",
+        "name": "Explosive Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-5",
+        "name": "Explosive Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-6",
+        "name": "Explosive Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-1",
+        "name": "Ground Squadron Expansion (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-2",
+        "name": "Ground Squadron Expansion (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-3",
+        "name": "Ground Squadron Expansion (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-4",
+        "name": "Ground Squadron Expansion (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-5",
+        "name": "Ground Squadron Expansion (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-6",
+        "name": "Ground Squadron Expansion (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-7",
+        "name": "Ground Squadron Expansion (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-1",
+        "name": "Kinetic Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-2",
+        "name": "Kinetic Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-3",
+        "name": "Kinetic Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-4",
+        "name": "Kinetic Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-5",
+        "name": "Kinetic Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-6",
+        "name": "Kinetic Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-1",
+        "name": "Planetary Shield (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-2",
+        "name": "Planetary Shield (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-3",
+        "name": "Planetary Shield (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-4",
+        "name": "Planetary Shield (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-5",
+        "name": "Planetary Shield (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-1",
+        "name": "Space Fleet Expansion (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-corvette-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-2",
+        "name": "Space Fleet Expansion (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-3",
+        "name": "Space Fleet Expansion (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-4",
+        "name": "Space Fleet Expansion (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-5",
+        "name": "Space Fleet Expansion (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-6",
+        "name": "Space Fleet Expansion (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-7",
+        "name": "Space Fleet Expansion (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-1",
+        "name": "Distribution Range (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-2",
+        "name": "Distribution Range (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-3",
+        "name": "Distribution Range (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-4",
+        "name": "Distribution Range (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-5",
+        "name": "Distribution Range (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-1",
+        "name": "Drive Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-2",
+        "name": "Drive Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-3",
+        "name": "Drive Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-4",
+        "name": "Drive Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-3",
+                "mecha-core-4",
+                "gravitational-wave-refraction"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-5",
+        "name": "Drive Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-6",
+        "name": "Drive Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-1",
+        "name": "Drone Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-2",
+        "name": "Drone Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-3",
+        "name": "Drone Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-4",
+        "name": "Drone Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-3",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-5",
+        "name": "Drone Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-4",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-6",
+        "name": "Drone Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-1",
+        "name": "Energy Circuit (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-2",
+        "name": "Energy Circuit (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-3",
+        "name": "Energy Circuit (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-4",
+        "name": "Energy Circuit (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-3",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-5",
+        "name": "Energy Circuit (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-4",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-6",
+        "name": "Energy Circuit (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-1",
+        "name": "Inventory Capacity (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-2",
+        "name": "Inventory Capacity (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-3",
+        "name": "Inventory Capacity (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-4",
+        "name": "Inventory Capacity (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-3",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-5",
+        "name": "Inventory Capacity (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-4",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-6",
+        "name": "Inventory Capacity (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-7",
+        "name": "Inventory Capacity (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-1",
+        "name": "Logistics Carrier Capacity (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-12",
+        "name": "Logistics Carrier Capacity (Lv12)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-9"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-2",
+        "name": "Logistics Carrier Capacity (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-3",
+        "name": "Logistics Carrier Capacity (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-2",
+                "interstellar-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-4",
+        "name": "Logistics Carrier Capacity (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-5",
+        "name": "Logistics Carrier Capacity (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-6",
+        "name": "Logistics Carrier Capacity (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-7",
+        "name": "Logistics Carrier Capacity (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-8",
+        "name": "Logistics Carrier Capacity (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-7"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-9",
+        "name": "Logistics Carrier Capacity (Lv9)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-8"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-1",
+        "name": "Logistics Carrier Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-2",
+        "name": "Logistics Carrier Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-3",
+        "name": "Logistics Carrier Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-2",
+                "interstellar-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-4",
+        "name": "Logistics Carrier Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-3",
+                "drive-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-5",
+        "name": "Logistics Carrier Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-6",
+        "name": "Logistics Carrier Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-7",
+        "name": "Logistics Carrier Engine (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-1",
+        "name": "Station Integrated Logistics (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-8"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-2",
+        "name": "Station Integrated Logistics (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-station-integrated-logistics-1",
+                "logistics-carrier-capacity-9"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-3",
+        "name": "Station Integrated Logistics (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-station-integrated-logistics-2",
+                "logistics-carrier-capacity-12"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-1",
+        "name": "Mass Construction (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-2",
+        "name": "Mass Construction (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-3",
+        "name": "Mass Construction (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-4",
+        "name": "Mass Construction (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-3",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-5",
+        "name": "Mass Construction (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-1",
+        "name": "Mecha Core (Lv1)",
+        "row": 0,
+        "technology": {}
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-2",
+        "name": "Mecha Core (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-3",
+        "name": "Mecha Core (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-4",
+        "name": "Mecha Core (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-5",
+        "name": "Mecha Core (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-6",
+        "name": "Mecha Core (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-1",
+        "name": "Mechanical Frame (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-2",
+        "name": "Mechanical Frame (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-3",
+        "name": "Mechanical Frame (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-4",
+        "name": "Mechanical Frame (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-3",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-5",
+        "name": "Mechanical Frame (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-4",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-6",
+        "name": "Mechanical Frame (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-5",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-7",
+        "name": "Mechanical Frame (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-6",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-8",
+        "name": "Mechanical Frame (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-7",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-1",
+        "name": "Pile Sorter Upgrade (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-2",
+        "name": "Pile Sorter Upgrade (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-3",
+        "name": "Pile Sorter Upgrade (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-4",
+        "name": "Pile Sorter Upgrade (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-5",
+        "name": "Pile Sorter Upgrade (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-6",
+        "name": "Pile Sorter Upgrade (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-5",
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-1",
+        "name": "Ray Transmission Efficiency (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-receiver-technology"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-2",
+        "name": "Ray Transmission Efficiency (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-3",
+        "name": "Ray Transmission Efficiency (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-4",
+        "name": "Ray Transmission Efficiency (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-5",
+        "name": "Ray Transmission Efficiency (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-6",
+        "name": "Ray Transmission Efficiency (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-7",
+        "name": "Ray Transmission Efficiency (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-8",
+        "name": "Ray Transmission Efficiency (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-7"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-1",
+        "name": "Research Speed (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-2",
+        "name": "Research Speed (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-3",
+        "name": "Research Speed (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-4",
+        "name": "Research Speed (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-1",
+        "name": "Solar Sail Life (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-2",
+        "name": "Solar Sail Life (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-3",
+        "name": "Solar Sail Life (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-4",
+        "name": "Solar Sail Life (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-5",
+        "name": "Solar Sail Life (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-6",
+        "name": "Solar Sail Life (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-integration",
+        "name": "Sorter Cargo Integration (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-5",
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-1",
+        "name": "Sorter Cargo Stacking (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-2",
+        "name": "Sorter Cargo Stacking (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-3",
+        "name": "Sorter Cargo Stacking (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-4",
+        "name": "Sorter Cargo Stacking (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-5",
+        "name": "Sorter Cargo Stacking (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-1",
+        "name": "Universe Exploration (Lv1)",
+        "row": 0,
+        "technology": {}
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-2",
+        "name": "Universe Exploration (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-3",
+        "name": "Universe Exploration (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-2",
+                "drive-engine-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-4",
+        "name": "Universe Exploration (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-1",
+        "name": "Vein Utilization (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-2",
+        "name": "Vein Utilization (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-3",
+        "name": "Vein Utilization (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-4",
+        "name": "Vein Utilization (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-5",
+        "name": "Vein Utilization (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-6",
+        "name": "Vein Utilization (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-1",
+        "name": "Vertical Construction (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-2",
+        "name": "Vertical Construction (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-3",
+        "name": "Vertical Construction (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-4",
+        "name": "Vertical Construction (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-5",
+        "name": "Vertical Construction (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-6",
+        "name": "Vertical Construction (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-5"
+            ]
+        }
+    }
+]
