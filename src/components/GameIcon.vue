@@ -9,8 +9,8 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, ref, onMounted } from 'vue'
-    import type { Icon } from '@/types/Icon'
+    import { computed, onMounted } from 'vue'
+    import { useIconsStore } from '@/stores/iconsStore'
 
     interface Props {
         id: string
@@ -18,27 +18,14 @@
     }
     const props = withDefaults(defineProps<Props>(), { size: 64 })
 
-    const iconsData = ref<Icon[]>([])
-    const isLoading = ref(true)
-    const error = ref<string | null>(null)
+    const iconsStore = useIconsStore()
+    const { loadIcons, getIconById, isLoading, error } = iconsStore
 
-    onMounted(async () => {
-        try {
-            const response = await fetch('/data/icons.json')
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-            iconsData.value = await response.json()
-            error.value = null
-        } catch (err) {
-            error.value = err instanceof Error ? err.message : 'Failed to load icons data'
-            console.error('Error loading icons:', err)
-        } finally {
-            isLoading.value = false
-        }
+    onMounted(() => {
+        loadIcons()
     })
 
-    const iconData = computed(() =>
-        iconsData.value.find((icon: Icon) => icon.id === props.id)
-    )
+    const iconData = getIconById(props.id)
 
     // Внешняя обёртка — реальный размер для лэйаута
     const wrapStyle = computed(() => ({
