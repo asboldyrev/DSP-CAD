@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Multi-file TypeScript schema generator for JSON properties.
- * Creates separate TypeScript files for each root property in the JSON.
+ * JSON files generator for JSON properties.
+ * Creates separate JSON files for each root property in the JSON and splits items by categories.
  * Requires: composer require halaxa/json-machine
- * Usage: php multi_json_parse.php
+ * Usage: php generate_json.php
  */
 
 if (php_sapi_name() !== 'cli') {
@@ -14,11 +14,11 @@ if (php_sapi_name() !== 'cli') {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use DspCad\Core\JsonProcessor;
+use DspCad\Core\JsonGenerator;
 
 // Определяем пути к файлам
 $inputPath = __DIR__ . '/data/data.json';
-$outputDir = __DIR__ . '/data/TypeScript';
+$outputDir = __DIR__ . '/data/Json';
 
 // Проверяем существование входного файла
 if (!is_file($inputPath)) {
@@ -27,12 +27,11 @@ if (!is_file($inputPath)) {
 }
 
 try {
-    // Создаем процессор и запускаем обработку
-    $processor = new JsonProcessor($inputPath, $outputDir);
-    $processor->process();
+    // Создаем генератор JSON и запускаем обработку
+    $generator = new JsonGenerator($inputPath, $outputDir);
+    $generator->process();
 
-    echo "TypeScript schema files generated successfully in: {$outputDir}\n";
-    echo "JSON files generated successfully in: " . dirname($outputDir) . "/Json\n";
+    echo "JSON files generated successfully in: {$outputDir}\n";
 } catch (Exception $e) {
     fwrite(STDERR, "Error: " . $e->getMessage() . "\n");
     exit(1);

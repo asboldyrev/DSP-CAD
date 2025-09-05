@@ -6,44 +6,35 @@ use JsonMachine\Items;
 use JsonMachine\JsonDecoder\ExtJsonDecoder;
 
 /**
- * Процессор JSON файлов для создания отдельных TypeScript файлов и разбивки JSON на отдельные файлы
+ * Генератор TypeScript файлов для каждого корневого свойства JSON
  */
-class JsonProcessor
+class TypeScriptGenerator
 {
     private string $inputPath;
     private string $outputDir;
-    private string $jsonOutputDir;
 
     public function __construct(string $inputPath, string $outputDir)
     {
         $this->inputPath = $inputPath;
         $this->outputDir = $outputDir;
-        $this->jsonOutputDir = dirname($outputDir) . '/Json';
     }
 
     /**
-     * Обрабатывает JSON файл и генерирует отдельные TypeScript файлы и JSON файлы для каждого корневого свойства
+     * Обрабатывает JSON файл и генерирует отдельные TypeScript файлы для каждого корневого свойства
      */
     public function process(): void
     {
         $decoder = new ExtJsonDecoder(true); // ассоц. массивы вместо stdClass
         $rootIter = Items::fromFile($this->inputPath, ['decoder' => $decoder]);
 
-        // Создаем директории для выходных файлов
+        // Создаем директорию для выходных файлов
         if (!is_dir($this->outputDir)) {
             mkdir($this->outputDir, 0755, true);
         }
-        if (!is_dir($this->jsonOutputDir)) {
-            mkdir($this->jsonOutputDir, 0755, true);
-        }
 
         $rootSchema = ['kind' => 'object', 'props' => []];
-        $rootData = []; // Для сохранения данных JSON
 
         foreach ($rootIter as $key => $value) {
-            // Сохраняем данные для JSON файлов
-            $rootData[$key] = $value;
-
             if (!isset($rootSchema['props'][$key])) {
                 $rootSchema['props'][$key] = [
                     'schema'   => SchemaModel::inferQuick($value),
@@ -65,9 +56,6 @@ class JsonProcessor
 
         // Генерируем отдельные TypeScript файлы для каждого корневого свойства
         $this->emitSeparateFiles($rootSchema);
-
-        // Генерируем отдельные JSON файлы для каждого корневого свойства
-        $this->emitSeparateJsonFiles($rootData);
     }
 
     /**
@@ -138,32 +126,5 @@ class JsonProcessor
         file_put_contents($filePath, $content);
 
         echo "Generated TypeScript file: {$filePath}\n";
-    }
-
-    /**
-     * Генерирует отдельные JSON файлы для каждого корневого свойства
-     */
-    private function emitSeparateJsonFiles(array $rootData): void
-    {
-        foreach ($rootData as $key => $data) {
-            $this->emitSingleJsonFile($key, $data);
-        }
-    }
-
-    /**
-     * Генерирует отдельный JSON файл для одного свойства
-     */
-    private function emitSingleJsonFile(string $propertyName, $data): void
-    {
-        // Создаем имя файла на основе свойства
-        $fileName = Utils::ucfirstCamel($propertyName) . '.json';
-        $filePath = $this->jsonOutputDir . '/' . $fileName;
-
-        // Форматируем JSON с отступами
-        $jsonContent = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-        file_put_contents($filePath, $jsonContent);
-
-        echo "Generated JSON file: {$filePath}\n";
     }
 }
