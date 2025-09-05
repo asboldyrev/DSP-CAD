@@ -3,10 +3,8 @@
         "mining-machine",
         "advanced-mining-machine",
         "ray-receiver",
-        "ray-receiver-pro",
         "oil-extractor",
-        "water-pump",
-        "orbital-collector"
+        "water-pump"
     ],
     "processors": [
         "assembling-machine-1",

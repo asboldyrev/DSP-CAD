@@ -7,5 +7,6 @@ export interface Node {
     x: number,
     y: number,
     item: Item,
-    recipe?: Recipe
+    recipe?: Recipe,
+    veins?: number
 }

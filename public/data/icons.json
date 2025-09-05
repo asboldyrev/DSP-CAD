@@ -45,6 +45,11 @@
         "color": "#dfe3e8"
     },
     {
+        "id": "ice-giant-gas-hydrate",
+        "position": "-512px 0px",
+        "color": "#dfe3e8"
+    },
+    {
         "id": "kimberlite-ore",
         "position": "-576px 0px",
         "color": "#a9b0be"
@@ -225,6 +230,11 @@
         "color": "#93a9b3"
     },
     {
+        "id": "ocean",
+        "position": "-1344px -64px",
+        "color": "#93a9b3"
+    },
+    {
         "id": "crude-oil",
         "position": "-1408px -64px",
         "color": "#3a3d48"
@@ -240,12 +250,32 @@
         "color": "#d4c573"
     },
     {
+        "id": "sulphuric-acid-vein",
+        "position": "-64px -128px",
+        "color": "#d4c573"
+    },
+    {
         "id": "hydrogen",
         "position": "-128px -128px",
         "color": "#9fc5ce"
     },
     {
+        "id": "gas-giant-hydrogen",
+        "position": "-128px -128px",
+        "color": "#9fc5ce"
+    },
+    {
+        "id": "ice-giant-hydrogen",
+        "position": "-128px -128px",
+        "color": "#9fc5ce"
+    },
+    {
         "id": "deuterium",
+        "position": "-192px -128px",
+        "color": "#a1c1c9"
+    },
+    {
+        "id": "gas-giant-deuterium",
         "position": "-192px -128px",
         "color": "#a1c1c9"
     },
@@ -1336,6 +1366,16 @@
     },
     {
         "id": "gas-giants-exploitation",
+        "position": "-896px -704px",
+        "color": "#111111"
+    },
+    {
+        "id": "gas-giant",
+        "position": "-896px -704px",
+        "color": "#111111"
+    },
+    {
+        "id": "ice-giant",
         "position": "-896px -704px",
         "color": "#111111"
     },

@@ -24,9 +24,16 @@ export const useNodesStore = defineStore('nodes', () => {
         }
     }
 
+    function updateNodeVeins(id: number, veins: number) {
+        const node = nodes.value.find(node => node.id === id)
+        if (node) {
+            node.veins = veins
+        }
+    }
+
     function getNodes() {
         return nodes.value
     }
 
-    return {addNode, removeNode, updateNodeRecipe, getNodes}
+    return {addNode, removeNode, updateNodeRecipe, updateNodeVeins, getNodes}
 })

@@ -37,3 +37,15 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Изменения в файле icons.json
+
+### Обновление от [дата]
+
+В файл `public/data/icons.json` добавлены дубли иконок:
+- `fire-ice` — `ice-giant-gas-hydrate`
+- `water` — `ocean`
+- `sulfuric-acid` — `sulphuric-acid-vein`
+- `hydrogen` — `gas-giant-hydrogen`, `ice-giant-hydrogen`
+- `deuterium` — `gas-giant-deuterium`
+- `gas-giants-exploitation` — `gas-giant`, `ice-giant`

@@ -1,12 +1,14 @@
 import { ref, computed } from 'vue'
 import type { Item } from '@/types/Item'
+import { useProducersStore } from './producersStore'
 
 const buildingsData = ref<Item[]>([])
-const producersData = ref<{ miners: string[], processors: string[] } | null>(null)
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
 export const useItemsStore = () => {
+  const producersStore = useProducersStore()
+  
   const loadBuildings = async () => {
     if (buildingsData.value.length > 0) return // Уже загружены
     
@@ -26,15 +28,7 @@ export const useItemsStore = () => {
   }
 
   const loadProducers = async () => {
-    if (producersData.value !== null) return // Уже загружены
-    
-    try {
-      const response = await fetch('/data/producers.json')
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-      producersData.value = await response.json()
-    } catch (err) {
-      console.error('Error loading producers:', err)
-    }
+    await producersStore.loadProducers()
   }
 
   const getItemById = (id: string) => {
@@ -63,18 +57,14 @@ export const useItemsStore = () => {
 
   const getProducerBuildings = () => {
     return computed(() => {
-      if (!producersData.value) return []
-      
-      const producerIds = [...producersData.value.miners, ...producersData.value.processors]
+      const producerIds = [...producersStore.getAllMiners(), ...producersStore.getAllProcessors()]
       return buildingsData.value.filter(building => producerIds.includes(building.id))
     })
   }
 
   const getProducerBuildingsGroupedByRow = () => {
     return computed(() => {
-      if (!producersData.value) return {}
-      
-      const producerIds = [...producersData.value.miners, ...producersData.value.processors]
+      const producerIds = [...producersStore.getAllMiners(), ...producersStore.getAllProcessors()]
       const producerBuildings = buildingsData.value.filter(building => producerIds.includes(building.id))
       
       const grouped: { [key: number]: Item[] } = {}
@@ -92,7 +82,6 @@ export const useItemsStore = () => {
   return {
     // Состояние
     buildingsData: computed(() => buildingsData.value),
-    producersData: computed(() => producersData.value),
     isLoading: computed(() => isLoading.value),
     error: computed(() => error.value),
     

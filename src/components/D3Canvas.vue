@@ -32,7 +32,7 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" />
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" />
     </div>
 </template>
 
@@ -219,6 +219,10 @@
 
     function updateNodeRecipe(nodeId: number, recipe: Recipe | null) {
         nodesStore.updateNodeRecipe(nodeId, recipe)
+    }
+
+    function updateNodeVeins(nodeId: number, veins: number) {
+        nodesStore.updateNodeVeins(nodeId, veins)
     }
 
     function handleCanvasClick(event: MouseEvent) {

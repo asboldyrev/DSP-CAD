@@ -37,6 +37,20 @@
                 </div>
             </div>
 
+            <div class="veins-section" v-if="isMiner && (selectedNode?.recipe || selectedNode?.item.id === 'oil-extractor')">
+                <h4>{{ productionResult.inputLabel }}</h4>
+                <div class="veins-input">
+                    <input type="number" v-model.number="inputValue" :min="productionResult.inputMin" :max="productionResult.inputMax" :step="productionResult.inputStep" :placeholder="productionResult.inputLabel" @input="updateInput" />
+                    <span class="veins-unit">{{ getInputUnit() }}</span>
+                </div>
+                <div class="production-info" v-if="productionResult.rate > 0">
+                    <div class="production-rate">
+                        <span class="production-label">Производительность:</span>
+                        <span class="production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="panel-actions">
                 <button class="delete-btn" @click="deleteNode">
                     Удалить ноду
@@ -47,11 +61,13 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, onMounted } from 'vue'
+    import { computed, onMounted, watch, ref } from 'vue'
     import type { Node } from '@/types/Node'
     import type { Recipe } from '@/types/Recipes'
     import GameIcon from './GameIcon.vue'
     import { useRecipesStore } from '@/stores/recipesStore'
+    import { useProducersStore } from '@/stores/producersStore'
+    import { ProductionCalculator } from '@/utils/ProductionCalculator'
 
     interface Props {
         isOpen: boolean
@@ -62,6 +78,7 @@
         (e: 'close'): void
         (e: 'delete', nodeId: number): void
         (e: 'update-recipe', nodeId: number, recipe: Recipe | null): void
+        (e: 'update-veins', nodeId: number, veins: number): void
     }
 
     const props = defineProps<Props>()
@@ -70,6 +87,9 @@
     const recipesStore = useRecipesStore()
     const { loadRecipes, getRecipesByProducer } = recipesStore
 
+    const producersStore = useProducersStore()
+    const { loadProducers } = producersStore
+
     // Получаем рецепты для выбранного строения
     const recipes = computed(() => {
         if (!props.selectedNode) return []
@@ -77,12 +97,62 @@
         return recipesForProducer.value || []
     })
 
-    onMounted(() => {
-        loadRecipes()
+    // Проверяем, является ли строение майнером
+    const isMiner = computed(() => {
+        if (!props.selectedNode) return false
+        return ProductionCalculator.isMiner(props.selectedNode.item.id)
     })
+
+    // Значение ввода (жилы/скорость/постройки)
+    const inputValue = ref(1)
+
+    // Расчет производительности с использованием калькулятора
+    const productionResult = computed(() => {
+        if (!props.selectedNode) {
+            return ProductionCalculator.calculateProduction({} as Node)
+        }
+
+        // Создаем временную ноду с текущим значением ввода для расчета
+        const tempNode = {
+            ...props.selectedNode,
+            veins: inputValue.value
+        }
+
+        return ProductionCalculator.calculateProduction(tempNode)
+    })
+
+    onMounted(() => {
+        Promise.all([loadRecipes(), loadProducers()])
+    })
+
+    // Инициализируем значение ввода при смене ноды
+    watch(() => props.selectedNode, (newNode) => {
+        if (newNode) {
+            inputValue.value = newNode.veins || 1
+        }
+    }, { immediate: true })
 
     function closePanel() {
         emit('close')
+    }
+
+    function updateInput() {
+        if (props.selectedNode) {
+            emit('update-veins', props.selectedNode.id, inputValue.value)
+        }
+    }
+
+    function getInputUnit(): string {
+        switch (productionResult.value.inputType) {
+            case 'veins':
+                return 'шт'
+            case 'rate':
+                return 'шт/сек'
+            case 'buildings':
+                return 'шт'
+            default:
+                return 'шт'
+        }
     }
 
     function selectRecipe(recipe: Recipe) {
@@ -290,6 +360,73 @@
 
     .remove-recipe-btn:hover {
         background: #b91c1c;
+    }
+
+    .veins-section {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+    }
+
+    .veins-section h4 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #374151;
+    }
+
+    .veins-input {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .veins-input input {
+        flex: 1;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        font-size: 0.875rem;
+    }
+
+    .veins-input input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .veins-unit {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .production-info {
+        padding: 0.75rem;
+        background: #ecfdf5;
+        border-radius: 6px;
+        border: 1px solid #10b981;
+    }
+
+    .production-rate {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .production-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #065f46;
+    }
+
+    .production-value {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #047857;
     }
 
     .recipe-icon {
