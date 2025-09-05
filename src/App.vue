@@ -6,7 +6,6 @@
   <div class="app">
     <header class="app-header">
       <h1>DSP CAD</h1>
-      <!-- <p></p> -->
     </header>
     <main class="app-main">
       <D3Canvas />

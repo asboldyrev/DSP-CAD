@@ -5,7 +5,7 @@
             <button @click="toggleGrid" class="control-btn">
                 {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
             </button>
-            <button @click="addNode" class="control-btn">Добавить ноду</button>
+            <button @click="openBuildingSelector" class="control-btn">Добавить строение</button>
             <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
         </div>
 
@@ -22,16 +22,14 @@
                     <rect v-if="showGrid" class="grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
 
                     <g class="nodes">
-                        <g v-for="node in nodes" :key="node.id" class="node" :data-node-id="node.id">
-                            <rect :x="node.x - 60" :y="node.y - 28" width="120" height="56" rx="8" ry="8" fill="white" stroke="#8aa0b4" stroke-width="1.5" />
-                            <text :x="node.x" :y="node.y + 4" text-anchor="middle" font-size="12" fill="#334">
-                                {{ node.name }}: {{ node.x.toFixed(0) }}x{{ node.y.toFixed(0) }}
-                            </text>
-                        </g>
+                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" />
                     </g>
                 </g>
             </svg>
         </div>
+
+        <!-- Модальное окно выбора строений -->
+        <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
     </div>
 </template>
 
@@ -39,6 +37,9 @@
     import { ref, reactive, onMounted, onUnmounted, nextTick, computed, watch } from 'vue'
     import * as d3 from 'd3'
     import { useNodesStore } from '@/stores/nodes'
+    import BuildingSelectorModal from './BuildingSelectorModal.vue'
+    import NodeComponent from './NodeComponent.vue'
+    import type { Item } from '@/types/Item'
 
     /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()
@@ -46,6 +47,7 @@
     const viewportRef = ref<SVGGElement>()
     const showGrid = ref(true)
     const zoomLevel = ref(1)
+    const isBuildingSelectorOpen = ref(false)
 
     /** Store */
     const nodesStore = useNodesStore()
@@ -146,12 +148,21 @@
         showGrid.value = !showGrid.value
     }
 
-    function addNode() {
+    function openBuildingSelector() {
+        isBuildingSelectorOpen.value = true
+    }
+
+    function closeBuildingSelector() {
+        isBuildingSelectorOpen.value = false
+    }
+
+    function addBuildingNode(building: Item) {
         const newNode = {
             id: Date.now(),
-            name: `Node ${nodes.value.length + 1}`,
+            name: building.name,
             x: 0,
-            y: 0
+            y: 0,
+            item: building
         }
         // ставим в центр текущего экрана (в координатах сцены)
         const cx = view.w / 2

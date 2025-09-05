@@ -1,4 +1,4 @@
-import type { Node } from '@/types/node'
+import type { Node } from '@/types/Node'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
