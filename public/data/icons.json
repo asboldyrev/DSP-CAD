@@ -1002,252 +1002,252 @@
     {
         "id": "electromagnetism",
         "position": "-1024px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "electromagnetic-matrix-technology",
         "position": "-1088px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-efficiency-plasma-control",
         "position": "-1152px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "plasma-extract-refining",
         "position": "-1216px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "x-ray-cracking-technology",
         "position": "-1280px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "reforming-refine-technology",
         "position": "-1344px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-matrix-technology",
         "position": "-1408px -512px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "hydrogen-fuel-rod-technology",
         "position": "0px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "thruster-technology",
         "position": "-64px -576px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "reinforced-thruster-technology",
         "position": "-128px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "fluid-storage-encapsulation",
         "position": "-192px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "basic-chemical-engineering",
         "position": "-256px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "polymer-chemical-engineering",
         "position": "-320px -576px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "high-strength-crystal",
         "position": "-384px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "structure-matrix-technology",
         "position": "-448px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "casimir-crystal-technology",
         "position": "-512px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-strength-glass",
         "position": "-576px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "applied-superconductor",
         "position": "-640px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-strength-material",
         "position": "-704px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "particle-control-technology",
         "position": "-768px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "deuterium-fractionation-technology",
         "position": "-832px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "wave-function-interference",
         "position": "-896px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "miniature-particle-collider-technology",
         "position": "-960px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "strange-matter-technology",
         "position": "-1024px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "artificial-star-technology",
         "position": "-1088px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "controlled-annihilation-reaction",
         "position": "-1152px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "proliferator-1-technology",
         "position": "-1216px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "proliferator-2-technology",
         "position": "-1280px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "proliferator-3-technology",
         "position": "-1344px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "basic-assembling-processes",
         "position": "-1408px -576px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-speed-assembling-processes",
         "position": "0px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "quantum-printing-technology",
         "position": "-64px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "processor-technology",
         "position": "-128px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "quantum-chip-technology",
         "position": "-192px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "photon-spotlight-mining-technology",
         "position": "-256px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mesoscopic-quantum-entanglement",
         "position": "-320px -640px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "semiconductor-material",
         "position": "-384px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "information-matrix-technology",
         "position": "-448px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "automatic-metallurgy",
         "position": "-512px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "smelting-purification",
         "position": "-576px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "crystal-smelting",
         "position": "-640px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "steel-smelting",
         "position": "-704px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "thermal-power",
         "position": "-768px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "titanium-smelting",
         "position": "-832px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-strength-titanium-alloy",
         "position": "-896px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "environment-modification",
         "position": "-960px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mini-fusion-power-generation",
         "position": "-1024px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "plane-filter-smelting-technology",
         "position": "-1088px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-collection",
         "position": "-1152px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "photon-frequency-conversion",
         "position": "-1216px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-orbit-system",
@@ -1257,92 +1257,92 @@
     {
         "id": "ray-receiver-technology",
         "position": "-1344px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "planetary-ionosphere-utilization",
         "position": "-1408px -640px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "dirac-inversion-mechanism",
         "position": "0px -704px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "universe-matrix-technology",
         "position": "-64px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mission-completed",
         "position": "-128px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-storage",
         "position": "-192px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "interstellar-power-transmission",
         "position": "-256px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "geothermal-extraction",
         "position": "-320px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-strength-lightweight-structure",
         "position": "-384px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-launching-silo-technology",
         "position": "-448px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "dyson-sphere-stress-system-1",
         "position": "-512px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "basic-logistics-system",
         "position": "-576px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "improved-logistics-system",
         "position": "-640px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "high-efficiency-logistics-system",
         "position": "-704px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "planetary-logistics-system",
         "position": "-768px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "interstellar-logistics-system",
         "position": "-832px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "gas-giants-exploitation",
         "position": "-896px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "integrated-logistics-system",
         "position": "-960px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-logistics-system",
@@ -1352,72 +1352,72 @@
     {
         "id": "electromagnetic-drive",
         "position": "-1088px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "magnetic-levitation-technology",
         "position": "-1152px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "magnetic-particle-trap",
         "position": "-1216px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "gravitational-wave-refraction",
         "position": "-1280px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "gravity-matrix-technology",
         "position": "-1344px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "super-magnetic-field-generator",
         "position": "-1408px -704px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "satellite-power-distribution-system",
         "position": "0px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-weapon-system",
         "position": "-64px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combustible-unit-tech",
         "position": "-128px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-unit-tech",
         "position": "-192px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-crystal-explosive-unit-tech",
         "position": "-256px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-engine-tech",
         "position": "-320px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-missile-turret-tech",
         "position": "-384px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-implosion-cannon-tech",
         "position": "-448px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-signal-tower-tech",
@@ -1427,77 +1427,77 @@
     {
         "id": "df-planetary-defense-system",
         "position": "-576px -768px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-jammer-tower-tech",
         "position": "-640px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-plasma-turret-tech",
         "position": "-704px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-titanium-ammo-box-tech",
         "position": "-768px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-superalloy-ammo-box-tech",
         "position": "-832px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-high-explosive-shell-set-tech",
         "position": "-896px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-supersonic-missile-set-tech",
         "position": "-960px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-crystal-shell-set-tech",
         "position": "-1024px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-gravity-missile-set-tech",
         "position": "-1088px -768px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-antimatter-capsule-tech",
         "position": "-1152px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-prototype-tech",
         "position": "-1216px -768px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-precision-drone-tech",
         "position": "-1280px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-attack-drone-tech",
         "position": "-1344px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-corvette-tech",
         "position": "-1408px -768px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-destroyer-tech",
         "position": "0px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-suppressing-capsule-tech",
@@ -1507,7 +1507,7 @@
     {
         "id": "df-battlefield-analysis-base-tech",
         "position": "-128px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-digital-analog-computation",
@@ -1517,122 +1517,122 @@
     {
         "id": "df-matter-recombination",
         "position": "-256px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-negentropy-recursion",
         "position": "-320px -832px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-high-density-controlled-annihilation",
         "position": "-384px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-1",
         "position": "-448px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-2",
         "position": "-512px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-3",
         "position": "-576px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-4",
         "position": "-640px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-5",
         "position": "-704px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mecha-core-6",
         "position": "-768px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-1",
         "position": "-832px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-2",
         "position": "-896px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-3",
         "position": "-960px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-4",
         "position": "-1024px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-5",
         "position": "-1088px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-6",
         "position": "-1152px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-7",
         "position": "-1216px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mechanical-frame-8",
         "position": "-1280px -832px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-1",
         "position": "-1344px -832px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-2",
         "position": "-1408px -832px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-3",
         "position": "0px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-4",
         "position": "-64px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-5",
         "position": "-128px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-6",
         "position": "-192px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "inventory-capacity-7",
         "position": "-256px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "communication-control-1",
@@ -1647,7 +1647,7 @@
     {
         "id": "communication-control-3",
         "position": "-448px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "communication-control-4",
@@ -1662,7 +1662,7 @@
     {
         "id": "communication-control-6",
         "position": "-640px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "communication-control-7",
@@ -1672,867 +1672,867 @@
     {
         "id": "energy-circuit-1",
         "position": "-768px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-circuit-2",
         "position": "-832px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-circuit-3",
         "position": "-896px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-circuit-4",
         "position": "-960px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-circuit-5",
         "position": "-1024px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "energy-circuit-6",
         "position": "-1088px -896px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-1",
         "position": "-1152px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-2",
         "position": "-1216px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-3",
         "position": "-1280px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-4",
         "position": "-1344px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-5",
         "position": "-1408px -896px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "drone-engine-6",
         "position": "0px -960px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "mass-construction-1",
         "position": "-64px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mass-construction-2",
         "position": "-128px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mass-construction-3",
         "position": "-192px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mass-construction-4",
         "position": "-256px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "mass-construction-5",
         "position": "-320px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-1",
         "position": "-384px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-2",
         "position": "-448px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-3",
         "position": "-512px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-4",
         "position": "-576px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-5",
         "position": "-640px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-6",
         "position": "-704px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-shield-7",
         "position": "-768px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-1",
         "position": "-832px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-2",
         "position": "-896px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-3",
         "position": "-960px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-4",
         "position": "-1024px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-5",
         "position": "-1088px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "drive-engine-6",
         "position": "-1152px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-1",
         "position": "-1216px -960px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-2",
         "position": "-1280px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-3",
         "position": "-1344px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-4",
         "position": "-1408px -960px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-5",
         "position": "0px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-auto-reconstruction-marking-6",
         "position": "-64px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-1",
         "position": "-128px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-2",
         "position": "-192px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-3",
         "position": "-256px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-4",
         "position": "-320px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-5",
         "position": "-384px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "solar-sail-life-6",
         "position": "-448px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-1",
         "position": "-512px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-2",
         "position": "-576px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-3",
         "position": "-640px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-4",
         "position": "-704px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-5",
         "position": "-768px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-6",
         "position": "-832px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-7",
         "position": "-896px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "ray-transmission-efficiency-8",
         "position": "-960px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-stacking-1",
         "position": "-1024px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-stacking-2",
         "position": "-1088px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-stacking-3",
         "position": "-1152px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-stacking-4",
         "position": "-1216px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-stacking-5",
         "position": "-1280px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "sorter-cargo-integration",
         "position": "-1344px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-1",
         "position": "-1408px -1024px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-2",
         "position": "0px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-3",
         "position": "-64px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-4",
         "position": "-128px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-5",
         "position": "-192px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "pile-sorter-6",
         "position": "-256px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-range-1",
         "position": "-320px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-range-2",
         "position": "-384px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-range-3",
         "position": "-448px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-range-4",
         "position": "-512px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "distribution-range-5",
         "position": "-576px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-1",
         "position": "-640px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-2",
         "position": "-704px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-3",
         "position": "-768px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-4",
         "position": "-832px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-5",
         "position": "-896px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-6",
         "position": "-960px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-engine-7",
         "position": "-1024px -1088px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-1",
         "position": "-1088px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-2",
         "position": "-1152px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-3",
         "position": "-1216px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-4",
         "position": "-1280px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-5",
         "position": "-1344px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-6",
         "position": "-1408px -1088px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-7",
         "position": "0px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-8",
         "position": "-64px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-9",
         "position": "-128px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-carrier-capacity-12",
         "position": "-192px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-station-integrated-logistics-1",
         "position": "-256px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-station-integrated-logistics-2",
         "position": "-320px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "logistics-station-integrated-logistics-3",
         "position": "-384px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-1",
         "position": "-448px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-2",
         "position": "-512px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-3",
         "position": "-576px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-4",
         "position": "-640px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-5",
         "position": "-704px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "veins-utilization-6",
         "position": "-768px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-1",
         "position": "-832px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-2",
         "position": "-896px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-3",
         "position": "-960px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-4",
         "position": "-1024px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-5",
         "position": "-1088px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "vertical-construction-6",
         "position": "-1152px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "research-speed-1",
         "position": "-1216px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "research-speed-2",
         "position": "-1280px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "research-speed-3",
         "position": "-1344px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "research-speed-4",
         "position": "-1408px -1152px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "universe-exploration-1",
         "position": "0px -1216px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "universe-exploration-2",
         "position": "-64px -1216px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "universe-exploration-3",
         "position": "-128px -1216px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "universe-exploration-4",
         "position": "-192px -1216px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-1",
         "position": "-256px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-2",
         "position": "-320px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-3",
         "position": "-384px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-4",
         "position": "-448px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-5",
         "position": "-512px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-kinetic-weapon-damage-6",
         "position": "-576px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-1",
         "position": "-640px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-2",
         "position": "-704px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-3",
         "position": "-768px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-4",
         "position": "-832px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-5",
         "position": "-896px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-energy-weapon-damage-6",
         "position": "-960px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-1",
         "position": "-1024px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-2",
         "position": "-1088px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-3",
         "position": "-1152px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-4",
         "position": "-1216px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-5",
         "position": "-1280px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-explosive-weapon-damage-6",
         "position": "-1344px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-damage-1",
         "position": "-1408px -1216px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-damage-2",
         "position": "0px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-damage-3",
         "position": "-64px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-damage-4",
         "position": "-128px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-damage-5",
         "position": "-192px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-attack-speed-1",
         "position": "-256px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-attack-speed-2",
         "position": "-320px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-attack-speed-3",
         "position": "-384px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-attack-speed-4",
         "position": "-448px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-attack-speed-5",
         "position": "-512px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-durability-1",
         "position": "-576px -1280px",
-        "color": "#fefefe"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-durability-2",
         "position": "-640px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-durability-3",
         "position": "-704px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-durability-4",
         "position": "-768px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-combat-drone-durability-5",
         "position": "-832px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-planetary-shield-1",
         "position": "-896px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-planetary-shield-2",
         "position": "-960px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-planetary-shield-3",
         "position": "-1024px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-planetary-shield-4",
         "position": "-1088px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-planetary-shield-5",
         "position": "-1152px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-1",
         "position": "-1216px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-2",
         "position": "-1280px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-3",
         "position": "-1344px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-4",
         "position": "-1408px -1280px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-5",
         "position": "0px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-6",
         "position": "-64px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-ground-squadron-expansion-7",
         "position": "-128px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-1",
         "position": "-192px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-2",
         "position": "-256px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-3",
         "position": "-320px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-4",
         "position": "-384px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-5",
         "position": "-448px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-6",
         "position": "-512px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-space-fleet-expansion-7",
         "position": "-576px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-1",
         "position": "-640px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-2",
         "position": "-704px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-3",
         "position": "-768px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-4",
         "position": "-832px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-5",
         "position": "-896px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-enhanced-structure-6",
         "position": "-960px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-1",
         "position": "-1024px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-2",
         "position": "-1088px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-3",
         "position": "-1152px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-4",
         "position": "-1216px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-5",
         "position": "-1280px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "df-em-weapon-strength-6",
         "position": "-1344px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "buildings",
         "position": "-1408px -1344px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "components",
         "position": "0px -1408px",
-        "color": "#ffffff"
+        "color": "#111111"
     },
     {
         "id": "critical-photon-graviton",
