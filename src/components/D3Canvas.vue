@@ -9,7 +9,7 @@
             <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
         </div>
 
-        <div ref="canvasContainer" class="canvas-container">
+        <div ref="canvasContainer" class="canvas-container" @click="handleCanvasClick">
             <svg ref="svgRef" class="d3-canvas">
                 <defs>
                     <pattern :id="patternId" patternUnits="userSpaceOnUse" :width="grid.step" :height="grid.step">
@@ -22,7 +22,7 @@
                     <rect v-if="showGrid" class="grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
 
                     <g class="nodes">
-                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" />
+                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id" />
                     </g>
                 </g>
             </svg>
@@ -30,6 +30,9 @@
 
         <!-- Модальное окно выбора строений -->
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
+
+        <!-- Панель редактирования ноды -->
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" />
     </div>
 </template>
 
@@ -39,7 +42,9 @@
     import { useNodesStore } from '@/stores/nodes'
     import BuildingSelectorModal from './BuildingSelectorModal.vue'
     import NodeComponent from './NodeComponent.vue'
+    import NodeEditPanel from './NodeEditPanel.vue'
     import type { Item } from '@/types/Item'
+    import type { Node } from '@/types/Node'
 
     /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()
@@ -48,6 +53,8 @@
     const showGrid = ref(true)
     const zoomLevel = ref(1)
     const isBuildingSelectorOpen = ref(false)
+    const isEditPanelOpen = ref(false)
+    const selectedNode = ref<Node | null>(null)
 
     /** Store */
     const nodesStore = useNodesStore()
@@ -129,12 +136,34 @@
 
         // навесим drag на все ноды
         bindDragToNodes()
+
+        // добавим обработчик кликов на ноды
+        initNodeClicks()
+    }
+
+    function initNodeClicks() {
+        if (!svgRef.value) return
+        const svg = d3.select(svgRef.value)
+
+        svg.selectAll('.node')
+            .on('click', (event) => {
+                event.stopPropagation()
+                const targetNode = event.currentTarget as SVGGElement
+                const nodeId = parseInt(targetNode.getAttribute('data-node-id') || '0', 10)
+                const node = nodes.value.find(n => n.id === nodeId)
+                if (node) {
+                    openEditPanel(node)
+                }
+            })
     }
 
     function bindDragToNodes() {
         if (!svgRef.value || !dragBehavior) return
         const svg = d3.select(svgRef.value)
         svg.selectAll<SVGGElement, unknown>('.node').call(dragBehavior as any)
+
+        // также переустанавливаем обработчики кликов
+        initNodeClicks()
     }
 
     function resetView() {
@@ -171,6 +200,28 @@
         newNode.x = sx
         newNode.y = sy
         nodesStore.addNode(newNode)
+    }
+
+    function openEditPanel(node: Node) {
+        selectedNode.value = node
+        isEditPanelOpen.value = true
+    }
+
+    function closeEditPanel() {
+        isEditPanelOpen.value = false
+        selectedNode.value = null
+    }
+
+    function deleteNode(nodeId: number) {
+        nodesStore.removeNode(nodeId)
+    }
+
+    function handleCanvasClick(event: MouseEvent) {
+        // Проверяем, что клик был не по ноде
+        const target = event.target as Element
+        if (!target.closest('.node')) {
+            closeEditPanel()
+        }
     }
 
     onMounted(() => {
@@ -244,6 +295,7 @@
         overflow: hidden;
         border: 1px solid #ddd;
         background: #f8fafc;
+        position: relative;
     }
 
     .d3-canvas {
