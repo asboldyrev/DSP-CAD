@@ -1,5 +1,5 @@
 <template>
-    <g class="node" :class="{ 'node-selected': isSelected }" :data-node-id="node.id" :title="`${node.item.name} (${node.x.toFixed(0)}, ${node.y.toFixed(0)})`">
+    <g class="node" :class="{ 'node-selected': isSelected }" :data-node-id="node.id" :title="`${node.item.name} (${node.x.toFixed(0)}, ${node.y.toFixed(0)})`" @click="handleClick">
         <rect :x="node.x - 32" :y="node.y - 32" width="64" height="64" rx="8" ry="8" :fill="isSelected ? '#dbeafe' : 'white'" :stroke="isSelected ? '#3b82f6' : '#8aa0b4'" :stroke-width="isSelected ? '2.5' : '1.5'" />
         <foreignObject :x="node.x - 24" :y="node.y - 24" width="48" height="48">
             <GameIcon :id="node.item.id" :size="48" />
@@ -27,14 +27,25 @@
         isSelected?: boolean
     }
 
+    interface Emits {
+        (e: 'click', node: Node): void
+    }
+
     const props = withDefaults(defineProps<Props>(), {
         isSelected: false
     })
+
+    const emit = defineEmits<Emits>()
 
     // Расчет производительности с использованием калькулятора
     const productionResult = computed(() => {
         return ProductionCalculator.calculateProduction(props.node)
     })
+
+    function handleClick(event: MouseEvent) {
+        event.stopPropagation()
+        emit('click', props.node)
+    }
 </script>
 
 <style scoped>

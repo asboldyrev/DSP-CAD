@@ -6,23 +6,50 @@
                 {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
             </button>
             <button @click="openBuildingSelector" class="control-btn">Добавить строение</button>
+            <button @click="toggleConnectionMode" class="control-btn" :class="{ 'active': isCreatingConnection, 'disabled': nodes.length < 2 }" :disabled="nodes.length < 2">
+                {{ isCreatingConnection ? 'Отменить связь' : 'Добавить связь' }}
+            </button>
             <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
         </div>
 
-        <div ref="canvasContainer" class="canvas-container" @click="handleCanvasClick">
+        <div ref="canvasContainer" class="canvas-container" @click="handleCanvasClick" @mousemove="handleMouseMove">
             <svg ref="svgRef" class="d3-canvas">
                 <defs>
                     <pattern :id="patternId" patternUnits="userSpaceOnUse" :width="grid.step" :height="grid.step">
                         <circle :r="grid.dotRadius" :cx="grid.dotOffset" :cy="grid.dotOffset" :fill="grid.dotColor" />
                     </pattern>
+
+                    <!-- Стрелки для связей -->
+                    <marker id="arrowhead" markerWidth="16" markerHeight="12" refX="14" refY="6" orient="auto">
+                        <polygon points="2 2, 14 6, 2 10" fill="#6b7280" stroke="#ffffff" stroke-width="1" />
+                    </marker>
+                    <marker id="arrowhead-selected" markerWidth="16" markerHeight="12" refX="14" refY="6" orient="auto">
+                        <polygon points="2 2, 14 6, 2 10" fill="#3b82f6" stroke="#ffffff" stroke-width="1" />
+                    </marker>
+
+                    <!-- Динамические маркеры для разных цветов -->
+                    <marker v-for="color in uniqueConnectionColors" :key="`arrowhead-${color}`" :id="`arrowhead-${color}`" markerWidth="16" markerHeight="12" refX="14" refY="6" orient="auto">
+                        <polygon points="2 2, 14 6, 2 10" :fill="`#${color}`" stroke="#ffffff" stroke-width="1" />
+                    </marker>
+                    <marker v-for="color in uniqueConnectionColors" :key="`arrowhead-selected-${color}`" :id="`arrowhead-selected-${color}`" markerWidth="16" markerHeight="12" refX="14" refY="6" orient="auto">
+                        <polygon points="2 2, 14 6, 2 10" :fill="`#${color}`" stroke="#ffffff" stroke-width="1" />
+                    </marker>
                 </defs>
 
                 <!-- ЕДИНАЯ зум-сцена: и сетка, и ноды -->
                 <g ref="viewportRef">
                     <rect v-if="showGrid" class="grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
 
+                    <!-- Связи (рисуются под нодами) -->
+                    <g class="connections">
+                        <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" @click="selectConnection" />
+
+                        <!-- Предварительная связь при создании -->
+                        <line v-if="isCreatingConnection && selectedNodeId && previewConnection" :x1="previewConnection.fromX" :y1="previewConnection.fromY" :x2="previewConnection.toX" :y2="previewConnection.toY" class="preview-connection" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-selected)" />
+                    </g>
+
                     <g class="nodes">
-                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id" />
+                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id || (isCreatingConnection && selectedNodeId === node.id)" />
                     </g>
                 </g>
             </svg>
@@ -33,6 +60,9 @@
 
         <!-- Панель редактирования ноды -->
         <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" />
+
+        <!-- Панель редактирования связи -->
+        <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" />
     </div>
 </template>
 
@@ -40,12 +70,16 @@
     import { ref, reactive, onMounted, onUnmounted, nextTick, computed, watch } from 'vue'
     import * as d3 from 'd3'
     import { useNodesStore } from '@/stores/nodes'
+    import { useConnectionsStore } from '@/stores/connectionsStore'
     import BuildingSelectorModal from './BuildingSelectorModal.vue'
     import NodeComponent from './NodeComponent.vue'
     import NodeEditPanel from './NodeEditPanel.vue'
+    import ConnectionComponent from './ConnectionComponent.vue'
+    import ConnectionEditPanel from './ConnectionEditPanel.vue'
     import type { Item } from '@/types/Item'
     import type { Node } from '@/types/Node'
     import type { Recipe } from '@/types/Recipes'
+    import type { Connection } from '@/types/Connection'
 
     /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()
@@ -55,11 +89,75 @@
     const zoomLevel = ref(1)
     const isBuildingSelectorOpen = ref(false)
     const isEditPanelOpen = ref(false)
+    const isConnectionEditPanelOpen = ref(false)
     const selectedNode = ref<Node | null>(null)
+    const selectedConnection = ref<Connection | null>(null)
+    const mousePosition = ref({ x: 0, y: 0 })
 
     /** Store */
     const nodesStore = useNodesStore()
+    const connectionsStore = useConnectionsStore()
     const nodes = computed(() => nodesStore.getNodes())
+    const connections = computed(() => connectionsStore.connections)
+    const isCreatingConnection = computed(() => connectionsStore.isCreatingConnection)
+    const selectedNodeId = computed(() => connectionsStore.selectedNodeId)
+
+    // Предварительная связь для отображения при создании
+    const previewConnection = computed(() => {
+        if (!isCreatingConnection.value || !selectedNodeId.value) return null
+
+        const selectedNode = nodes.value.find(n => n.id === selectedNodeId.value)
+        if (!selectedNode) return null
+
+        return {
+            fromX: selectedNode.x,
+            fromY: selectedNode.y,
+            toX: mousePosition.value.x,
+            toY: mousePosition.value.y
+        }
+    })
+
+    // Получаем уникальные цвета связей для создания маркеров
+    const uniqueConnectionColors = computed(() => {
+        const colors = new Set<string>()
+
+        connections.value.forEach(conn => {
+            if (conn.belt?.icon?.color) {
+                // Получаем цвет из поля color иконки
+                const iconColor = conn.belt.icon.color
+
+                // Если цвет уже в формате hex, убираем #
+                if (iconColor.startsWith('#')) {
+                    colors.add(iconColor.replace('#', ''))
+                } else if (iconColor.startsWith('rgb')) {
+                    // Если цвет в формате rgb/rgba, конвертируем в hex
+                    const rgbMatch = iconColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/)
+                    if (rgbMatch) {
+                        const [, r, g, b] = rgbMatch
+                        const hexColor = `${parseInt(r).toString(16).padStart(2, '0')}${parseInt(g).toString(16).padStart(2, '0')}${parseInt(b).toString(16).padStart(2, '0')}`
+                        colors.add(hexColor)
+                    }
+                } else {
+                    // Fallback к предопределенным цветам по ID
+                    const beltColors: Record<string, string> = {
+                        'conveyor-belt-1': '8b5cf6',
+                        'conveyor-belt-2': '06b6d4',
+                        'conveyor-belt-3': '10b981'
+                    }
+                    const color = beltColors[conn.belt.id]
+                    if (color) colors.add(color)
+                }
+            }
+        })
+
+        // Добавляем стандартные цвета
+        colors.add('6b7280') // default
+        colors.add('4b5563') // hover
+        colors.add('3b82f6') // selected
+        colors.add('10b981') // highlighted
+
+        return Array.from(colors)
+    })
 
     /** Viewport size */
     const view = reactive({ w: 800, h: 600 })
@@ -153,7 +251,7 @@
                 const nodeId = parseInt(targetNode.getAttribute('data-node-id') || '0', 10)
                 const node = nodes.value.find(n => n.id === nodeId)
                 if (node) {
-                    openEditPanel(node)
+                    handleNodeClick(node)
                 }
             })
     }
@@ -213,7 +311,81 @@
         selectedNode.value = null
     }
 
+    function toggleConnectionMode() {
+        if (isCreatingConnection.value) {
+            connectionsStore.cancelCreatingConnection()
+        } else {
+            connectionsStore.startCreatingConnection()
+        }
+        // Сбрасываем выделение ноды при переключении режима
+        selectedNode.value = null
+        selectedConnection.value = null
+        closeEditPanel()
+        closeConnectionEditPanel()
+    }
+
+    function handleNodeClick(node: Node) {
+        if (isCreatingConnection.value) {
+            // В режиме создания связи обрабатываем клик по ноде
+            // НЕ открываем панель редактирования ноды
+            connectionsStore.selectNodeForConnection(node.id, nodes.value)
+        } else {
+            // Обычный режим - открываем панель редактирования ноды
+            // Закрываем панель связи если она открыта
+            closeConnectionEditPanel()
+            openEditPanel(node)
+        }
+    }
+
+    function selectConnection(connection: Connection) {
+        selectedConnection.value = connection
+        selectedNode.value = null
+        // Закрываем панель ноды если она открыта
+        closeEditPanel()
+        openConnectionEditPanel(connection)
+    }
+
+    function openConnectionEditPanel(connection: Connection) {
+        selectedConnection.value = connection
+        isConnectionEditPanelOpen.value = true
+    }
+
+    function closeConnectionEditPanel() {
+        isConnectionEditPanelOpen.value = false
+        selectedConnection.value = null
+    }
+
+    function handleMouseMove(event: MouseEvent) {
+        if (!svgRef.value) return
+
+        // Получаем координаты мыши в системе координат SVG
+        const rect = svgRef.value.getBoundingClientRect()
+        const x = event.clientX - rect.left
+        const y = event.clientY - rect.top
+
+        // Применяем текущий трансформ для получения координат в пространстве сцены
+        const [sceneX, sceneY] = currentTransform.invert([x, y])
+
+        mousePosition.value = { x: sceneX, y: sceneY }
+    }
+
+    function handleCanvasClick(event: MouseEvent) {
+        // Клик по холсту - сбрасываем выделение
+        if (!isCreatingConnection.value) {
+            selectedNode.value = null
+            selectedConnection.value = null
+            closeEditPanel()
+            closeConnectionEditPanel()
+        } else {
+            // В режиме создания связи клик по холсту отменяет создание
+            connectionsStore.cancelCreatingConnection()
+        }
+    }
+
     function deleteNode(nodeId: number) {
+        // Удаляем все связи для этой ноды
+        connectionsStore.deleteConnectionsForNode(nodeId)
+        // Удаляем саму ноду
         nodesStore.removeNode(nodeId)
     }
 
@@ -225,12 +397,25 @@
         nodesStore.updateNodeVeins(nodeId, veins)
     }
 
-    function handleCanvasClick(event: MouseEvent) {
-        // Проверяем, что клик был не по ноде
-        const target = event.target as Element
-        if (!target.closest('.node')) {
-            closeEditPanel()
-        }
+    function deleteConnection(connectionId: number) {
+        connectionsStore.deleteConnection(connectionId)
+        closeConnectionEditPanel()
+    }
+
+    function updateConnectionBelt(connectionId: number, belt: Item | null) {
+        connectionsStore.updateConnectionBelt(connectionId, belt)
+    }
+
+    function updateConnectionInputSorter(connectionId: number, sorter: Item | null) {
+        connectionsStore.updateConnectionInputSorter(connectionId, sorter)
+    }
+
+    function updateConnectionOutputSorter(connectionId: number, sorter: Item | null) {
+        connectionsStore.updateConnectionOutputSorter(connectionId, sorter)
+    }
+
+    function updateConnectionSyncSorters(connectionId: number, syncSorters: boolean) {
+        connectionsStore.updateConnectionSyncSorters(connectionId, syncSorters)
     }
 
     onMounted(() => {
@@ -246,6 +431,17 @@
                 bindDragToNodes()
             },
             { deep: false }
+        )
+
+        // Обновляем координаты связей при изменении позиций нод
+        watch(
+            () => nodes.value.map(n => ({ id: n.id, x: n.x, y: n.y })),
+            (newNodes) => {
+                newNodes.forEach(node => {
+                    connectionsStore.updateConnectionCoordinates(node.id, node.x, node.y)
+                })
+            },
+            { deep: true }
         )
 
         const ro = new ResizeObserver(() => measure())
@@ -290,6 +486,24 @@
         background: #0056b3;
     }
 
+    .control-btn.active {
+        background: #28a745;
+    }
+
+    .control-btn.active:hover {
+        background: #218838;
+    }
+
+    .control-btn.disabled {
+        background: #6c757d;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    .control-btn.disabled:hover {
+        background: #6c757d;
+    }
+
     .zoom-info {
         margin-left: auto;
         font-size: 14px;
@@ -316,5 +530,11 @@
     /* лёгкая тень под блоками */
     :deep(.nodes .node rect) {
         filter: drop-shadow(0 1px 1px rgba(30, 41, 59, 0.06));
+    }
+
+    /* Предварительная связь */
+    .preview-connection {
+        pointer-events: none;
+        opacity: 0.7;
     }
 </style>
