@@ -4,6 +4,10 @@
         <foreignObject :x="node.x - 24" :y="node.y - 24" width="48" height="48">
             <GameIcon :id="node.item.id" :size="48" />
         </foreignObject>
+        <!-- Иконка рецепта внизу справа -->
+        <foreignObject v-if="node.recipe" :x="node.x + 16" :y="node.y + 16" width="24" height="24">
+            <GameIcon :key="`recipe-${node.id}-${node.recipe.id}`" :id="node.recipe.id" :size="24" />
+        </foreignObject>
     </g>
 </template>
 

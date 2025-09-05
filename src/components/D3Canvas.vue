@@ -32,7 +32,7 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" />
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" />
     </div>
 </template>
 
@@ -45,6 +45,7 @@
     import NodeEditPanel from './NodeEditPanel.vue'
     import type { Item } from '@/types/Item'
     import type { Node } from '@/types/Node'
+    import type { Recipe } from '@/types/Recipes'
 
     /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()
@@ -214,6 +215,10 @@
 
     function deleteNode(nodeId: number) {
         nodesStore.removeNode(nodeId)
+    }
+
+    function updateNodeRecipe(nodeId: number, recipe: Recipe | null) {
+        nodesStore.updateNodeRecipe(nodeId, recipe)
     }
 
     function handleCanvasClick(event: MouseEvent) {

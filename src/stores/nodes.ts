@@ -1,4 +1,5 @@
 import type { Node } from '@/types/Node'
+import type { Recipe } from '@/types/Recipes'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -16,9 +17,16 @@ export const useNodesStore = defineStore('nodes', () => {
         }
     }
 
+    function updateNodeRecipe(id: number, recipe: Recipe | null) {
+        const node = nodes.value.find(node => node.id === id)
+        if (node) {
+            node.recipe = recipe || undefined
+        }
+    }
+
     function getNodes() {
         return nodes.value
     }
 
-    return {addNode, removeNode, getNodes}
+    return {addNode, removeNode, updateNodeRecipe, getNodes}
 })
