@@ -1,4 +1,12 @@
 {
+    "name": "dsp-cad/json-schema-generator",
+    "description": "JSON to TypeScript schema generator",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "DspCad\\": "./"
+        }
+    },
     "require": {
         "halaxa/json-machine": "^1.2"
     }
