@@ -1,0 +1,18 @@
+[
+    {
+        "category": "buildings-alt",
+        "id": "ray-receiver-pro",
+        "name": "Ray Receiver (Graviton lens)",
+        "row": 0,
+        "stack": 20,
+        "machine": {
+            "fuelCategories": [
+                "lens"
+            ],
+            "modules": 1,
+            "speed": 1,
+            "type": "burner"
+        },
+        "icon": "ray-receiver"
+    }
+]

@@ -1,0 +1,1591 @@
+[
+    {
+        "category": "technologies",
+        "id": "applied-superconductor",
+        "name": "Applied Superconductor",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "graphene",
+                "graphene-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "artificial-star-technology",
+        "name": "Artificial Star",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction"
+            ],
+            "unlockedRecipes": [
+                "artificial-star"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "automatic-metallurgy",
+        "name": "Automatic Metallurgy",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "arc-smelter",
+                "glass"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-assembling-processes",
+        "name": "Basic Assembling",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-chemical-engineering",
+        "name": "Basic Chemical Engineering",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "fluid-storage-encapsulation",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "chemical-plant",
+                "plastic",
+                "sulfuric-acid"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "basic-logistics-system",
+        "name": "Basic Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-1",
+                "storage-1",
+                "sorter-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "casimir-crystal-technology",
+        "name": "Casimir Crystal",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "structure-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "casimir-crystal",
+                "casimir-crystal-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "controlled-annihilation-reaction",
+        "name": "Controlled Annihilation Reaction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "dirac-inversion-mechanism"
+            ],
+            "unlockedRecipes": [
+                "annihilation-constraint-sphere",
+                "antimatter-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "crystal-smelting",
+        "name": "Crystal Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "smelting-purification"
+            ],
+            "unlockedRecipes": [
+                "crystal-silicon",
+                "diamond",
+                "diamond-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "deuterium-fractionation-technology",
+        "name": "Deuterium Fractionation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "thermal-power",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "fractionator",
+                "deuterium-fractionation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-antimatter-capsule-tech",
+        "name": "Antimatter Capsule",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction",
+                "df-plasma-turret-tech"
+            ],
+            "unlockedRecipes": [
+                "df-antimatter-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-attack-drone-tech",
+        "name": "Attack Drone",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "df-attack-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-battlefield-analysis-base-tech",
+        "name": "Battlefield Analysis Base",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system",
+                "df-engine-tech"
+            ],
+            "unlockedRecipes": [
+                "df-battlefield-analysis-base"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-combustible-unit-tech",
+        "name": "Combustible Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "df-combustible-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-corvette-tech",
+        "name": "Corvette",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system",
+                "df-precision-drone-tech"
+            ],
+            "unlockedRecipes": [
+                "df-corvette"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-crystal-explosive-unit-tech",
+        "name": "Crystal Explosive Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "casimir-crystal-technology"
+            ],
+            "unlockedRecipes": [
+                "df-crystal-explosive-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-crystal-shell-set-tech",
+        "name": "Crystal Shell Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-supersonic-missile-set-tech",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "df-crystal-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-destroyer-tech",
+        "name": "Destroyer",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-corvette-tech",
+                "df-attack-drone-tech"
+            ],
+            "unlockedRecipes": [
+                "df-destroyer"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-digital-analog-computation",
+        "name": "Digital Analog Computation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "df-self-evolution-lab"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-engine-tech",
+        "name": "Engine",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "df-engine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-explosive-unit-tech",
+        "name": "Explosive Unit",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-crystal"
+            ],
+            "unlockedRecipes": [
+                "df-explosive-unit"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-gravity-missile-set-tech",
+        "name": "Gravity Missile Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-crystal-shell-set-tech",
+                "strange-matter-technology"
+            ],
+            "unlockedRecipes": [
+                "df-gravity-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-high-density-controlled-annihilation",
+        "name": "High-Density Controlled Annihilation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "controlled-annihilation-reaction"
+            ],
+            "unlockedRecipes": [
+                "df-strange-annihilation-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-high-explosive-shell-set-tech",
+        "name": "High-Explosive Shell Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-implosion-cannon-tech",
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "df-high-explosive-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-implosion-cannon-tech",
+        "name": "Implosion Cannon",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "df-implosion-cannon",
+                "df-shell-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-jammer-tower-tech",
+        "name": "Jammer Tower",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "processor-technology"
+            ],
+            "unlockedRecipes": [
+                "df-jammer-tower",
+                "df-jamming-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-matter-recombination",
+        "name": "Matter Recombination",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-printing-technology"
+            ],
+            "unlockedRecipes": [
+                "df-recomposing-assembler"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-missile-turret-tech",
+        "name": "Missile Turret",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-engine-tech",
+                "df-weapon-system",
+                "df-combustible-unit-tech"
+            ],
+            "unlockedRecipes": [
+                "df-missile-turret",
+                "df-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-negentropy-recursion",
+        "name": "Negentropy Recursion",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "plane-filter-smelting-technology"
+            ],
+            "unlockedRecipes": [
+                "df-negentropy-smelter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-planetary-defense-system",
+        "name": "Planetary Defense System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-implosion-cannon-tech",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "df-laser-turret",
+                "df-planetary-shield-generator"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-plasma-turret-tech",
+        "name": "Plasma Turret",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system",
+                "high-strength-glass"
+            ],
+            "unlockedRecipes": [
+                "df-plasma-turret",
+                "df-plasma-turret-sr",
+                "df-plasma-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-precision-drone-tech",
+        "name": "Precision Drone",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech",
+                "photon-frequency-conversion"
+            ],
+            "unlockedRecipes": [
+                "df-precision-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-prototype-tech",
+        "name": "Prototype",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-battlefield-analysis-base-tech",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "df-prototype"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-signal-tower-tech",
+        "name": "Signal Tower",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-missile-turret-tech",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "df-signal-tower"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-superalloy-ammo-box-tech",
+        "name": "Superalloy Ammo Box",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-titanium-ammo-box-tech",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "df-superalloy-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-supersonic-missile-set-tech",
+        "name": "Supersonic Missile Set",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-high-explosive-shell-set-tech",
+                "thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "df-supersonic-missile-set"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-suppressing-capsule-tech",
+        "name": "Suppressing Capsule",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-jammer-tower-tech"
+            ],
+            "unlockedRecipes": [
+                "df-suppressing-capsule"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-titanium-ammo-box-tech",
+        "name": "Titanium Ammo Box",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system",
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "df-titanium-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "df-weapon-system",
+        "name": "Weapon System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism",
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "df-gauss-turret",
+                "df-magnum-ammo-box"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "dirac-inversion-mechanism",
+        "name": "Dirac Inversion Mechanism",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-ionosphere-utilization"
+            ],
+            "unlockedRecipes": [
+                "critical-photon",
+                "critical-photon-graviton",
+                "mass-energy-storage"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "distribution-logistics-system",
+        "name": "Distribution Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "improved-logistics-system",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "logistics-distributor",
+                "logistics-bot"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "dyson-sphere-stress-system-1",
+        "name": "Dyson Sphere Stress System (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-launching-silo-technology"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetic-drive",
+        "name": "Electromagnetic Drive",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "electric-motor"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetic-matrix-technology",
+        "name": "Electromagnetic Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "matrix-lab",
+                "electromagnetic-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "electromagnetism",
+        "name": "Electromagnetism",
+        "row": 0,
+        "technology": {
+            "unlockedRecipes": [
+                "tesla-tower",
+                "wind-turbine",
+                "mining-machine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "energy-matrix-technology",
+        "name": "Energy Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "energy-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "energy-storage",
+        "name": "Energy Storage",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "crystal-smelting",
+                "solar-collection",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "accumulator"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "environment-modification",
+        "name": "Reclamation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "steel-smelting"
+            ],
+            "unlockedRecipes": [
+                "foundation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "fluid-storage-encapsulation",
+        "name": "Fluid Storage Encapsulation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "storage-tank",
+                "water-pump"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gas-giants-exploitation",
+        "name": "Gas Giants Exploitation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "interstellar-logistics-system",
+                "interstellar-power-transmission"
+            ],
+            "unlockedRecipes": [
+                "orbital-collector",
+                "gas-giant",
+                "gas-giant-deuterium",
+                "gas-giant-hydrogen",
+                "ice-giant",
+                "ice-giant-gas-hydrate",
+                "ice-giant-hydrogen"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "geothermal-extraction",
+        "name": "Geothermal Extraction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "photon-frequency-conversion",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "geothermal-power-station"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gravitational-wave-refraction",
+        "name": "Gravitational Wave Refraction",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "strange-matter-technology",
+                "magnetic-particle-trap"
+            ],
+            "unlockedRecipes": [
+                "graviton-lens",
+                "space-warper"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "gravity-matrix-technology",
+        "name": "Gravity Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology",
+                "gravitational-wave-refraction"
+            ],
+            "unlockedRecipes": [
+                "space-warper-advanced",
+                "gravity-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-efficiency-logistics-system",
+        "name": "High-Efficiency Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "improved-logistics-system",
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-2",
+                "storage-2",
+                "sorter-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-efficiency-plasma-control",
+        "name": "High-Efficiency Plasma Control",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ],
+            "unlockedRecipes": [
+                "wireless-power-tower",
+                "prism",
+                "plasma-exciter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-speed-assembling-processes",
+        "name": "High-Speed Assembling",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes",
+                "processor-technology"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-crystal",
+        "name": "High-Strength Crystal",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "polymer-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "titanium-crystal"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-glass",
+        "name": "High-Strength Glass",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "titanium-glass"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-lightweight-structure",
+        "name": "High-Strength Lightweight Structure",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system",
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "frame-material",
+                "dyson-sphere-component"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-material",
+        "name": "High-Strength Material",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "applied-superconductor"
+            ],
+            "unlockedRecipes": [
+                "carbon-nanotube",
+                "carbon-nanotube-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "high-strength-titanium-alloy",
+        "name": "High-Strength Titanium Alloy",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "titanium-smelting"
+            ],
+            "unlockedRecipes": [
+                "titanium-alloy"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "hydrogen-fuel-rod-technology",
+        "name": "Hydrogen Fuel Rod",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "hydrogen-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "improved-logistics-system",
+        "name": "Upgraded Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-logistics-system"
+            ],
+            "unlockedRecipes": [
+                "splitter",
+                "traffic-monitor",
+                "sorter-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "information-matrix-technology",
+        "name": "Information Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "processor-technology",
+                "particle-control-technology"
+            ],
+            "unlockedRecipes": [
+                "information-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "integrated-logistics-system",
+        "name": "Integrated Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-efficiency-logistics-system",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "automatic-piler",
+                "sorter-4"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "interstellar-logistics-system",
+        "name": "Interstellar Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system",
+                "high-strength-titanium-alloy",
+                "reinforced-thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "interstellar-logistics-station",
+                "logistics-vessel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "interstellar-power-transmission",
+        "name": "Interstellar Power Transmission",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-titanium-alloy",
+                "energy-storage"
+            ],
+            "unlockedRecipes": [
+                "energy-exchanger",
+                "accumulator-discharge",
+                "accumulator-full"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "magnetic-levitation-technology",
+        "name": "Magnetic Levitation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetic-drive"
+            ],
+            "unlockedRecipes": [
+                "electromagnetic-turbine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "magnetic-particle-trap",
+        "name": "Magnetic Particle Trap",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "particle-container",
+                "particle-container-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mesoscopic-quantum-entanglement",
+        "name": "Mesoscopic Quantum Entanglement",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology",
+                "strange-matter-technology"
+            ],
+            "unlockedRecipes": [
+                "quantum-chemical-plant"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mini-fusion-power-generation",
+        "name": "Mini Fusion Power Generation",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "deuterium-fractionation-technology",
+                "high-strength-titanium-alloy"
+            ],
+            "unlockedRecipes": [
+                "mini-fusion-power-plant",
+                "deuteron-fuel-rod"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "miniature-particle-collider-technology",
+        "name": "Miniature Particle Collider",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "structure-matrix-technology"
+            ],
+            "unlockedRecipes": [
+                "miniature-particle-collider",
+                "deuterium"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "mission-completed",
+        "name": "Mission Completed!",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-matrix-technology"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "particle-control-technology",
+        "name": "Particle Control",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "crystal-silicon-advanced",
+                "particle-broadband"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "photon-frequency-conversion",
+        "name": "Photon Frequency Conversion",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-collection"
+            ],
+            "unlockedRecipes": [
+                "photon-combiner",
+                "photon-combiner-advanced"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "photon-spotlight-mining-technology",
+        "name": "Photon Spotlight Mining",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "advanced-mining-machine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "plane-filter-smelting-technology",
+        "name": "Plane-Filter Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "wave-function-interference",
+                "crystal-smelting"
+            ],
+            "unlockedRecipes": [
+                "plane-smelter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "planetary-ionosphere-utilization",
+        "name": "Planetary Ionosphere Utilization",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-receiver-technology",
+                "gravitational-wave-refraction"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "planetary-logistics-system",
+        "name": "Planetary Logistics System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-efficiency-logistics-system",
+                "thruster-technology",
+                "vertical-construction-1"
+            ],
+            "unlockedRecipes": [
+                "conveyor-belt-3",
+                "planetary-logistics-station",
+                "logistics-drone"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "plasma-extract-refining",
+        "name": "Plasma Extract Refining",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "fluid-storage-encapsulation",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "oil-extractor",
+                "oil-refinery",
+                "plasma-refining"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "polymer-chemical-engineering",
+        "name": "Polymer chemical engineering",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering"
+            ],
+            "unlockedRecipes": [
+                "organic-crystal",
+                "organic-crystal-original"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "processor-technology",
+        "name": "Processor",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "semiconductor-material"
+            ],
+            "unlockedRecipes": [
+                "processor"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-1-technology",
+        "name": "Proliferator Mk.I",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "semiconductor-material",
+                "high-efficiency-plasma-control"
+            ],
+            "unlockedRecipes": [
+                "spray-coater",
+                "proliferator-1"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-2-technology",
+        "name": "Proliferator Mk.II",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "processor-technology",
+                "proliferator-1-technology"
+            ],
+            "unlockedRecipes": [
+                "proliferator-2"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "proliferator-3-technology",
+        "name": "Proliferator Mk.III",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "proliferator-2-technology",
+                "high-strength-material"
+            ],
+            "unlockedRecipes": [
+                "proliferator-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "quantum-chip-technology",
+        "name": "Quantum Chip",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology",
+                "wave-function-interference"
+            ],
+            "unlockedRecipes": [
+                "quantum-chip"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "quantum-printing-technology",
+        "name": "Quantum Printing",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-speed-assembling-processes",
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "assembling-machine-3"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "ray-receiver-technology",
+        "name": "Ray Receiver",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system"
+            ],
+            "unlockedRecipes": [
+                "ray-receiver"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "reforming-refine-technology",
+        "name": "Reformed Refinement",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "x-ray-cracking-technology"
+            ],
+            "unlockedRecipes": [
+                "reforming-refine"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "reinforced-thruster-technology",
+        "name": "Reinforced Thruster",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "thruster-technology"
+            ],
+            "unlockedRecipes": [
+                "reinforced-thruster"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "satellite-power-distribution-system",
+        "name": "Satellite Power Distribution System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "super-magnetic-field-generator",
+                "high-strength-lightweight-structure"
+            ],
+            "unlockedRecipes": [
+                "satellite-substation"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "semiconductor-material",
+        "name": "Semiconductor Material",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "microcrystalline-component"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "smelting-purification",
+        "name": "Smelting Purification",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "high-purity-silicon",
+                "energetic-graphite",
+                "silicon-ore"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "solar-collection",
+        "name": "Solar Collection",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "smelting-purification",
+                "electromagnetic-matrix-technology",
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "solar-panel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "solar-sail-orbit-system",
+        "name": "Solar Sail Orbit System",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "photon-frequency-conversion",
+                "super-magnetic-field-generator"
+            ],
+            "unlockedRecipes": [
+                "em-rail-ejector",
+                "solar-sail"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "steel-smelting",
+        "name": "Steel Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "automatic-metallurgy"
+            ],
+            "unlockedRecipes": [
+                "steel"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "strange-matter-technology",
+        "name": "Strange Matter",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "miniature-particle-collider-technology"
+            ],
+            "unlockedRecipes": [
+                "strange-matter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "structure-matrix-technology",
+        "name": "Structure Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-crystal"
+            ],
+            "unlockedRecipes": [
+                "structure-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "super-magnetic-field-generator",
+        "name": "Super Magnetic Field Generator",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "magnetic-levitation-technology"
+            ],
+            "unlockedRecipes": [
+                "super-magnetic-ring"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "thermal-power",
+        "name": "Thermal Power",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-assembling-processes"
+            ],
+            "unlockedRecipes": [
+                "thermal-power-plant"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "thruster-technology",
+        "name": "Thruster",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "hydrogen-fuel-rod-technology"
+            ],
+            "unlockedRecipes": [
+                "thruster"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "titanium-smelting",
+        "name": "Titanium Smelting",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "steel-smelting"
+            ],
+            "unlockedRecipes": [
+                "titanium-ingot"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "universe-matrix-technology",
+        "name": "Universe Matrix",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "dirac-inversion-mechanism"
+            ],
+            "unlockedRecipes": [
+                "universe-matrix"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "vertical-launching-silo-technology",
+        "name": "Vertical Launching Silo",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-lightweight-structure",
+                "quantum-chip-technology"
+            ],
+            "unlockedRecipes": [
+                "vertical-launching-silo",
+                "small-carrier-rocket"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "wave-function-interference",
+        "name": "Wave Function Interference",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "high-strength-glass",
+                "casimir-crystal-technology"
+            ],
+            "unlockedRecipes": [
+                "plane-filter"
+            ]
+        }
+    },
+    {
+        "category": "technologies",
+        "id": "x-ray-cracking-technology",
+        "name": "X-Ray Cracking",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-chemical-engineering",
+                "plasma-extract-refining"
+            ],
+            "unlockedRecipes": [
+                "x-ray-cracking"
+            ]
+        }
+    }
+]

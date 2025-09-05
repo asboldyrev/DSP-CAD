@@ -1,0 +1,879 @@
+[
+    {
+        "category": "components",
+        "id": "iron-ore",
+        "name": "Iron Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "copper-ore",
+        "name": "Copper Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "stone",
+        "name": "Stone",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "coal",
+        "name": "Coal",
+        "row": 0,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 2.7
+        }
+    },
+    {
+        "category": "components",
+        "id": "silicon-ore",
+        "name": "Silicon Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-ore",
+        "name": "Titanium Ore",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "water",
+        "name": "Water",
+        "row": 0,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "crude-oil",
+        "name": "Crude Oil",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.05
+        }
+    },
+    {
+        "category": "components",
+        "id": "hydrogen",
+        "name": "Hydrogen",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 9
+        }
+    },
+    {
+        "category": "components",
+        "id": "deuterium",
+        "name": "Deuterium",
+        "row": 0,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 9
+        }
+    },
+    {
+        "category": "components",
+        "id": "antimatter",
+        "name": "Antimatter",
+        "row": 0,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-core-element",
+        "name": "Core Element",
+        "row": 0,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "critical-photon",
+        "name": "Critical Photon",
+        "row": 0,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "kimberlite-ore",
+        "name": "Kimberlite Ore",
+        "row": 0,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "iron-ingot",
+        "name": "Iron Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "copper-ingot",
+        "name": "Copper Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "stone-brick",
+        "name": "Stone Brick",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "energetic-graphite",
+        "name": "Energetic Graphite",
+        "row": 1,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 6.75
+        }
+    },
+    {
+        "category": "components",
+        "id": "high-purity-silicon",
+        "name": "High-purity Silicon",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-ingot",
+        "name": "Titanium Ingot",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "sulfuric-acid",
+        "name": "Sulfuric Acid",
+        "row": 1,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "refined-oil",
+        "name": "Refined Oil",
+        "row": 1,
+        "stack": 20,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.5
+        }
+    },
+    {
+        "category": "components",
+        "id": "hydrogen-fuel-rod",
+        "name": "Hydrogen Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "chemical",
+            "value": 54
+        }
+    },
+    {
+        "category": "components",
+        "id": "deuteron-fuel-rod",
+        "name": "Deuteron Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "nuclear",
+            "value": 600
+        }
+    },
+    {
+        "category": "components",
+        "id": "antimatter-fuel-rod",
+        "name": "Antimatter Fuel Rod",
+        "row": 1,
+        "stack": 30,
+        "fuel": {
+            "category": "antimatter",
+            "value": 7200
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-strange-annihilation-fuel-rod",
+        "name": "Strange Annihilation Fuel Rod",
+        "row": 1,
+        "stack": 50,
+        "fuel": {
+            "category": "antimatter",
+            "value": 72000
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-missile-set",
+        "name": "Missile Set",
+        "row": 1,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "fractal-silicon",
+        "name": "Fractal Silicon",
+        "row": 1,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "magnet",
+        "name": "Magnet",
+        "row": 2,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "magnetic-coil",
+        "name": "Magnetic Coil",
+        "row": 2,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "glass",
+        "name": "Glass",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "diamond",
+        "name": "Diamond",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.9
+        }
+    },
+    {
+        "category": "components",
+        "id": "crystal-silicon",
+        "name": "Crystal Silicon",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-alloy",
+        "name": "Titanium Alloy",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-combustible-unit",
+        "name": "Combustible Unit",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 9.72
+        }
+    },
+    {
+        "category": "components",
+        "id": "plastic",
+        "name": "Plastic",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "organic-crystal",
+        "name": "Organic Crystal",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 1.8
+        }
+    },
+    {
+        "category": "components",
+        "id": "graphene",
+        "name": "Graphene",
+        "row": 2,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.096
+        }
+    },
+    {
+        "category": "components",
+        "id": "annihilation-constraint-sphere",
+        "name": "Annihilation Constraint Sphere",
+        "row": 2,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-magnum-ammo-box",
+        "name": "Magnum Ammo Box",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-supersonic-missile-set",
+        "name": "Supersonic Missile Set",
+        "row": 2,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "optical-grating-crystal",
+        "name": "Grating Crystal",
+        "row": 2,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "steel",
+        "name": "Steel",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "circuit-board",
+        "name": "Circuit Board",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "prism",
+        "name": "Prism",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "electric-motor",
+        "name": "Electric Motor",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "microcrystalline-component",
+        "name": "Microcrystalline Component",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "proliferator-1",
+        "name": "Proliferator Mk.I",
+        "row": 3,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 3.24
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-explosive-unit",
+        "name": "Explosive Unit",
+        "row": 3,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 21.6
+        }
+    },
+    {
+        "category": "components",
+        "id": "strange-matter",
+        "name": "Strange Matter",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-crystal",
+        "name": "Titanium Crystal",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "carbon-nanotube",
+        "name": "Carbon Nanotube",
+        "row": 3,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.084
+        }
+    },
+    {
+        "category": "components",
+        "id": "particle-broadband",
+        "name": "Particle Broadband",
+        "row": 3,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-titanium-ammo-box",
+        "name": "Titanium Ammo Box",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-gravity-missile-set",
+        "name": "Gravity Missile Set",
+        "row": 3,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "spiniform-stalagmite-crystal",
+        "name": "Stalagmite Crystal",
+        "row": 3,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "gear",
+        "name": "Gear",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "plasma-exciter",
+        "name": "Plasma Exciter",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "photon-combiner",
+        "name": "Photon Combiner",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "electromagnetic-turbine",
+        "name": "Electromagnetic Turbine",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "processor",
+        "name": "Processor",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "proliferator-2",
+        "name": "Proliferator Mk.II",
+        "row": 4,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 8.856
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-crystal-explosive-unit",
+        "name": "Crystal Explosive Unit",
+        "row": 4,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 54
+        }
+    },
+    {
+        "category": "components",
+        "id": "casimir-crystal",
+        "name": "Casimir Crystal",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "titanium-glass",
+        "name": "Titanium Glass",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "plane-filter",
+        "name": "Plane Filter",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "quantum-chip",
+        "name": "Quantum Chip",
+        "row": 4,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-superalloy-ammo-box",
+        "name": "Superalloy Ammo Box",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-shell-set",
+        "name": "Shell Set",
+        "row": 4,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "unipolar-magnet",
+        "name": "Unipolar Magnet",
+        "row": 4,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-engine",
+        "name": "Engine",
+        "row": 5,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "thruster",
+        "name": "Thruster",
+        "row": 5,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "reinforced-thruster",
+        "name": "Reinforced Thruster",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "super-magnetic-ring",
+        "name": "Super-magnetic Ring",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "particle-container",
+        "name": "Particle Container",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "proliferator-3",
+        "name": "Proliferator Mk.III",
+        "row": 5,
+        "stack": 200,
+        "fuel": {
+            "category": "chemical",
+            "value": 21.255
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-prototype",
+        "name": "Prototype",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-precision-drone",
+        "name": "Precision Drone",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-attack-drone",
+        "name": "Attack Drone",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-corvette",
+        "name": "Corvette",
+        "row": 5,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-destroyer",
+        "name": "Destroyer",
+        "row": 5,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-plasma-capsule",
+        "name": "Plasma Capsule",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-high-explosive-shell-set",
+        "name": "High-Explosive Shell Set",
+        "row": 5,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "fire-ice",
+        "name": "Fire Ice",
+        "row": 5,
+        "stack": 50,
+        "fuel": {
+            "category": "chemical",
+            "value": 4.8
+        }
+    },
+    {
+        "category": "components",
+        "id": "logistics-bot",
+        "name": "Logistics Bot",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "logistics-drone",
+        "name": "Logistics Drone",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "logistics-vessel",
+        "name": "Interstellar Logistics Vessel",
+        "row": 6,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "space-warper",
+        "name": "Space Warper",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "graviton-lens",
+        "name": "Graviton Lens",
+        "row": 6,
+        "stack": 100,
+        "fuel": {
+            "category": "lens",
+            "value": 1
+        }
+    },
+    {
+        "category": "components",
+        "id": "foundation",
+        "name": "Foundation",
+        "row": 6,
+        "stack": 1000
+    },
+    {
+        "category": "components",
+        "id": "solar-sail",
+        "name": "Solar Sail",
+        "row": 6,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "frame-material",
+        "name": "Frame Material",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "dyson-sphere-component",
+        "name": "Dyson Sphere Component",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "small-carrier-rocket",
+        "name": "Small Carrier Rocket",
+        "row": 6,
+        "stack": 20
+    },
+    {
+        "category": "components",
+        "id": "df-antimatter-capsule",
+        "name": "Antimatter Capsule",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-crystal-shell-set",
+        "name": "Crystal Shell Set",
+        "row": 6,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "log",
+        "name": "Log",
+        "row": 6,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 1.5
+        }
+    },
+    {
+        "category": "components",
+        "id": "electromagnetic-matrix",
+        "name": "Electromagnetic Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "energy-matrix",
+        "name": "Energy Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "structure-matrix",
+        "name": "Structure Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "information-matrix",
+        "name": "Information Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "gravity-matrix",
+        "name": "Gravity Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "universe-matrix",
+        "name": "Universe Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-dark-fog-matrix",
+        "name": "Dark Fog Matrix",
+        "row": 7,
+        "stack": 200
+    },
+    {
+        "category": "components",
+        "id": "df-energy-shard",
+        "name": "Energy Shard",
+        "row": 7,
+        "stack": 100,
+        "fuel": {
+            "category": "chemical",
+            "value": 3.6
+        }
+    },
+    {
+        "category": "components",
+        "id": "df-silicon-based-neuron",
+        "name": "Silicon-based Neuron",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-negentropy-singularity",
+        "name": "Negentropy Singularity",
+        "row": 7,
+        "stack": 50
+    },
+    {
+        "category": "components",
+        "id": "df-matter-recombinator",
+        "name": "Matter Recombinator",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-jamming-capsule",
+        "name": "Jamming Capsule",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "df-suppressing-capsule",
+        "name": "Suppressing Capsule",
+        "row": 7,
+        "stack": 100
+    },
+    {
+        "category": "components",
+        "id": "plant-fuel",
+        "name": "Plant Fuel",
+        "row": 7,
+        "stack": 500,
+        "fuel": {
+            "category": "chemical",
+            "value": 0.5
+        }
+    }
+]

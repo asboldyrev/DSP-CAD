@@ -1,0 +1,2231 @@
+[
+    {
+        "category": "upgrades",
+        "id": "communication-control-1",
+        "name": "Communication Control (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-2",
+        "name": "Communication Control (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-3",
+        "name": "Communication Control (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-4",
+        "name": "Communication Control (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-3",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-5",
+        "name": "Communication Control (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-6",
+        "name": "Communication Control (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "communication-control-7",
+        "name": "Communication Control (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "communication-control-6",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-1",
+        "name": "Auto Reconstruction Marking (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-2",
+        "name": "Auto Reconstruction Marking (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-3",
+        "name": "Auto Reconstruction Marking (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-4",
+        "name": "Auto Reconstruction Marking (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-5",
+        "name": "Auto Reconstruction Marking (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-auto-reconstruction-marking-6",
+        "name": "Auto Reconstruction Marking (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-auto-reconstruction-marking-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-1",
+        "name": "Combat Drone Attack Speed (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-2",
+        "name": "Combat Drone Attack Speed (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-3",
+        "name": "Combat Drone Attack Speed (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-4",
+        "name": "Combat Drone Attack Speed (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-attack-speed-5",
+        "name": "Combat Drone Attack Speed (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-attack-speed-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-1",
+        "name": "Combat Drone Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-2",
+        "name": "Combat Drone Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-3",
+        "name": "Combat Drone Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-4",
+        "name": "Combat Drone Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-damage-5",
+        "name": "Combat Drone Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-1",
+        "name": "Combat Drone Durability (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-2",
+        "name": "Combat Drone Durability (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-3",
+        "name": "Combat Drone Durability (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-4",
+        "name": "Combat Drone Durability (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-combat-drone-durability-5",
+        "name": "Combat Drone Durability (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combat-drone-durability-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-1",
+        "name": "EM Weapon Strength (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-jammer-tower-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-2",
+        "name": "EM Weapon Strength (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-3",
+        "name": "EM Weapon Strength (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-4",
+        "name": "EM Weapon Strength (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-5",
+        "name": "EM Weapon Strength (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-em-weapon-strength-6",
+        "name": "EM Weapon Strength (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-em-weapon-strength-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-1",
+        "name": "Energy Shield (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-2",
+        "name": "Energy Shield (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-3",
+        "name": "Energy Shield (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-4",
+        "name": "Energy Shield (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-5",
+        "name": "Energy Shield (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-6",
+        "name": "Energy Shield (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-shield-7",
+        "name": "Energy Shield (Lv26)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-shield-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-1",
+        "name": "Energy Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-2",
+        "name": "Energy Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-3",
+        "name": "Energy Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-4",
+        "name": "Energy Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-5",
+        "name": "Energy Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-energy-weapon-damage-6",
+        "name": "Energy Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-energy-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-1",
+        "name": "Enhanced Structure (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-2",
+        "name": "Enhanced Structure (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-3",
+        "name": "Enhanced Structure (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-4",
+        "name": "Enhanced Structure (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-5",
+        "name": "Enhanced Structure (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-enhanced-structure-6",
+        "name": "Enhanced Structure (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-enhanced-structure-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-1",
+        "name": "Explosive Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-combustible-unit-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-2",
+        "name": "Explosive Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-3",
+        "name": "Explosive Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-4",
+        "name": "Explosive Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-5",
+        "name": "Explosive Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-explosive-weapon-damage-6",
+        "name": "Explosive Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-explosive-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-1",
+        "name": "Ground Squadron Expansion (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-prototype-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-2",
+        "name": "Ground Squadron Expansion (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-3",
+        "name": "Ground Squadron Expansion (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-4",
+        "name": "Ground Squadron Expansion (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-5",
+        "name": "Ground Squadron Expansion (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-6",
+        "name": "Ground Squadron Expansion (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-ground-squadron-expansion-7",
+        "name": "Ground Squadron Expansion (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-ground-squadron-expansion-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-1",
+        "name": "Kinetic Weapon Damage (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-weapon-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-2",
+        "name": "Kinetic Weapon Damage (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-3",
+        "name": "Kinetic Weapon Damage (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-4",
+        "name": "Kinetic Weapon Damage (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-5",
+        "name": "Kinetic Weapon Damage (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-kinetic-weapon-damage-6",
+        "name": "Kinetic Weapon Damage (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-kinetic-weapon-damage-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-1",
+        "name": "Planetary Shield (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-defense-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-2",
+        "name": "Planetary Shield (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-3",
+        "name": "Planetary Shield (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-4",
+        "name": "Planetary Shield (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-planetary-shield-5",
+        "name": "Planetary Shield (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-planetary-shield-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-1",
+        "name": "Space Fleet Expansion (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-corvette-tech"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-2",
+        "name": "Space Fleet Expansion (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-3",
+        "name": "Space Fleet Expansion (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-4",
+        "name": "Space Fleet Expansion (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-5",
+        "name": "Space Fleet Expansion (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-6",
+        "name": "Space Fleet Expansion (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "df-space-fleet-expansion-7",
+        "name": "Space Fleet Expansion (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "df-space-fleet-expansion-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-1",
+        "name": "Distribution Range (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-2",
+        "name": "Distribution Range (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-3",
+        "name": "Distribution Range (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-4",
+        "name": "Distribution Range (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "distribution-range-5",
+        "name": "Distribution Range (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "distribution-range-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-1",
+        "name": "Drive Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-2",
+        "name": "Drive Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-3",
+        "name": "Drive Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-4",
+        "name": "Drive Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-3",
+                "mecha-core-4",
+                "gravitational-wave-refraction"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-5",
+        "name": "Drive Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drive-engine-6",
+        "name": "Drive Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drive-engine-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-1",
+        "name": "Drone Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-2",
+        "name": "Drone Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-3",
+        "name": "Drone Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-4",
+        "name": "Drone Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-3",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-5",
+        "name": "Drone Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-4",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "drone-engine-6",
+        "name": "Drone Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "drone-engine-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-1",
+        "name": "Energy Circuit (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-2",
+        "name": "Energy Circuit (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-1",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-3",
+        "name": "Energy Circuit (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-2",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-4",
+        "name": "Energy Circuit (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-3",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-5",
+        "name": "Energy Circuit (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-4",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "energy-circuit-6",
+        "name": "Energy Circuit (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "energy-circuit-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-1",
+        "name": "Inventory Capacity (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-2",
+        "name": "Inventory Capacity (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-3",
+        "name": "Inventory Capacity (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-4",
+        "name": "Inventory Capacity (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-3",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-5",
+        "name": "Inventory Capacity (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-4",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-6",
+        "name": "Inventory Capacity (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-5",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "inventory-capacity-7",
+        "name": "Inventory Capacity (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "inventory-capacity-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-1",
+        "name": "Logistics Carrier Capacity (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-12",
+        "name": "Logistics Carrier Capacity (Lv12)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-9"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-2",
+        "name": "Logistics Carrier Capacity (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-3",
+        "name": "Logistics Carrier Capacity (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-2",
+                "interstellar-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-4",
+        "name": "Logistics Carrier Capacity (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-5",
+        "name": "Logistics Carrier Capacity (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-6",
+        "name": "Logistics Carrier Capacity (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-7",
+        "name": "Logistics Carrier Capacity (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-8",
+        "name": "Logistics Carrier Capacity (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-7"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-capacity-9",
+        "name": "Logistics Carrier Capacity (Lv9)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-8"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-1",
+        "name": "Logistics Carrier Engine (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "planetary-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-2",
+        "name": "Logistics Carrier Engine (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-3",
+        "name": "Logistics Carrier Engine (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-2",
+                "interstellar-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-4",
+        "name": "Logistics Carrier Engine (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-3",
+                "drive-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-5",
+        "name": "Logistics Carrier Engine (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-6",
+        "name": "Logistics Carrier Engine (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-carrier-engine-7",
+        "name": "Logistics Carrier Engine (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-engine-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-1",
+        "name": "Station Integrated Logistics (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-carrier-capacity-8"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-2",
+        "name": "Station Integrated Logistics (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-station-integrated-logistics-1",
+                "logistics-carrier-capacity-9"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "logistics-station-integrated-logistics-3",
+        "name": "Station Integrated Logistics (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "logistics-station-integrated-logistics-2",
+                "logistics-carrier-capacity-12"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-1",
+        "name": "Mass Construction (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-2",
+        "name": "Mass Construction (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-3",
+        "name": "Mass Construction (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-4",
+        "name": "Mass Construction (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-3",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mass-construction-5",
+        "name": "Mass Construction (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mass-construction-4",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-1",
+        "name": "Mecha Core (Lv1)",
+        "row": 0,
+        "technology": []
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-2",
+        "name": "Mecha Core (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-3",
+        "name": "Mecha Core (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-4",
+        "name": "Mecha Core (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-5",
+        "name": "Mecha Core (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mecha-core-6",
+        "name": "Mecha Core (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-1",
+        "name": "Mechanical Frame (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-2",
+        "name": "Mechanical Frame (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-1",
+                "mecha-core-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-3",
+        "name": "Mechanical Frame (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-2",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-4",
+        "name": "Mechanical Frame (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-3",
+                "mecha-core-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-5",
+        "name": "Mechanical Frame (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-4",
+                "mecha-core-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-6",
+        "name": "Mechanical Frame (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-5",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-7",
+        "name": "Mechanical Frame (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-6",
+                "mecha-core-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "mechanical-frame-8",
+        "name": "Mechanical Frame (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "mechanical-frame-7",
+                "mecha-core-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-1",
+        "name": "Pile Sorter Upgrade (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-2",
+        "name": "Pile Sorter Upgrade (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-3",
+        "name": "Pile Sorter Upgrade (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-4",
+        "name": "Pile Sorter Upgrade (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-5",
+        "name": "Pile Sorter Upgrade (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "pile-sorter-6",
+        "name": "Pile Sorter Upgrade (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "pile-sorter-5",
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-1",
+        "name": "Ray Transmission Efficiency (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-receiver-technology"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-2",
+        "name": "Ray Transmission Efficiency (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-3",
+        "name": "Ray Transmission Efficiency (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-4",
+        "name": "Ray Transmission Efficiency (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-5",
+        "name": "Ray Transmission Efficiency (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-6",
+        "name": "Ray Transmission Efficiency (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-7",
+        "name": "Ray Transmission Efficiency (Lv7)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-6"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "ray-transmission-efficiency-8",
+        "name": "Ray Transmission Efficiency (Lv8)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "ray-transmission-efficiency-7"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-1",
+        "name": "Research Speed (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "information-matrix-technology"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-2",
+        "name": "Research Speed (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-3",
+        "name": "Research Speed (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "research-speed-4",
+        "name": "Research Speed (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "research-speed-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-1",
+        "name": "Solar Sail Life (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-orbit-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-2",
+        "name": "Solar Sail Life (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-3",
+        "name": "Solar Sail Life (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-4",
+        "name": "Solar Sail Life (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-5",
+        "name": "Solar Sail Life (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "solar-sail-life-6",
+        "name": "Solar Sail Life (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "solar-sail-life-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-integration",
+        "name": "Sorter Cargo Integration (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-5",
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-1",
+        "name": "Sorter Cargo Stacking (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "integrated-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-2",
+        "name": "Sorter Cargo Stacking (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-3",
+        "name": "Sorter Cargo Stacking (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-4",
+        "name": "Sorter Cargo Stacking (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "sorter-cargo-stacking-5",
+        "name": "Sorter Cargo Stacking (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "sorter-cargo-stacking-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-1",
+        "name": "Universe Exploration (Lv1)",
+        "row": 0,
+        "technology": []
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-2",
+        "name": "Universe Exploration (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-3",
+        "name": "Universe Exploration (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-2",
+                "drive-engine-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "universe-exploration-4",
+        "name": "Universe Exploration (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "universe-exploration-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-1",
+        "name": "Vein Utilization (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "electromagnetism"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-2",
+        "name": "Vein Utilization (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-3",
+        "name": "Vein Utilization (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-4",
+        "name": "Vein Utilization (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-5",
+        "name": "Vein Utilization (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "veins-utilization-6",
+        "name": "Vein Utilization (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "veins-utilization-5"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-1",
+        "name": "Vertical Construction (Lv1)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "basic-logistics-system"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-2",
+        "name": "Vertical Construction (Lv2)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-1"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-3",
+        "name": "Vertical Construction (Lv3)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-2"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-4",
+        "name": "Vertical Construction (Lv4)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-3"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-5",
+        "name": "Vertical Construction (Lv5)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-4"
+            ]
+        }
+    },
+    {
+        "category": "upgrades",
+        "id": "vertical-construction-6",
+        "name": "Vertical Construction (Lv6)",
+        "row": 0,
+        "technology": {
+            "prerequisites": [
+                "vertical-construction-5"
+            ]
+        }
+    }
+]

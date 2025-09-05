@@ -15,6 +15,7 @@
     interface Props {
         id: string
         size?: number
+        title?: string
     }
     const props = withDefaults(defineProps<Props>(), { size: 64 })
 
@@ -63,6 +64,7 @@
         if (isLoading.value) return 'Loading...'
         if (error.value) return `Error: ${error.value}`
         if (!iconData.value) return `Icon '${props.id}' not found`
+        if (props.title) return props.title
         return iconData.value.id
     })
 </script>

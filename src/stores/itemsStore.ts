@@ -1,49 +1,64 @@
 import { ref, computed } from 'vue'
 import type { Item } from '@/types/Item'
 
-const itemsData = ref<Item[]>([])
+const buildingsData = ref<Item[]>([])
 const isLoading = ref(false)
 const error = ref<string | null>(null)
 
 export const useItemsStore = () => {
-  const loadItems = async () => {
-    if (itemsData.value.length > 0) return // Уже загружены
+  const loadBuildings = async () => {
+    if (buildingsData.value.length > 0) return // Уже загружены
     
     isLoading.value = true
     error.value = null
     
     try {
-      const response = await fetch('/data/items.json')
+      const response = await fetch('/data/Items/buildings.json')
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-      itemsData.value = await response.json()
+      buildingsData.value = await response.json()
     } catch (err) {
-      error.value = err instanceof Error ? err.message : 'Failed to load items data'
-      console.error('Error loading items:', err)
+      error.value = err instanceof Error ? err.message : 'Failed to load buildings data'
+      console.error('Error loading buildings:', err)
     } finally {
       isLoading.value = false
     }
   }
 
   const getItemById = (id: string) => {
-    return computed(() => itemsData.value.find((item: Item) => item.id === id))
+    return computed(() => buildingsData.value.find((item: Item) => item.id === id))
   }
 
-  const getItemsByCategory = (category: string) => {
-    return computed(() => itemsData.value.filter((item: Item) => item.category === category))
+  const getBuildingsByRow = (row: number) => {
+    return computed(() => buildingsData.value.filter((item: Item) => item.row === row))
   }
 
-  const getAllItems = computed(() => itemsData.value)
+  const getBuildingsGroupedByRow = () => {
+    return computed(() => {
+      const grouped: { [key: number]: Item[] } = {}
+      buildingsData.value.forEach(item => {
+        const row = item.row ?? 0
+        if (!grouped[row]) {
+          grouped[row] = []
+        }
+        grouped[row].push(item)
+      })
+      return grouped
+    })
+  }
+
+  const getAllBuildings = computed(() => buildingsData.value)
 
   return {
     // Состояние
-    itemsData: computed(() => itemsData.value),
+    buildingsData: computed(() => buildingsData.value),
     isLoading: computed(() => isLoading.value),
     error: computed(() => error.value),
     
     // Методы
-    loadItems,
+    loadBuildings,
     getItemById,
-    getItemsByCategory,
-    getAllItems
+    getBuildingsByRow,
+    getBuildingsGroupedByRow,
+    getAllBuildings
   }
 }

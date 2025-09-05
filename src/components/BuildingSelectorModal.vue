@@ -15,12 +15,15 @@
                     Ошибка загрузки: {{ error }}
                 </div>
 
-                <div v-else class="buildings-grid">
-                    <div v-for="building in buildings" :key="building.id" class="building-tile" @click="selectBuilding(building)">
-                        <div class="building-icon">
-                            <GameIcon :id="building.id" :size="48" />
+                <div v-else class="buildings-container">
+                    <div v-for="row in sortedRows" :key="row" class="buildings-row">
+                        <div class="buildings-grid">
+                            <div v-for="building in buildingsGrouped[row]" :key="building.id" class="building-tile" :title="building.name" @click="selectBuilding(building)">
+                                <div class="building-icon">
+                                    <GameIcon :id="building.id" :title="building.name" :size="48" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="building-name">{{ building.name }}</div>
                     </div>
                 </div>
             </div>
@@ -31,7 +34,6 @@
 <script setup lang="ts">
     import { ref, computed, onMounted } from 'vue'
     import { useItemsStore } from '@/stores/itemsStore'
-    import { Category } from '@/enums/Category'
     import type { Item } from '@/types/Item'
     import GameIcon from './GameIcon.vue'
 
@@ -48,16 +50,23 @@
     const emit = defineEmits<Emits>()
 
     const itemsStore = useItemsStore()
-    const { loadItems, getItemsByCategory, isLoading, error } = itemsStore
+    const { loadBuildings, getBuildingsGroupedByRow, isLoading, error } = itemsStore
 
-    // Получаем только строения
-    const buildings = computed(() => {
-        const buildingsData = getItemsByCategory(Category.BUILDINGS)
-        return buildingsData.value || []
+    // Получаем строения, сгруппированные по строкам
+    const buildingsGrouped = computed(() => {
+        const grouped = getBuildingsGroupedByRow()
+        return grouped.value || {}
+    })
+
+    // Получаем отсортированные строки
+    const sortedRows = computed(() => {
+        return Object.keys(buildingsGrouped.value)
+            .map(Number)
+            .sort((a, b) => a - b)
     })
 
     onMounted(() => {
-        loadItems()
+        loadBuildings()
     })
 
     function closeModal() {
@@ -143,40 +152,47 @@
         color: #dc2626;
     }
 
+    .buildings-container {
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+    }
+
+    .buildings-row {
+        display: flex;
+        flex-direction: column;
+    }
+
     .buildings-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+        gap: .3rem;
     }
 
     .building-tile {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        padding: 1rem;
+        justify-content: center;
+        padding: 0.5rem;
         border: 2px solid #e5e7eb;
-        border-radius: 8px;
+        border-radius: 6px;
         cursor: pointer;
         transition: all 0.2s;
         background: white;
+        width: 48px;
+        height: 48px;
     }
 
     .building-tile:hover {
         border-color: #3b82f6;
         background-color: #f8fafc;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
     }
 
     .building-icon {
-        margin-bottom: 0.5rem;
-    }
-
-    .building-name {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #374151;
-        text-align: center;
-        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
