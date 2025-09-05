@@ -1,7 +1,6 @@
 <template>
     <div class="d3-canvas-container">
         <div class="canvas-controls">
-            <button @click="resetView" class="control-btn">Сброс</button>
             <button @click="toggleGrid" class="control-btn">
                 {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
             </button>
@@ -9,7 +8,10 @@
             <button @click="toggleConnectionMode" class="control-btn" :class="{ 'active': isCreatingConnection, 'disabled': nodes.length < 2 }" :disabled="nodes.length < 2">
                 {{ isCreatingConnection ? 'Отменить связь' : 'Добавить связь' }}
             </button>
-            <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
+            <div class="zoom-controls">
+                <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
+                <button @click="resetView" class="control-btn">Сброс</button>
+            </div>
         </div>
 
         <div ref="canvasContainer" class="canvas-container" @click="handleCanvasClick" @mousemove="handleMouseMove">
@@ -504,8 +506,14 @@
         background: #6c757d;
     }
 
-    .zoom-info {
+    .zoom-controls {
         margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .zoom-info {
         font-size: 14px;
         color: #666;
         font-weight: 500;
