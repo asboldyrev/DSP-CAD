@@ -64,7 +64,7 @@
         <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" />
 
         <!-- Панель редактирования связи -->
-        <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" />
+        <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
     </div>
 </template>
 
@@ -418,6 +418,10 @@
 
     function updateConnectionSyncSorters(connectionId: number, syncSorters: boolean) {
         connectionsStore.updateConnectionSyncSorters(connectionId, syncSorters)
+    }
+
+    function updateConnectionSelectedResource(connectionId: number, resourceId: string) {
+        connectionsStore.updateConnectionSelectedResource(connectionId, resourceId)
     }
 
     onMounted(() => {

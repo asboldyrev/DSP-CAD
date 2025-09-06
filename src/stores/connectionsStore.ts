@@ -173,6 +173,14 @@ export const useConnectionsStore = defineStore('connections', () => {
     }
   }
 
+  // Обновить выбранный ресурс связи
+  function updateConnectionSelectedResource(connectionId: number, resourceId: string) {
+    const connection = connections.value.find(conn => conn.id === connectionId)
+    if (connection) {
+      connection.selectedResource = resourceId
+    }
+  }
+
   // Получить состояние создания связи
   const isCreatingConnection = computed(() => connectionState.value.isCreatingConnection)
   const selectedNodeId = computed(() => connectionState.value.selectedNodeId)
@@ -197,6 +205,7 @@ export const useConnectionsStore = defineStore('connections', () => {
     updateConnectionBelt,
     updateConnectionInputSorter,
     updateConnectionOutputSorter,
-    updateConnectionSyncSorters
+    updateConnectionSyncSorters,
+    updateConnectionSelectedResource
   }
 })

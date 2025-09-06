@@ -25,6 +25,17 @@
                 </div>
             </div>
 
+
+            <div v-if="availableResources.length > 1" class="resource-section">
+                <h4>Ресурс</h4>
+                <div class="resource-grid">
+                    <div v-for="resource in availableResources" :key="resource.id" class="resource-item" :class="{ 'resource-selected': selectedConnection?.selectedResource === resource.id }" :title="resource.name" @click="selectResource(resource.id)">
+                        <GameIcon :id="resource.id" :size="48" />
+                        <div class="resource-quantity">{{ resource.quantity }}</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="belt-section">
                 <h4>Конвейер</h4>
                 <div class="belt-grid">
@@ -89,6 +100,7 @@
     import GameIcon from './GameIcon.vue'
     import { useBeltsStore } from '@/stores/beltsStore'
     import { useItemsStore } from '@/stores/itemsStore'
+    import { useRecipesStore } from '@/stores/recipesStore'
 
     interface Props {
         isOpen: boolean
@@ -103,6 +115,7 @@
         (e: 'update-input-sorter', connectionId: number, sorter: Item | null): void
         (e: 'update-output-sorter', connectionId: number, sorter: Item | null): void
         (e: 'update-sync-sorters', connectionId: number, syncSorters: boolean): void
+        (e: 'update-selected-resource', connectionId: number, resourceId: string): void
     }
 
     const props = defineProps<Props>()
@@ -114,6 +127,9 @@
     const itemsStore = useItemsStore()
     const { getItemById, loadBuildings, loadIcons } = itemsStore
 
+    const recipesStore = useRecipesStore()
+    const { loadRecipes, getRecipeById } = recipesStore
+
     // Получаем данные из стора
     const belts = computed(() => {
         const beltIds = getAllBelts()
@@ -123,6 +139,26 @@
     const sorters = computed(() => {
         const sorterIds = getAllSorters()
         return sorterIds.map(id => getItemById(id)).filter(Boolean) as Item[]
+    })
+
+    // Получаем доступные ресурсы из рецепта исходной ноды
+    const availableResources = computed(() => {
+        if (!props.selectedConnection) return []
+
+        const fromNode = props.nodes.find(n => n.id === props.selectedConnection!.fromNodeId)
+        if (!fromNode?.recipe) return []
+
+        const recipe = getRecipeById(fromNode.recipe.id).value
+        if (!recipe?.out) return []
+
+        // Преобразуем объект out в массив записей, игнорируя undefined значения
+        const outEntries = Object.entries(recipe.out as Record<string, number>).filter(([_, value]) => value !== undefined && value > 0)
+
+        return outEntries.map(([resourceId, quantity]) => ({
+            id: resourceId,
+            name: getItemById(resourceId)?.name || resourceId,
+            quantity: quantity
+        }))
     })
 
     // Получаем названия нод для отображения
@@ -139,7 +175,7 @@
     })
 
     onMounted(async () => {
-        await Promise.all([loadBelts(), loadBuildings(), loadIcons()])
+        await Promise.all([loadBelts(), loadBuildings(), loadIcons(), loadRecipes()])
     })
 
     function closePanel() {
@@ -196,6 +232,12 @@
     function removeOutputSorter() {
         if (props.selectedConnection) {
             emit('update-output-sorter', props.selectedConnection.id, null)
+        }
+    }
+
+    function selectResource(resourceId: string) {
+        if (props.selectedConnection) {
+            emit('update-selected-resource', props.selectedConnection.id, resourceId)
         }
     }
 
@@ -309,6 +351,61 @@
         font-weight: 600;
         color: #1f2937;
         font-size: 0.875rem;
+    }
+
+    .resource-section {
+        margin-bottom: 2rem;
+    }
+
+    .resource-section h4 {
+        margin: 0 0 1rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+        gap: 0.2rem;
+    }
+
+    .resource-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: white;
+    }
+
+    .resource-item:hover {
+        border-color: #3b82f6;
+        background: #f8fafc;
+    }
+
+    .resource-item.resource-selected {
+        border-color: #3b82f6;
+        background: #eff6ff;
+    }
+
+    .resource-quantity {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        background: #3b82f6;
+        color: white;
+        font-size: 0.625rem;
+        font-weight: 600;
+        padding: 0.125rem 0.25rem;
+        border-radius: 4px;
+        min-width: 1rem;
+        text-align: center;
     }
 
     .panel-actions {

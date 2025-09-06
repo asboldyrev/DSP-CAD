@@ -12,6 +12,7 @@ export interface Connection {
   inputSorter?: Item
   outputSorter?: Item
   syncSorters?: boolean
+  selectedResource?: string // ID ресурса из рецепта
 }
 
 export interface ConnectionState {
