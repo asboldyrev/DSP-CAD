@@ -31,9 +31,16 @@ export const useNodesStore = defineStore('nodes', () => {
         }
     }
 
+    function updateNodeBuildingCount(id: number, buildingCount: number) {
+        const node = nodes.value.find(node => node.id === id)
+        if (node) {
+            node.buildingCount = buildingCount
+        }
+    }
+
     function getNodes() {
         return nodes.value
     }
 
-    return {addNode, removeNode, updateNodeRecipe, updateNodeVeins, getNodes}
+    return {addNode, removeNode, updateNodeRecipe, updateNodeVeins, updateNodeBuildingCount, getNodes}
 })

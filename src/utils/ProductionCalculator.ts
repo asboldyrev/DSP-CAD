@@ -39,6 +39,10 @@ export class ProductionCalculator {
         return this.calculateWaterPumpProduction(node)
       
       default:
+        // Проверяем, является ли строение процессором
+        if (this.isProcessor(node)) {
+          return this.calculateProcessorProduction(node)
+        }
         return this.getEmptyResult()
     }
   }
@@ -173,5 +177,57 @@ export class ProductionCalculator {
   static isMiner(buildingId: string): boolean {
     const producersStore = useProducersStore()
     return producersStore.isMiner(buildingId)
+  }
+
+  /**
+   * Проверяет, является ли строение процессором
+   */
+  static isProcessor(node: Node): boolean {
+    // Получаем список процессоров напрямую из producers.json
+    const processors = [
+      "assembling-machine-1",
+      "assembling-machine-2", 
+      "assembling-machine-3",
+      "df-recomposing-assembler",
+      "energy-exchanger",
+      "arc-smelter",
+      "plane-smelter",
+      "df-negentropy-smelter",
+      "oil-refinery",
+      "chemical-plant",
+      "quantum-chemical-plant",
+      "fractionator",
+      "miniature-particle-collider",
+      "matrix-lab",
+      "df-self-evolution-lab"
+    ]
+    return processors.includes(node.item.id)
+  }
+
+  /**
+   * Расчет производительности для процессоров
+   */
+  private static calculateProcessorProduction(node: Node): ProductionResult {
+    const recipe = node.recipe!
+    const buildingCount = node.buildingCount || 1
+    const buildingSpeed = node.item.machine?.speed || 1
+
+    // Рассчитываем базовую скорость производства (предметов в секунду)
+    // Формула: (количество_выхода / время_рецепта) * скорость_строения * количество_строений
+    const outputEntries = Object.entries(recipe.out as unknown as Record<string, number>)
+    const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
+    
+    const baseRate = (totalOutputPerCycle / recipe.time) * buildingSpeed * buildingCount
+
+    return {
+      rate: baseRate,
+      unit: 'шт/сек',
+      inputLabel: 'Количество строений',
+      inputType: 'buildings',
+      inputMin: 1,
+      inputMax: 100,
+      inputStep: 1,
+      inputPrecision: 0
+    }
   }
 }

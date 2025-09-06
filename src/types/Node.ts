@@ -8,5 +8,6 @@ export interface Node {
     y: number,
     item: Item,
     recipe?: Recipe,
-    veins?: number
+    veins?: number,
+    buildingCount?: number // Количество строений (для всех типов)
 }

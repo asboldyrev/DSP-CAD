@@ -35,6 +35,36 @@
                         ×
                     </button>
                 </div>
+
+                <!-- Детали рецепта -->
+                <div class="recipe-details">
+                    <div class="recipe-time">
+                        <span class="recipe-time-label">Время:</span>
+                        <span class="recipe-time-value">{{ selectedNode.recipe.time }}с</span>
+                    </div>
+
+                    <!-- Входные ресурсы -->
+                    <div class="recipe-inputs" v-if="recipeInputs.length > 0">
+                        <span class="recipe-inputs-label">Вход:</span>
+                        <div class="recipe-items">
+                            <div v-for="input in recipeInputs" :key="input.id" class="recipe-item">
+                                <GameIcon :id="input.id" :size="20" />
+                                <span class="recipe-item-quantity">{{ input.quantity }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Выходные ресурсы -->
+                    <div class="recipe-outputs" v-if="recipeOutputs.length > 0">
+                        <span class="recipe-outputs-label">Выход:</span>
+                        <div class="recipe-items">
+                            <div v-for="output in recipeOutputs" :key="output.id" class="recipe-item">
+                                <GameIcon :id="output.id" :size="20" />
+                                <span class="recipe-item-quantity">{{ output.quantity }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="veins-section" v-if="isMiner && (selectedNode?.recipe || selectedNode?.item.id === 'oil-extractor')">
@@ -43,7 +73,21 @@
                     <input type="number" v-model.number="inputValue" :min="productionResult.inputMin" :max="productionResult.inputMax" :step="productionResult.inputStep" :placeholder="productionResult.inputLabel" @input="updateInput" />
                     <span class="veins-unit">{{ getInputUnit() }}</span>
                 </div>
-                <div class="production-info" v-if="productionResult.rate > 0">
+                <div class="production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
+                    <div class="production-rate">
+                        <span class="production-label">Производительность:</span>
+                        <span class="production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="building-count-section" v-if="isProcessor && selectedNode?.recipe">
+                <h4>{{ productionResult.inputLabel }}</h4>
+                <div class="building-count-input">
+                    <input type="number" v-model.number="buildingCountValue" :min="productionResult.inputMin" :max="productionResult.inputMax" :step="productionResult.inputStep" :placeholder="productionResult.inputLabel" @input="updateBuildingCount" />
+                    <span class="building-count-unit">шт</span>
+                </div>
+                <div class="production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
                     <div class="production-rate">
                         <span class="production-label">Производительность:</span>
                         <span class="production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
@@ -64,14 +108,18 @@
     import { computed, onMounted, watch, ref } from 'vue'
     import type { Node } from '@/types/Node'
     import type { Recipe } from '@/types/Recipes'
+    import type { Connection } from '@/types/Connection'
     import GameIcon from './GameIcon.vue'
     import { useRecipesStore } from '@/stores/recipesStore'
     import { useProducersStore } from '@/stores/producersStore'
     import { ProductionCalculator } from '@/utils/ProductionCalculator'
+    import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
 
     interface Props {
         isOpen: boolean
         selectedNode: Node | null
+        allConnections?: Connection[]
+        allNodes?: Node[]
     }
 
     interface Emits {
@@ -79,6 +127,7 @@
         (e: 'delete', nodeId: number): void
         (e: 'update-recipe', nodeId: number, recipe: Recipe | null): void
         (e: 'update-veins', nodeId: number, veins: number): void
+        (e: 'update-building-count', nodeId: number, buildingCount: number): void
     }
 
     const props = defineProps<Props>()
@@ -103,8 +152,29 @@
         return ProductionCalculator.isMiner(props.selectedNode.item.id)
     })
 
+    // Проверяем, является ли строение процессором
+    const isProcessor = computed(() => {
+        if (!props.selectedNode) return false
+        return ProductionCalculator.isProcessor(props.selectedNode)
+    })
+
+    // Получаем входные ресурсы рецепта
+    const recipeInputs = computed(() => {
+        if (!props.selectedNode?.recipe?.in) return []
+        const inputEntries = Object.entries(props.selectedNode.recipe.in as unknown as Record<string, number>)
+        return inputEntries.map(([id, quantity]) => ({ id, quantity }))
+    })
+
+    // Получаем выходные ресурсы рецепта
+    const recipeOutputs = computed(() => {
+        if (!props.selectedNode?.recipe?.out) return []
+        const outputEntries = Object.entries(props.selectedNode.recipe.out as unknown as Record<string, number>)
+        return outputEntries.map(([id, quantity]) => ({ id, quantity }))
+    })
+
     // Значение ввода (жилы/скорость/постройки)
     const inputValue = ref(1)
+    const buildingCountValue = ref(1)
 
     // Расчет производительности с использованием калькулятора
     const productionResult = computed(() => {
@@ -115,7 +185,22 @@
         // Создаем временную ноду с текущим значением ввода для расчета
         const tempNode = {
             ...props.selectedNode,
-            veins: inputValue.value
+            veins: inputValue.value,
+            buildingCount: buildingCountValue.value
+        }
+
+        // Для процессоров учитываем входные ресурсы
+        if (props.allConnections && props.allNodes && ProductionCalculator.isProcessor(tempNode)) {
+            const actualRate = InputResourceCalculator.calculateActualProductionRate(
+                tempNode,
+                props.allConnections,
+                props.allNodes
+            )
+            const baseResult = ProductionCalculator.calculateProduction(tempNode)
+            return {
+                ...baseResult,
+                rate: actualRate
+            }
         }
 
         return ProductionCalculator.calculateProduction(tempNode)
@@ -129,6 +214,7 @@
     watch(() => props.selectedNode, (newNode) => {
         if (newNode) {
             inputValue.value = newNode.veins || 1
+            buildingCountValue.value = newNode.buildingCount || 1
         }
     }, { immediate: true })
 
@@ -139,6 +225,12 @@
     function updateInput() {
         if (props.selectedNode) {
             emit('update-veins', props.selectedNode.id, inputValue.value)
+        }
+    }
+
+    function updateBuildingCount() {
+        if (props.selectedNode) {
+            emit('update-building-count', props.selectedNode.id, buildingCountValue.value)
         }
     }
 
@@ -252,7 +344,7 @@
     }
 
     .recipes-container {
-        max-height: 400px;
+        max-height: 200px;
         overflow-y: auto;
         border: 1px solid #e5e7eb;
         border-radius: 6px;
@@ -454,5 +546,118 @@
 
     .delete-btn:hover {
         background: #b91c1c;
+    }
+
+    /* Секция количества строений */
+    .building-count-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .building-count-section h4 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .building-count-input {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .building-count-input input {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        background: white;
+        transition: border-color 0.2s;
+    }
+
+    .building-count-input input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .building-count-unit {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 500;
+        min-width: 2rem;
+    }
+
+    /* Детали рецепта */
+    .recipe-details {
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+        background: #f8fafc;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .recipe-time {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .recipe-time-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #64748b;
+    }
+
+    .recipe-time-value {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #1e293b;
+    }
+
+    .recipe-inputs,
+    .recipe-outputs {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .recipe-inputs:last-child,
+    .recipe-outputs:last-child {
+        margin-bottom: 0;
+    }
+
+    .recipe-inputs-label,
+    .recipe-outputs-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #64748b;
+        min-width: 3rem;
+    }
+
+    .recipe-items {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .recipe-item {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .recipe-item-quantity {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #1e293b;
     }
 </style>

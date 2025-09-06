@@ -6,7 +6,7 @@
     <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" :class="connectionClass" :stroke="connectionColor" :stroke-width="strokeWidth" :marker-end="markerEnd" pointer-events="none" />
 
     <!-- Отображение пропускной способности -->
-    <text v-if="throughputResult.throughput > 0" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
+        <text v-if="throughputResult.throughput > 0 || connection" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
         {{ throughputText }}
     </text>
 </template>
@@ -23,6 +23,8 @@
         isHighlighted?: boolean
         fromNode?: Node
         toNode?: Node
+        allConnections?: Connection[]
+        allNodes?: Node[]
     }
 
     interface Emits {
@@ -49,7 +51,9 @@
             props.toNode,
             props.connection.inputSorter,
             props.connection.outputSorter,
-            props.connection.belt
+            props.connection.belt,
+            props.allConnections,
+            props.allNodes
         )
     })
 

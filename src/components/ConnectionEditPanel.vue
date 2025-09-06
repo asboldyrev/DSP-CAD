@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <div v-if="throughputResult.throughput > 0" class="throughput-section">
+            <div v-if="throughputResult.throughput > 0 || selectedConnection" class="throughput-section">
                 <h4>Пропускная способность</h4>
                 <div class="throughput-info">
                     <div class="throughput-main">
@@ -138,6 +138,7 @@
         isOpen: boolean
         selectedConnection: Connection | null
         nodes: Node[]
+        connections: Connection[]
     }
 
     interface Emits {
@@ -225,7 +226,9 @@
             toNode,
             props.selectedConnection.inputSorter,
             props.selectedConnection.outputSorter,
-            props.selectedConnection.belt
+            props.selectedConnection.belt,
+            props.connections,
+            props.nodes
         )
     })
 

@@ -44,14 +44,14 @@
 
                     <!-- Связи (рисуются под нодами) -->
                     <g class="connections">
-                        <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" :from-node="getNodeById(connection.fromNodeId)" :to-node="getNodeById(connection.toNodeId)" @click="selectConnection" />
+                        <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" :from-node="getNodeById(connection.fromNodeId)" :to-node="getNodeById(connection.toNodeId)" :all-connections="connections" :all-nodes="nodes" @click="selectConnection" />
 
                         <!-- Предварительная связь при создании -->
                         <line v-if="isCreatingConnection && selectedNodeId && previewConnection" :x1="previewConnection.fromX" :y1="previewConnection.fromY" :x2="previewConnection.toX" :y2="previewConnection.toY" class="preview-connection" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-selected)" />
                     </g>
 
                     <g class="nodes">
-                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id || (isCreatingConnection && selectedNodeId === node.id)" />
+                        <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id || (isCreatingConnection && selectedNodeId === node.id)" :all-connections="connections" :all-nodes="nodes" />
                     </g>
                 </g>
             </svg>
@@ -61,10 +61,10 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" />
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" :all-connections="connections" :all-nodes="nodes" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" @update-building-count="updateNodeBuildingCount" />
 
         <!-- Панель редактирования связи -->
-        <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
+        <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" :connections="connections" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
     </div>
 </template>
 
@@ -397,6 +397,10 @@
 
     function updateNodeVeins(nodeId: number, veins: number) {
         nodesStore.updateNodeVeins(nodeId, veins)
+    }
+
+    function updateNodeBuildingCount(nodeId: number, buildingCount: number) {
+        nodesStore.updateNodeBuildingCount(nodeId, buildingCount)
     }
 
     function deleteConnection(connectionId: number) {
