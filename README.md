@@ -38,9 +38,7 @@ npm run build
 npm run lint
 ```
 
-## Изменения в файле icons.json
-
-### Обновление от [дата]
+### Ручное обновление данных в json
 
 В файл `public/data/icons.json` добавлены дубли иконок:
 - `fire-ice` — `ice-giant-gas-hydrate`
@@ -49,3 +47,9 @@ npm run lint
 - `hydrogen` — `gas-giant-hydrogen`, `ice-giant-hydrogen`
 - `deuterium` — `gas-giant-deuterium`
 - `gas-giants-exploitation` — `gas-giant`, `ice-giant`
+
+В файле `public/data/data.json заменены скорости для сортеров:
+- `sorter-1` — 1.5
+- `sorter-2` — 3
+- `sorter-3` — 6
+- `sorter-4` — 20
