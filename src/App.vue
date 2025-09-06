@@ -5,6 +5,7 @@
 <template>
   <div class="app">
     <header class="app-header">
+      <img src="/favicon.png" class="favicon">
       <h1>DSP CAD</h1>
     </header>
     <main class="app-main">
@@ -22,6 +23,10 @@
   }
 
   .app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 1rem 2rem;
@@ -33,6 +38,7 @@
     margin: 0 0 0.5rem 0;
     font-size: 2rem;
     font-weight: 600;
+    line-height: 2rem;
   }
 
   .app-header p {
@@ -44,5 +50,10 @@
   .app-main {
     flex: 1;
     overflow: hidden;
+  }
+
+  .favicon {
+    height: 44px;
+    border-radius: 15%;
   }
 </style>
