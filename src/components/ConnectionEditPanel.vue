@@ -83,6 +83,37 @@
                 </div>
             </div>
 
+            <div v-if="throughputResult.throughput > 0" class="throughput-section">
+                <h4>Пропускная способность</h4>
+                <div class="throughput-info">
+                    <div class="throughput-main">
+                        <span class="throughput-value">{{ throughputText }}</span>
+                    </div>
+                    <div class="throughput-details">
+                        <div class="throughput-item">
+                            <span class="throughput-label">Производство:</span>
+                            <span class="throughput-detail-value">{{ throughputResult.calculation.producerRate.toFixed(2) }} шт/сек</span>
+                        </div>
+                        <div v-if="selectedConnection?.inputSorter" class="throughput-item">
+                            <span class="throughput-label">Входной сортер:</span>
+                            <span class="throughput-detail-value">{{ throughputResult.calculation.inputSorterRate.toFixed(2) }} шт/сек</span>
+                        </div>
+                        <div v-if="selectedConnection?.outputSorter" class="throughput-item">
+                            <span class="throughput-label">Выходной сортер:</span>
+                            <span class="throughput-detail-value">{{ throughputResult.calculation.outputSorterRate.toFixed(2) }} шт/сек</span>
+                        </div>
+                        <div v-if="selectedConnection?.belt" class="throughput-item">
+                            <span class="throughput-label">Конвейер:</span>
+                            <span class="throughput-detail-value">{{ throughputResult.calculation.beltRate.toFixed(2) }} шт/сек</span>
+                        </div>
+                    </div>
+                    <div v-if="throughputResult.bottlenecks.length > 0" class="throughput-bottlenecks">
+                        <span class="bottlenecks-label">Узкие места:</span>
+                        <span class="bottlenecks-value">{{ throughputResult.bottlenecks.join(', ') }}</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="panel-actions">
                 <button class="delete-btn" @click="deleteConnection">
                     Удалить связь
@@ -101,6 +132,7 @@
     import { useBeltsStore } from '@/stores/beltsStore'
     import { useItemsStore } from '@/stores/itemsStore'
     import { useRecipesStore } from '@/stores/recipesStore'
+    import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
 
     interface Props {
         isOpen: boolean
@@ -172,6 +204,34 @@
         if (!props.selectedConnection) return ''
         const node = props.nodes.find(n => n.id === props.selectedConnection!.toNodeId)
         return node?.item.name || `Нода ${props.selectedConnection.toNodeId}`
+    })
+
+    // Рассчитываем пропускную способность
+    const throughputResult = computed(() => {
+        if (!props.selectedConnection) {
+            return { throughput: 0, unit: 'предм/сек', bottlenecks: [], calculation: { producerRate: 0, inputSorterRate: 0, outputSorterRate: 0, beltRate: 0 } }
+        }
+
+        const fromNode = props.nodes.find(n => n.id === props.selectedConnection!.fromNodeId)
+        const toNode = props.nodes.find(n => n.id === props.selectedConnection!.toNodeId)
+
+        if (!fromNode || !toNode) {
+            return { throughput: 0, unit: 'предм/сек', bottlenecks: [], calculation: { producerRate: 0, inputSorterRate: 0, outputSorterRate: 0, beltRate: 0 } }
+        }
+
+        return ThroughputCalculator.calculateThroughput(
+            props.selectedConnection,
+            fromNode,
+            toNode,
+            props.selectedConnection.inputSorter,
+            props.selectedConnection.outputSorter,
+            props.selectedConnection.belt
+        )
+    })
+
+    // Форматированный текст пропускной способности
+    const throughputText = computed(() => {
+        return ThroughputCalculator.formatThroughput(throughputResult.value)
     })
 
     onMounted(async () => {
@@ -550,6 +610,76 @@
 
     .checkbox-text {
         user-select: none;
+    }
+
+    /* Секция пропускной способности */
+    .throughput-section {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .throughput-section h4 {
+        margin: 0 0 1rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .throughput-main {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .throughput-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #059669;
+    }
+
+    .throughput-details {
+        margin-bottom: 0.75rem;
+    }
+
+    .throughput-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem 0;
+        font-size: 0.875rem;
+    }
+
+    .throughput-label {
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .throughput-detail-value {
+        color: #374151;
+        font-weight: 600;
+    }
+
+    .throughput-bottlenecks {
+        padding: 0.5rem;
+        background: #fef3c7;
+        border-radius: 4px;
+        border-left: 3px solid #f59e0b;
+    }
+
+    .bottlenecks-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #92400e;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    .bottlenecks-value {
+        font-size: 0.75rem;
+        color: #92400e;
+        font-weight: 500;
     }
 
 </style>

@@ -44,7 +44,7 @@
 
                     <!-- Связи (рисуются под нодами) -->
                     <g class="connections">
-                        <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" @click="selectConnection" />
+                        <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" :from-node="getNodeById(connection.fromNodeId)" :to-node="getNodeById(connection.toNodeId)" @click="selectConnection" />
 
                         <!-- Предварительная связь при создании -->
                         <line v-if="isCreatingConnection && selectedNodeId && previewConnection" :x1="previewConnection.fromX" :y1="previewConnection.fromY" :x2="previewConnection.toX" :y2="previewConnection.toY" class="preview-connection" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-selected)" />
@@ -422,6 +422,10 @@
 
     function updateConnectionSelectedResource(connectionId: number, resourceId: string) {
         connectionsStore.updateConnectionSelectedResource(connectionId, resourceId)
+    }
+
+    function getNodeById(nodeId: number) {
+        return nodes.value.find(node => node.id === nodeId)
     }
 
     onMounted(() => {

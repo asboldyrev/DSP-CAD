@@ -4,16 +4,25 @@
 
     <!-- Видимая линия связи -->
     <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" :class="connectionClass" :stroke="connectionColor" :stroke-width="strokeWidth" :marker-end="markerEnd" pointer-events="none" />
+
+    <!-- Отображение пропускной способности -->
+    <text v-if="throughputResult.throughput > 0" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
+        {{ throughputText }}
+    </text>
 </template>
 
 <script setup lang="ts">
     import { computed, ref } from 'vue'
     import type { Connection } from '@/types/Connection'
+    import type { Node } from '@/types/Node'
+    import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
 
     interface Props {
         connection: Connection
         isSelected?: boolean
         isHighlighted?: boolean
+        fromNode?: Node
+        toNode?: Node
     }
 
     interface Emits {
@@ -27,6 +36,36 @@
 
     const emit = defineEmits<Emits>()
     const isHovered = ref(false)
+
+    // Рассчитываем пропускную способность
+    const throughputResult = computed(() => {
+        if (!props.fromNode || !props.toNode) {
+            return { throughput: 0, unit: 'предм/сек', bottlenecks: [], calculation: { producerRate: 0, inputSorterRate: 0, outputSorterRate: 0, beltRate: 0 } }
+        }
+
+        return ThroughputCalculator.calculateThroughput(
+            props.connection,
+            props.fromNode,
+            props.toNode,
+            props.connection.inputSorter,
+            props.connection.outputSorter,
+            props.connection.belt
+        )
+    })
+
+    // Форматированный текст пропускной способности
+    const throughputText = computed(() => {
+        return ThroughputCalculator.formatThroughput(throughputResult.value)
+    })
+
+    // Позиция текста пропускной способности (середина линии)
+    const throughputTextX = computed(() => {
+        return (adjustedFromX.value + adjustedToX.value) / 2
+    })
+
+    const throughputTextY = computed(() => {
+        return (adjustedFromY.value + adjustedToY.value) / 2 - 8 // Смещаем вверх от линии
+    })
 
     const connectionClass = computed(() => {
         const classes = ['connection']
@@ -173,5 +212,19 @@
 
     .connection-highlighted {
         stroke-width: 2.5;
+    }
+
+    .throughput-text {
+        font-size: 12px;
+        font-weight: 600;
+        fill: #374151;
+        text-anchor: middle;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    .throughput-text-selected {
+        fill: #1f2937;
+        font-weight: 700;
     }
 </style>
