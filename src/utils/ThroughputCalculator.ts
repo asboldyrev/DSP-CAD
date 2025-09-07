@@ -141,7 +141,8 @@ export class ThroughputCalculator {
             connection.id,
             fromNode,
             outgoingConnections,
-            allNodes
+            allNodes,
+            allConnections
         )
         console.log('Distributed rate:', distributedRate)
         return distributedRate

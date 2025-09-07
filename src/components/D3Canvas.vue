@@ -61,7 +61,18 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" :all-connections="connections" :all-nodes="nodes" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" @update-building-count="updateNodeBuildingCount" />
+        <NodeEditPanel
+            :is-open="isEditPanelOpen"
+            :selected-node="selectedNode"
+            :all-connections="connections"
+            :all-nodes="nodes"
+            @close="closeEditPanel"
+            @delete="deleteNode"
+            @update-recipe="updateNodeRecipe"
+            @update-veins="updateNodeVeins"
+            @update-building-count="updateNodeBuildingCount"
+            @update-coefficient="updateNodeCoefficient"
+        />
 
         <!-- Панель редактирования связи -->
         <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" :connections="connections" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
@@ -231,8 +242,8 @@
                 // переводим в координаты сцены через инверсию текущего зума
                 const [sx, sy] = currentTransform.invert([px, py])
 
-                node.x = sx
-                node.y = sy
+                // Update position via the store so that state remains consistent
+                nodesStore.updateNodePosition(node.id, sx, sy)
             })
 
         // навесим drag на все ноды
@@ -401,6 +412,10 @@
 
     function updateNodeBuildingCount(nodeId: number, buildingCount: number) {
         nodesStore.updateNodeBuildingCount(nodeId, buildingCount)
+    }
+
+    function updateNodeCoefficient(nodeId: number, coefficient: number | undefined) {
+        nodesStore.updateNodeCoefficient(nodeId, coefficient)
     }
 
     function deleteConnection(connectionId: number) {
