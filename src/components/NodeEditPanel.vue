@@ -102,6 +102,16 @@
             </div>
         </div>
     </div>
+
+            <!-- Коэффициент производительности -->
+            <div class="coefficient-section" v-if="selectedNode">
+                <h4>Коэффициент производительности</h4>
+                <div class="coefficient-input">
+                    <input type="number" v-model.number="coefficientValue" :min="0" :step="0.1" placeholder="Коэффициент" @input="updateCoefficient" />
+                    <span class="coefficient-unit">×</span>
+                </div>
+                <p class="coefficient-hint">Значение 1 означает нормальную скорость, 2 – удвоенную и т.д.</p>
+            </div>
 </template>
 
 <script setup lang="ts">
@@ -128,6 +138,7 @@
         (e: 'update-recipe', nodeId: number, recipe: Recipe | null): void
         (e: 'update-veins', nodeId: number, veins: number): void
         (e: 'update-building-count', nodeId: number, buildingCount: number): void
+        (e: 'update-coefficient', nodeId: number, coefficient: number | undefined): void
     }
 
     const props = defineProps<Props>()
@@ -175,6 +186,7 @@
     // Значение ввода (жилы/скорость/постройки)
     const inputValue = ref(1)
     const buildingCountValue = ref(1)
+    const coefficientValue = ref(1)
 
     // Расчет производительности с использованием калькулятора
     const productionResult = computed(() => {
@@ -215,6 +227,7 @@
         if (newNode) {
             inputValue.value = newNode.veins || 1
             buildingCountValue.value = newNode.buildingCount || 1
+            coefficientValue.value = newNode.coefficient ?? 1
         }
     }, { immediate: true })
 
@@ -231,6 +244,18 @@
     function updateBuildingCount() {
         if (props.selectedNode) {
             emit('update-building-count', props.selectedNode.id, buildingCountValue.value)
+        }
+    }
+
+    function updateCoefficient() {
+        if (props.selectedNode) {
+            // Treat NaN or non-positive coefficient as undefined (defaults to 1)
+            const coeff = coefficientValue.value
+            if (!coeff || coeff <= 0) {
+                emit('update-coefficient', props.selectedNode.id, undefined)
+            } else {
+                emit('update-coefficient', props.selectedNode.id, coeff)
+            }
         }
     }
 
@@ -659,5 +684,45 @@
         font-size: 0.75rem;
         font-weight: 600;
         color: #1e293b;
+    }
+
+    /* Коэффициент производительности */
+    .coefficient-section {
+        margin-top: 1rem;
+    }
+
+    .coefficient-input {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .coefficient-input input {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        background: white;
+        transition: border-color 0.2s;
+    }
+
+    .coefficient-input input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .coefficient-unit {
+        font-size: 0.875rem;
+        color: #6b7280;
+        font-weight: 500;
+        min-width: 1.5rem;
+    }
+
+    .coefficient-hint {
+        font-size: 0.75rem;
+        color: #6b7280;
     }
 </style>

@@ -21,7 +21,7 @@
 
         <!-- Производительность под нодой -->
         <text v-if="productionResult.rate > 0 || (node.recipe && ProductionCalculator.isProcessor(node))" :x="node.x" :y="node.y + 50" text-anchor="middle" class="production-text">
-            {{ productionResult.rate.toFixed(productionResult.inputPrecision || 1) }} {{ productionResult.unit }}
+            {{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}
         </text>
     </g>
 </template>

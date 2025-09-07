@@ -68,7 +68,10 @@ export class ProductionCalculator {
     const powerEfficiency = 1.0
 
     // Формула: rate_sec = veins * (out_qty / recipe_time_sec) * machine_speed * power_efficiency
-    const rate = veins * (outQty / recipeTimeSec) * machineSpeed * powerEfficiency
+    let rate = veins * (outQty / recipeTimeSec) * machineSpeed * powerEfficiency
+    // Apply productivity coefficient
+    const coefficient = node.coefficient ?? 1
+    rate = rate * coefficient
 
     return {
       rate,
@@ -87,7 +90,10 @@ export class ProductionCalculator {
    */
   private static calculateOilExtractorProduction(node: Node): ProductionResult {
     // Для oil-extractor скорость добычи указывается напрямую
-    const rate = node.veins || 0
+    let rate = node.veins || 0
+    // Apply productivity coefficient
+    const coefficient = node.coefficient ?? 1
+    rate = rate * coefficient
 
     return {
       rate,
@@ -106,7 +112,10 @@ export class ProductionCalculator {
    */
   private static calculateRayReceiverProduction(node: Node): ProductionResult {
     // Для ray-receiver скорость добычи указывается напрямую (целое число)
-    const rate = node.veins || 0
+    let rate = node.veins || 0
+    // Apply productivity coefficient
+    const coefficient = node.coefficient ?? 1
+    rate = rate * coefficient
 
     return {
       rate,
@@ -141,7 +150,10 @@ export class ProductionCalculator {
     const powerEfficiency = 1.0
 
     // Формула: rate_sec = buildings * (out_qty / recipe_time_sec) * machine_speed * power_efficiency
-    const rate = buildings * (outQty / recipeTimeSec) * machineSpeed * powerEfficiency
+    let rate = buildings * (outQty / recipeTimeSec) * machineSpeed * powerEfficiency
+    // Apply productivity coefficient
+    const coefficient = node.coefficient ?? 1
+    rate = rate * coefficient
 
     return {
       rate,
@@ -217,7 +229,10 @@ export class ProductionCalculator {
     const outputEntries = Object.entries(recipe.out as unknown as Record<string, number>)
     const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
     
-    const baseRate = (totalOutputPerCycle / recipe.time) * buildingSpeed * buildingCount
+    let baseRate = (totalOutputPerCycle / recipe.time) * buildingSpeed * buildingCount
+    // Apply productivity coefficient
+    const coefficient = node.coefficient ?? 1
+    baseRate = baseRate * coefficient
 
     return {
       rate: baseRate,

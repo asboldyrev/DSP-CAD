@@ -46,7 +46,11 @@ export class InputResourceCalculator {
 
         for (const [resourceId, requiredPerCycle] of inputEntries) {
             // Рассчитываем сколько нужно в секунду
-            const requiredPerSecond = (requiredPerCycle / node.recipe!.time) * (node.item.machine?.speed || 1) * (node.buildingCount || 1)
+            // Base required per second without coefficient
+            let requiredPerSecond = (requiredPerCycle / node.recipe!.time) * (node.item.machine?.speed || 1) * (node.buildingCount || 1)
+            // Apply productivity coefficient to consumption as well
+            const coefficient = node.coefficient ?? 1
+            requiredPerSecond = requiredPerSecond * coefficient
             
             // Находим связи, которые поставляют этот ресурс
             let resourceConnections = incomingConnections.filter(conn => 
@@ -81,7 +85,9 @@ export class InputResourceCalculator {
                         node,
                         connection.inputSorter,
                         connection.outputSorter,
-                        connection.belt
+                        connection.belt,
+                        connections,
+                        allNodes
                     )
                     availablePerSecond += throughputResult.throughput
                 }
