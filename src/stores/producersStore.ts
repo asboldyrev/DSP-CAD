@@ -55,6 +55,6 @@ export const useProducersStore = defineStore('producers', () => {
     getAllMiners,
     getAllProcessors,
     isMiner,
-    isProcessor
+    isProcessor,
   }
 })

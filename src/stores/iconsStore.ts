@@ -8,10 +8,10 @@ const error = ref<string | null>(null)
 export const useIconsStore = () => {
   const loadIcons = async () => {
     if (iconsData.value.length > 0) return // Уже загружены
-    
+
     isLoading.value = true
     error.value = null
-    
+
     try {
       const response = await fetch('/data/icons.json')
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
@@ -35,10 +35,10 @@ export const useIconsStore = () => {
     iconsData: computed(() => iconsData.value),
     isLoading: computed(() => isLoading.value),
     error: computed(() => error.value),
-    
+
     // Методы
     loadIcons,
     getIconById,
-    getAllIcons
+    getAllIcons,
   }
 }

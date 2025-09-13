@@ -7,8 +7,8 @@ import type { Item } from '@/types/Item'
 import { useItemsStore } from './itemsStore'
 import { useRecipesStore } from './recipesStore'
 
-  // Internal list of NodeState objects used for persistence and mutation.
-  const nodeStates = ref<NodeState[]>([])
+// Internal list of NodeState objects used for persistence and mutation.
+const nodeStates = ref<NodeState[]>([])
 /**
  * A store managing node state.  Nodes on the canvas are represented by
  * lightweight NodeState entries which reference dictionary data by id.  The
@@ -18,7 +18,7 @@ import { useRecipesStore } from './recipesStore'
  * and dictionaries.
  */
 export const useNodesStore = defineStore('nodes', () => {
-// Access to item and recipe dictionaries.
+  // Access to item and recipe dictionaries.
   const itemsStore = useItemsStore()
   const recipesStore = useRecipesStore()
 
@@ -124,7 +124,7 @@ export const useNodesStore = defineStore('nodes', () => {
       },
       set coefficient(val: number | undefined) {
         state.coefficient = val
-      }
+      },
     } as unknown as Node
     // Make the proxy reactive so Vue tracks access to its getters and the
     // computed refs within them.
@@ -164,7 +164,7 @@ export const useNodesStore = defineStore('nodes', () => {
       itemId: newNode.item.id,
       veins: undefined,
       buildingCount: undefined,
-      coefficient: 1
+      coefficient: 1,
     })
   }
 
@@ -243,6 +243,6 @@ export const useNodesStore = defineStore('nodes', () => {
     updateNodeVeins,
     updateNodeBuildingCount,
     updateNodeCoefficient,
-    updateNodePosition
+    updateNodePosition,
   }
 })

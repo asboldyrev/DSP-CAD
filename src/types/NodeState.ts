@@ -1,6 +1,3 @@
-import type { Item } from './Item'
-import type { Recipe } from './Recipes'
-
 /**
  * NodeState describes the minimal state required to represent a node on the
  * canvas and to perform throughput and production calculations. It does not

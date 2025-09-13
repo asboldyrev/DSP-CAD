@@ -45,6 +45,6 @@ export const useBeltsStore = defineStore('belts', () => {
     error,
     loadBelts,
     getAllBelts,
-    getAllSorters
+    getAllSorters,
   }
 })

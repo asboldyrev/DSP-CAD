@@ -5,7 +5,10 @@
 <template>
   <div class="app">
     <header class="app__header">
-      <img src="/favicon.png" class="app__favicon">
+      <img
+        src="/favicon.png"
+        class="app__favicon"
+      />
       <h1 class="app__title">DSP CAD</h1>
     </header>
     <main class="app__main">

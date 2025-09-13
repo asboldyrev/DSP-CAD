@@ -2,7 +2,7 @@ export enum Category {
   COMPONENTS = 'components',
   BUILDINGS = 'buildings',
   TECHNOLOGIES = 'technologies',
-  UPGRADES = 'upgrades'
+  UPGRADES = 'upgrades',
 }
 
 export interface CategoryInfo {
@@ -14,20 +14,20 @@ export interface CategoryInfo {
 export const CATEGORIES: CategoryInfo[] = [
   {
     id: Category.COMPONENTS,
-    name: 'Components'
+    name: 'Components',
   },
   {
     id: Category.BUILDINGS,
-    name: 'Buildings'
+    name: 'Buildings',
   },
   {
     id: Category.TECHNOLOGIES,
     name: 'Technologies',
-    icon: 'mission-completed'
+    icon: 'mission-completed',
   },
   {
     id: Category.UPGRADES,
     name: 'Upgrades',
-    icon: 'mecha-core-6'
-  }
+    icon: 'mecha-core-6',
+  },
 ]

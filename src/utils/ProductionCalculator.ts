@@ -1,5 +1,4 @@
 import type { Node } from '@/types/Node'
-import type { Recipe } from '@/types/Recipes'
 import { useProducersStore } from '@/stores/producersStore'
 
 export interface ProductionResult {
@@ -28,16 +27,16 @@ export class ProductionCalculator {
       case 'mining-machine':
       case 'advanced-mining-machine':
         return this.calculateMiningMachineProduction(node)
-      
+
       case 'oil-extractor':
         return this.calculateOilExtractorProduction(node)
-      
+
       case 'ray-receiver':
         return this.calculateRayReceiverProduction(node)
-      
+
       case 'water-pump':
         return this.calculateWaterPumpProduction(node)
-      
+
       default:
         // Проверяем, является ли строение процессором
         if (this.isProcessor(node)) {
@@ -81,7 +80,7 @@ export class ProductionCalculator {
       inputMin: 1,
       inputMax: 100,
       inputStep: 1,
-      inputPrecision: 0
+      inputPrecision: 0,
     }
   }
 
@@ -103,7 +102,7 @@ export class ProductionCalculator {
       inputMin: 0,
       inputMax: 1000,
       inputStep: 0.0001,
-      inputPrecision: 4
+      inputPrecision: 4,
     }
   }
 
@@ -125,7 +124,7 @@ export class ProductionCalculator {
       inputMin: 0,
       inputMax: 1000,
       inputStep: 1,
-      inputPrecision: 0
+      inputPrecision: 0,
     }
   }
 
@@ -163,7 +162,7 @@ export class ProductionCalculator {
       inputMin: 1,
       inputMax: 100,
       inputStep: 1,
-      inputPrecision: 0
+      inputPrecision: 0,
     }
   }
 
@@ -179,7 +178,7 @@ export class ProductionCalculator {
       inputMin: 0,
       inputMax: 0,
       inputStep: 1,
-      inputPrecision: 0
+      inputPrecision: 0,
     }
   }
 
@@ -197,21 +196,21 @@ export class ProductionCalculator {
   static isProcessor(node: Node): boolean {
     // Получаем список процессоров напрямую из producers.json
     const processors = [
-      "assembling-machine-1",
-      "assembling-machine-2", 
-      "assembling-machine-3",
-      "df-recomposing-assembler",
-      "energy-exchanger",
-      "arc-smelter",
-      "plane-smelter",
-      "df-negentropy-smelter",
-      "oil-refinery",
-      "chemical-plant",
-      "quantum-chemical-plant",
-      "fractionator",
-      "miniature-particle-collider",
-      "matrix-lab",
-      "df-self-evolution-lab"
+      'assembling-machine-1',
+      'assembling-machine-2',
+      'assembling-machine-3',
+      'df-recomposing-assembler',
+      'energy-exchanger',
+      'arc-smelter',
+      'plane-smelter',
+      'df-negentropy-smelter',
+      'oil-refinery',
+      'chemical-plant',
+      'quantum-chemical-plant',
+      'fractionator',
+      'miniature-particle-collider',
+      'matrix-lab',
+      'df-self-evolution-lab',
     ]
     return processors.includes(node.item.id)
   }
@@ -228,7 +227,7 @@ export class ProductionCalculator {
     // Формула: (количество_выхода / время_рецепта) * скорость_строения * количество_строений
     const outputEntries = Object.entries(recipe.out as unknown as Record<string, number>)
     const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
-    
+
     let baseRate = (totalOutputPerCycle / recipe.time) * buildingSpeed * buildingCount
     // Apply productivity coefficient
     const coefficient = node.coefficient ?? 1
@@ -242,7 +241,7 @@ export class ProductionCalculator {
       inputMin: 1,
       inputMax: 100,
       inputStep: 1,
-      inputPrecision: 0
+      inputPrecision: 0,
     }
   }
 }

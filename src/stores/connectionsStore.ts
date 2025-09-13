@@ -22,7 +22,7 @@ export const useConnectionsStore = defineStore('connections', () => {
   // Transient UI state for connection creation
   const connectionState = ref({
     isCreatingConnection: false,
-    selectedNodeId: null as number | null
+    selectedNodeId: null as number | null,
   })
 
   // Auto-incrementing id for new connections
@@ -55,7 +55,7 @@ export const useConnectionsStore = defineStore('connections', () => {
         inputSorter: inputSorter,
         outputSorter: outputSorter,
         syncSorters: cd.syncSorters,
-        selectedResource: cd.selectedResource
+        selectedResource: cd.selectedResource,
       } as Connection
     })
   })
@@ -65,7 +65,9 @@ export const useConnectionsStore = defineStore('connections', () => {
    */
   function getConnectionsForNode(nodeId: number) {
     return computed(() => {
-      return connections.value.filter((conn) => conn.fromNodeId === nodeId || conn.toNodeId === nodeId)
+      return connections.value.filter(
+        (conn) => conn.fromNodeId === nodeId || conn.toNodeId === nodeId,
+      )
     })
   }
 
@@ -141,7 +143,9 @@ export const useConnectionsStore = defineStore('connections', () => {
     if (!fromNode || !toNode) return
 
     // Check for existing connection with same endpoints
-    const existing = connectionData.value.find((conn) => conn.fromNodeId === fromNodeId && conn.toNodeId === toNodeId)
+    const existing = connectionData.value.find(
+      (conn) => conn.fromNodeId === fromNodeId && conn.toNodeId === toNodeId,
+    )
     if (existing) return
 
     const newConnection: ConnectionData = {
@@ -152,7 +156,7 @@ export const useConnectionsStore = defineStore('connections', () => {
       fromY: fromNode.y,
       toX: toNode.x,
       toY: toNode.y,
-      syncSorters: true
+      syncSorters: true,
     }
     connectionData.value.push(newConnection)
   }
@@ -188,7 +192,9 @@ export const useConnectionsStore = defineStore('connections', () => {
    * Remove all connections attached to the given node id.
    */
   function deleteConnectionsForNode(nodeId: number): void {
-    connectionData.value = connectionData.value.filter((conn) => conn.fromNodeId !== nodeId && conn.toNodeId !== nodeId)
+    connectionData.value = connectionData.value.filter(
+      (conn) => conn.fromNodeId !== nodeId && conn.toNodeId !== nodeId,
+    )
   }
 
   /**
@@ -284,6 +290,6 @@ export const useConnectionsStore = defineStore('connections', () => {
     updateConnectionInputSorter,
     updateConnectionOutputSorter,
     updateConnectionSyncSorters,
-    updateConnectionSelectedResource
+    updateConnectionSelectedResource,
   }
 })

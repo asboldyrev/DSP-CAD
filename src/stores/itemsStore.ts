@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue'
 import type { Item } from '@/types/Item'
+import type { Icon } from '@/types/Icon'
 import { useProducersStore } from './producersStore'
 import { useIconsStore } from './iconsStore'
 
@@ -10,33 +11,33 @@ const error = ref<string | null>(null)
 export const useItemsStore = () => {
   const producersStore = useProducersStore()
   const iconsStore = useIconsStore()
-  
+
   const loadBuildings = async () => {
     if (buildingsData.value.length > 0) return // Уже загружены
-    
+
     isLoading.value = true
     error.value = null
-    
+
     try {
       // Загружаем и здания, и иконки параллельно
       const [buildingsResponse, iconsResponse] = await Promise.all([
         fetch('/data/Items/buildings.json'),
-        fetch('/data/icons.json')
+        fetch('/data/icons.json'),
       ])
-      
+
       if (!buildingsResponse.ok) throw new Error(`HTTP error! status: ${buildingsResponse.status}`)
       if (!iconsResponse.ok) throw new Error(`HTTP error! status: ${iconsResponse.status}`)
-      
+
       const buildings = await buildingsResponse.json()
       const icons = await iconsResponse.json()
-      
+
       // Загружаем иконки в iconsStore
       await iconsStore.loadIcons()
-      
+
       // Добавляем иконки к зданиям
       buildingsData.value = buildings.map((building: Item) => ({
         ...building,
-        icon: icons.find((icon: any) => icon.id === building.id)
+        icon: icons.find((icon: Icon) => icon.id === building.id),
       }))
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Failed to load buildings data'
@@ -57,16 +58,16 @@ export const useItemsStore = () => {
   const getItemById = (id: string) => {
     const item = buildingsData.value.find((item: Item) => item.id === id)
     if (!item) return undefined
-    
+
     // Если у айтема нет иконки, добавляем её
     if (!item.icon) {
-      const icon = iconsStore.getAllIcons.value.find((icon: any) => icon.id === id)
+      const icon = iconsStore.getAllIcons.value.find((icon: Icon) => icon.id === id)
       return {
         ...item,
-        icon
+        icon,
       }
     }
-    
+
     return item
   }
 
@@ -77,7 +78,7 @@ export const useItemsStore = () => {
   const getBuildingsGroupedByRow = () => {
     return computed(() => {
       const grouped: { [key: number]: Item[] } = {}
-      buildingsData.value.forEach(item => {
+      buildingsData.value.forEach((item) => {
         const row = item.row ?? 0
         if (!grouped[row]) {
           grouped[row] = []
@@ -93,17 +94,19 @@ export const useItemsStore = () => {
   const getProducerBuildings = () => {
     return computed(() => {
       const producerIds = [...producersStore.getAllMiners(), ...producersStore.getAllProcessors()]
-      return buildingsData.value.filter(building => producerIds.includes(building.id))
+      return buildingsData.value.filter((building) => producerIds.includes(building.id))
     })
   }
 
   const getProducerBuildingsGroupedByRow = () => {
     return computed(() => {
       const producerIds = [...producersStore.getAllMiners(), ...producersStore.getAllProcessors()]
-      const producerBuildings = buildingsData.value.filter(building => producerIds.includes(building.id))
-      
+      const producerBuildings = buildingsData.value.filter((building) =>
+        producerIds.includes(building.id),
+      )
+
       const grouped: { [key: number]: Item[] } = {}
-      producerBuildings.forEach(item => {
+      producerBuildings.forEach((item) => {
         const row = item.row ?? 0
         if (!grouped[row]) {
           grouped[row] = []
@@ -119,7 +122,7 @@ export const useItemsStore = () => {
     buildingsData: computed(() => buildingsData.value),
     isLoading: computed(() => isLoading.value),
     error: computed(() => error.value),
-    
+
     // Методы
     loadBuildings,
     loadProducers,
@@ -129,6 +132,6 @@ export const useItemsStore = () => {
     getBuildingsGroupedByRow,
     getAllBuildings,
     getProducerBuildings,
-    getProducerBuildingsGroupedByRow
+    getProducerBuildingsGroupedByRow,
   }
 }
