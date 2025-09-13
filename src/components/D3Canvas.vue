@@ -144,7 +144,7 @@
               v-for="connection in connections"
               :key="connection.id"
               :connection="connection"
-              :is-selected="selectedConnection?.id === connection.id"
+              :is-selected="false"
               :from-node="getNodeById(connection.fromNodeId)"
               :to-node="getNodeById(connection.toNodeId)"
               :all-connections="connections"
@@ -172,9 +172,7 @@
               v-for="node in nodes"
               :key="node.id"
               :node="node"
-              :is-selected="
-                selectedNode?.id === node.id || (isCreatingConnection && selectedNodeId === node.id)
-              "
+              :is-selected="isCreatingConnection && selectedNodeId === node.id"
               :all-connections="connections"
               :all-nodes="nodes"
             />
@@ -190,34 +188,6 @@
       @select="addBuildingNode"
     />
 
-    <!-- Панель редактирования ноды -->
-    <NodeEditPanel
-      :is-open="isEditPanelOpen"
-      :selected-node="selectedNode"
-      :all-connections="connections"
-      :all-nodes="nodes"
-      @close="closeEditPanel"
-      @delete="deleteNode"
-      @update-recipe="updateNodeRecipe"
-      @update-veins="updateNodeVeins"
-      @update-building-count="updateNodeBuildingCount"
-      @update-coefficient="updateNodeCoefficient"
-    />
-
-    <!-- Панель редактирования связи -->
-    <ConnectionEditPanel
-      :is-open="isConnectionEditPanelOpen"
-      :selected-connection="selectedConnection"
-      :nodes="nodes"
-      :connections="connections"
-      @close="closeConnectionEditPanel"
-      @delete="deleteConnection"
-      @update-belt="updateConnectionBelt"
-      @update-input-sorter="updateConnectionInputSorter"
-      @update-output-sorter="updateConnectionOutputSorter"
-      @update-sync-sorters="updateConnectionSyncSorters"
-      @update-selected-resource="updateConnectionSelectedResource"
-    />
   </div>
 </template>
 
@@ -228,13 +198,10 @@
   import { useConnectionsStore } from '@/stores/connectionsStore'
   import BuildingSelectorModal from './BuildingSelectorModal.vue'
   import NodeComponent from './NodeComponent.vue'
-  import NodeEditPanel from './NodeEditPanel.vue'
   import ConnectionComponent from './ConnectionComponent.vue'
-  import ConnectionEditPanel from './ConnectionEditPanel.vue'
   import BaseButton from './BaseButton.vue'
   import type { Item } from '@/types/Item'
   import type { Node } from '@/types/Node'
-  import type { Recipe } from '@/types/Recipes'
   import type { Connection } from '@/types/Connection'
 
   /** Refs + состояние */
@@ -244,11 +211,13 @@
   const showGrid = ref(true)
   const zoomLevel = ref(1)
   const isBuildingSelectorOpen = ref(false)
-  const isEditPanelOpen = ref(false)
-  const isConnectionEditPanelOpen = ref(false)
-  const selectedNode = ref<Node | null>(null)
-  const selectedConnection = ref<Connection | null>(null)
   const mousePosition = ref({ x: 0, y: 0 })
+
+  /** Эмиты */
+  const emit = defineEmits<{
+    'node-edit': [node: Node]
+    'connection-edit': [connection: Connection]
+  }>()
 
   /** Store */
   const nodesStore = useNodesStore()
@@ -418,7 +387,7 @@
   function bindDragToNodes() {
     if (!svgRef.value || !dragBehavior) return
     const svg = d3.select(svgRef.value)
-    svg.selectAll<SVGGElement, unknown>('.node').call(dragBehavior)
+    svg.selectAll<SVGGElement, unknown>('.node').call(dragBehavior as d3.DragBehavior<SVGGElement, unknown, unknown>)
 
     // также переустанавливаем обработчики кликов
     initNodeClicks()
@@ -462,13 +431,7 @@
   }
 
   function openEditPanel(node: Node) {
-    selectedNode.value = node
-    isEditPanelOpen.value = true
-  }
-
-  function closeEditPanel() {
-    isEditPanelOpen.value = false
-    selectedNode.value = null
+    emit('node-edit', node)
   }
 
   function toggleConnectionMode() {
@@ -477,11 +440,6 @@
     } else {
       connectionsStore.startCreatingConnection()
     }
-    // Сбрасываем выделение ноды при переключении режима
-    selectedNode.value = null
-    selectedConnection.value = null
-    closeEditPanel()
-    closeConnectionEditPanel()
   }
 
   function handleNodeClick(node: Node) {
@@ -491,28 +449,12 @@
       connectionsStore.selectNodeForConnection(node.id, nodes.value)
     } else {
       // Обычный режим - открываем панель редактирования ноды
-      // Закрываем панель связи если она открыта
-      closeConnectionEditPanel()
       openEditPanel(node)
     }
   }
 
   function selectConnection(connection: Connection) {
-    selectedConnection.value = connection
-    selectedNode.value = null
-    // Закрываем панель ноды если она открыта
-    closeEditPanel()
-    openConnectionEditPanel(connection)
-  }
-
-  function openConnectionEditPanel(connection: Connection) {
-    selectedConnection.value = connection
-    isConnectionEditPanelOpen.value = true
-  }
-
-  function closeConnectionEditPanel() {
-    isConnectionEditPanelOpen.value = false
-    selectedConnection.value = null
+    emit('connection-edit', connection)
   }
 
   function handleMouseMove(event: MouseEvent) {
@@ -532,63 +474,14 @@
   function handleCanvasClick() {
     // Клик по холсту - сбрасываем выделение
     if (!isCreatingConnection.value) {
-      selectedNode.value = null
-      selectedConnection.value = null
-      closeEditPanel()
-      closeConnectionEditPanel()
+      // В обычном режиме клик по холсту ничего не делает
+      // Панели управляются из App.vue
     } else {
       // В режиме создания связи клик по холсту отменяет создание
       connectionsStore.cancelCreatingConnection()
     }
   }
 
-  function deleteNode(nodeId: number) {
-    // Удаляем все связи для этой ноды
-    connectionsStore.deleteConnectionsForNode(nodeId)
-    // Удаляем саму ноду
-    nodesStore.removeNode(nodeId)
-  }
-
-  function updateNodeRecipe(nodeId: number, recipe: Recipe | null) {
-    nodesStore.updateNodeRecipe(nodeId, recipe)
-  }
-
-  function updateNodeVeins(nodeId: number, veins: number) {
-    nodesStore.updateNodeVeins(nodeId, veins)
-  }
-
-  function updateNodeBuildingCount(nodeId: number, buildingCount: number) {
-    nodesStore.updateNodeBuildingCount(nodeId, buildingCount)
-  }
-
-  function updateNodeCoefficient(nodeId: number, coefficient: number | undefined) {
-    nodesStore.updateNodeCoefficient(nodeId, coefficient)
-  }
-
-  function deleteConnection(connectionId: number) {
-    connectionsStore.deleteConnection(connectionId)
-    closeConnectionEditPanel()
-  }
-
-  function updateConnectionBelt(connectionId: number, belt: Item | null) {
-    connectionsStore.updateConnectionBelt(connectionId, belt)
-  }
-
-  function updateConnectionInputSorter(connectionId: number, sorter: Item | null) {
-    connectionsStore.updateConnectionInputSorter(connectionId, sorter)
-  }
-
-  function updateConnectionOutputSorter(connectionId: number, sorter: Item | null) {
-    connectionsStore.updateConnectionOutputSorter(connectionId, sorter)
-  }
-
-  function updateConnectionSyncSorters(connectionId: number, syncSorters: boolean) {
-    connectionsStore.updateConnectionSyncSorters(connectionId, syncSorters)
-  }
-
-  function updateConnectionSelectedResource(connectionId: number, resourceId: string) {
-    connectionsStore.updateConnectionSelectedResource(connectionId, resourceId)
-  }
 
   function getNodeById(nodeId: number) {
     return nodes.value.find((node) => node.id === nodeId)

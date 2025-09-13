@@ -1,11 +1,11 @@
 <template>
-  <div
+  <Teleport
     v-if="isOpen"
-    class="connection-panel"
+    to="#sidebar-header-target"
   >
-    <div class="connection-panel__header">
-      <div class="connection-panel__header-content">
-        <div class="connection-panel__header-icon">
+    <div class="connection-panel-header">
+      <div class="connection-panel-header__content">
+        <div class="connection-panel-header__icon">
           <svg
             width="32"
             height="32"
@@ -27,16 +27,20 @@
             />
           </svg>
         </div>
-        <h3 class="connection-panel__title">Связь</h3>
+        <h3 class="connection-panel-header__title">Связь</h3>
       </div>
       <BaseButton
         @click="closePanel"
         icon="ri-close-line"
-        class="connection-panel__close-btn"
+        class="connection-panel-header__close-btn"
       ></BaseButton>
     </div>
+  </Teleport>
 
-    <div class="connection-panel__content">
+  <div
+    v-if="isOpen"
+    class="connection-panel-content"
+  >
       <div class="connection-panel__connection-info">
         <div class="connection-panel__info-item">
           <span class="connection-panel__info-label">От:</span>
@@ -253,7 +257,6 @@
         </BaseButton>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -470,35 +473,19 @@
 </script>
 
 <style lang="scss" scoped>
-  .connection-panel {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 350px;
-    height: calc(100vh - 142px);
-    background: white;
-    border-left: 1px solid #e5e7eb;
-    box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+  .connection-panel-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-      background: #f8fafc;
-    }
-
-    &__header-content {
+    &__content {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    &__header-icon {
+    &__icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -533,12 +520,12 @@
         margin-right: 0 !important;
       }
     }
+  }
 
-    &__content {
-      flex: 1;
-      padding: 1.5rem;
-      overflow-y: auto;
-    }
+  .connection-panel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
     &__connection-info {
       margin-bottom: 2rem;

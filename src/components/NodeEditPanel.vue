@@ -1,11 +1,11 @@
 <template>
-  <div
+  <Teleport
     v-if="isOpen"
-    class="node-panel"
+    to="#sidebar-header-target"
   >
-    <div class="node-panel__header">
-      <div class="node-panel__header-content">
-        <div class="node-panel__header-icon">
+    <div class="node-panel-header">
+      <div class="node-panel-header__content">
+        <div class="node-panel-header__icon">
           <GameIcon
             v-if="selectedNode"
             :key="selectedNode.id"
@@ -13,16 +13,20 @@
             :size="32"
           />
         </div>
-        <h3 class="node-panel__title">{{ selectedNode?.item.name }}</h3>
+        <h3 class="node-panel-header__title">{{ selectedNode?.item.name }}</h3>
       </div>
       <BaseButton
         @click="closePanel"
         icon="ri-close-line"
-        class="node-panel__close-btn"
+        class="node-panel-header__close-btn"
       ></BaseButton>
     </div>
+  </Teleport>
 
-    <div class="node-panel__content">
+  <div
+    v-if="isOpen"
+    class="node-panel-content"
+  >
       <div
         class="node-panel__recipes-section"
         v-if="recipes.length > 0"
@@ -197,13 +201,12 @@
         </BaseButton>
       </div>
     </div>
-  </div>
 
-  <!-- Коэффициент производительности -->
-  <div
-    class="node-panel__coefficient-section"
-    v-if="selectedNode"
-  >
+    <!-- Коэффициент производительности -->
+    <div
+      class="node-panel__coefficient-section"
+      v-if="selectedNode"
+    >
     <h4 class="node-panel__section-title">Коэффициент производительности</h4>
     <div class="node-panel__coefficient-input">
       <input
@@ -410,42 +413,25 @@
 </script>
 
 <style lang="scss" scoped>
-  .node-panel {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 350px;
-    height: calc(100vh - 142px);
-    /* Вычитаем высоту панели управления */
-    background: white;
-    border-left: 1px solid #e5e7eb;
-    box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+  .node-panel-header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    &__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-      background: #f8fafc;
-    }
-
-    &__header-content {
+    &__content {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    &__header-icon {
+    &__icon {
       flex-shrink: 0;
     }
 
     &__title {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: 600;
       color: #111827;
     }
@@ -468,17 +454,12 @@
         margin-right: 0 !important;
       }
     }
+  }
 
-    &__content {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__recipes-section {
-      margin-bottom: 1.5rem;
-    }
+  .node-panel-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 
     &__section-title {
       margin: 0 0 0.75rem 0;
@@ -744,10 +725,10 @@
     &__delete-btn {
       width: 100%;
     }
+  }
 
-    &__coefficient-section {
-      margin-top: 1rem;
-    }
+  .node-panel__coefficient-section {
+    margin-top: 1rem;
 
     &__coefficient-input {
       display: flex;
