@@ -44,19 +44,6 @@ export class ThroughputCalculator {
         // Получаем скорость конвейера
         const beltRate = belt ? this.getBeltRate(belt) : Infinity
         
-        console.log('ThroughputCalculator.calculateThroughput:', {
-            connectionId: connection.id,
-            fromNode: fromNode.item.name,
-            toNode: toNode.item.name,
-            fromNodeCount,
-            toNodeCount,
-            producerRate: producerRate.toFixed(2),
-            inputSorterRate: inputSorterRate === Infinity ? 'Infinity' : inputSorterRate.toFixed(2),
-            outputSorterRate: outputSorterRate === Infinity ? 'Infinity' : outputSorterRate.toFixed(2),
-            beltRate: beltRate === Infinity ? 'Infinity' : beltRate.toFixed(2),
-            outgoingConnections: allConnections?.filter(c => c.fromNodeId === fromNode.id).length || 0
-        })
-        
         // Пропускная способность = минимум из всех скоростей
         const throughput = Math.min(producerRate, inputSorterRate, outputSorterRate, beltRate)
         
@@ -111,28 +98,17 @@ export class ThroughputCalculator {
         allConnections?: Connection[],
         allNodes?: Node[]
     ): number {
-        console.log('getDistributedProducerRate:', {
-            connectionId: connection.id,
-            fromNodeId: fromNode.id,
-            fromNodeName: fromNode.item.name,
-            hasConnections: !!allConnections,
-            hasNodes: !!allNodes
-        })
-
         if (!allConnections || !allNodes) {
             const rate = this.getProducerRate(fromNode, allConnections, allNodes)
-            console.log('Fallback rate (no connections/nodes):', rate)
             return rate
         }
 
         // Получаем все исходящие связи от источника
         const outgoingConnections = allConnections.filter(conn => conn.fromNodeId === fromNode.id)
-        console.log('Outgoing connections:', outgoingConnections.length)
         
         if (outgoingConnections.length <= 1) {
             // Если связь одна, используем полную производительность
             const rate = this.getProducerRate(fromNode, allConnections, allNodes)
-            console.log('Single connection rate:', rate)
             return rate
         }
 
@@ -144,7 +120,6 @@ export class ThroughputCalculator {
             allNodes,
             allConnections
         )
-        console.log('Distributed rate:', distributedRate)
         return distributedRate
     }
     
