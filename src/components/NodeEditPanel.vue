@@ -1,22 +1,22 @@
 <template>
-    <div v-if="isOpen" class="edit-panel">
-        <div class="panel-header">
-            <div class="header-content">
-                <div class="header-icon">
+    <div v-if="isOpen" class="node-panel">
+        <div class="node-panel__header">
+            <div class="node-panel__header-content">
+                <div class="node-panel__header-icon">
                     <GameIcon v-if="selectedNode" :key="selectedNode.id" :id="selectedNode.item.id" :size="32" />
                 </div>
-                <h3>{{ selectedNode?.item.name }}</h3>
+                <h3 class="node-panel__title">{{ selectedNode?.item.name }}</h3>
             </div>
-            <button class="close-btn" @click="closePanel">×</button>
+            <button class="node-panel__close-btn" @click="closePanel">×</button>
         </div>
 
-        <div class="panel-content">
-            <div class="recipes-section" v-if="recipes.length > 0">
-                <h4>Рецепты</h4>
-                <div class="recipes-container">
-                    <div class="recipes-grid">
-                        <div v-for="recipe in recipes" :key="recipe.id" class="recipe-item" :class="{ 'recipe-selected': selectedNode?.recipe?.id === recipe.id }" :title="recipe.name" @click="selectRecipe(recipe)">
-                            <div class="recipe-icon">
+        <div class="node-panel__content">
+            <div class="node-panel__recipes-section" v-if="recipes.length > 0">
+                <h4 class="node-panel__section-title">Рецепты</h4>
+                <div class="node-panel__recipes-container">
+                    <div class="node-panel__recipes-grid">
+                        <div v-for="recipe in recipes" :key="recipe.id" class="node-panel__recipe-item" :class="{ 'node-panel__recipe-item_selected': selectedNode?.recipe?.id === recipe.id }" :title="recipe.name" @click="selectRecipe(recipe)">
+                            <div class="node-panel__recipe-icon">
                                 <GameIcon :id="recipe.id" :title="recipe.name" :size="48" />
                             </div>
                         </div>
@@ -24,94 +24,94 @@
                 </div>
             </div>
 
-            <div class="selected-recipe-section" v-if="selectedNode?.recipe">
-                <h4>Выбранный рецепт</h4>
-                <div class="selected-recipe">
-                    <div class="selected-recipe-icon">
+            <div class="node-panel__selected-recipe-section" v-if="selectedNode?.recipe">
+                <h4 class="node-panel__section-title">Выбранный рецепт</h4>
+                <div class="node-panel__selected-recipe">
+                    <div class="node-panel__selected-recipe-icon">
                         <GameIcon :key="`selected-recipe-${selectedNode.id}-${selectedNode.recipe.id}`" :id="selectedNode.recipe.id" :size="32" />
                     </div>
-                    <span class="selected-recipe-name">{{ selectedNode.recipe.name }}</span>
-                    <button class="remove-recipe-btn" @click="removeRecipe" title="Удалить рецепт">
+                    <span class="node-panel__selected-recipe-name">{{ selectedNode.recipe.name }}</span>
+                    <button class="node-panel__remove-recipe-btn" @click="removeRecipe" title="Удалить рецепт">
                         ×
                     </button>
                 </div>
 
                 <!-- Детали рецепта -->
-                <div class="recipe-details">
-                    <div class="recipe-time">
-                        <span class="recipe-time-label">Время:</span>
-                        <span class="recipe-time-value">{{ selectedNode.recipe.time }}с</span>
+                <div class="node-panel__recipe-details">
+                    <div class="node-panel__recipe-time">
+                        <span class="node-panel__recipe-time-label">Время:</span>
+                        <span class="node-panel__recipe-time-value">{{ selectedNode.recipe.time }}с</span>
                     </div>
 
                     <!-- Входные ресурсы -->
-                    <div class="recipe-inputs" v-if="recipeInputs.length > 0">
-                        <span class="recipe-inputs-label">Вход:</span>
-                        <div class="recipe-items">
-                            <div v-for="input in recipeInputs" :key="input.id" class="recipe-item">
+                    <div class="node-panel__recipe-inputs" v-if="recipeInputs.length > 0">
+                        <span class="node-panel__recipe-inputs-label">Вход:</span>
+                        <div class="node-panel__recipe-items">
+                            <div v-for="input in recipeInputs" :key="input.id" class="node-panel__recipe-item">
                                 <GameIcon :id="input.id" :size="20" />
-                                <span class="recipe-item-quantity">{{ input.quantity }}</span>
+                                <span class="node-panel__recipe-item-quantity">{{ input.quantity }}</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Выходные ресурсы -->
-                    <div class="recipe-outputs" v-if="recipeOutputs.length > 0">
-                        <span class="recipe-outputs-label">Выход:</span>
-                        <div class="recipe-items">
-                            <div v-for="output in recipeOutputs" :key="output.id" class="recipe-item">
+                    <div class="node-panel__recipe-outputs" v-if="recipeOutputs.length > 0">
+                        <span class="node-panel__recipe-outputs-label">Выход:</span>
+                        <div class="node-panel__recipe-items">
+                            <div v-for="output in recipeOutputs" :key="output.id" class="node-panel__recipe-item">
                                 <GameIcon :id="output.id" :size="20" />
-                                <span class="recipe-item-quantity">{{ output.quantity }}</span>
+                                <span class="node-panel__recipe-item-quantity">{{ output.quantity }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="veins-section" v-if="isMiner && (selectedNode?.recipe || selectedNode?.item.id === 'oil-extractor')">
-                <h4>{{ productionResult.inputLabel }}</h4>
-                <div class="veins-input">
+            <div class="node-panel__veins-section" v-if="isMiner && (selectedNode?.recipe || selectedNode?.item.id === 'oil-extractor')">
+                <h4 class="node-panel__section-title">{{ productionResult.inputLabel }}</h4>
+                <div class="node-panel__veins-input">
                     <input type="number" v-model.number="inputValue" :min="productionResult.inputMin" :max="productionResult.inputMax" :step="productionResult.inputStep" :placeholder="productionResult.inputLabel" @input="updateInput" />
-                    <span class="veins-unit">{{ getInputUnit() }}</span>
+                    <span class="node-panel__veins-unit">{{ getInputUnit() }}</span>
                 </div>
-                <div class="production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
-                    <div class="production-rate">
-                        <span class="production-label">Производительность:</span>
-                        <span class="production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
+                <div class="node-panel__production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
+                    <div class="node-panel__production-rate">
+                        <span class="node-panel__production-label">Производительность:</span>
+                        <span class="node-panel__production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
                     </div>
                 </div>
             </div>
 
-            <div class="building-count-section" v-if="isProcessor && selectedNode?.recipe">
-                <h4>{{ productionResult.inputLabel }}</h4>
-                <div class="building-count-input">
+            <div class="node-panel__building-count-section" v-if="isProcessor && selectedNode?.recipe">
+                <h4 class="node-panel__section-title">{{ productionResult.inputLabel }}</h4>
+                <div class="node-panel__building-count-input">
                     <input type="number" v-model.number="buildingCountValue" :min="productionResult.inputMin" :max="productionResult.inputMax" :step="productionResult.inputStep" :placeholder="productionResult.inputLabel" @input="updateBuildingCount" />
-                    <span class="building-count-unit">шт</span>
+                    <span class="node-panel__building-count-unit">шт</span>
                 </div>
-                <div class="production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
-                    <div class="production-rate">
-                        <span class="production-label">Производительность:</span>
-                        <span class="production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
+                <div class="node-panel__production-info" v-if="productionResult.rate > 0 || (isProcessor && selectedNode?.recipe)">
+                    <div class="node-panel__production-rate">
+                        <span class="node-panel__production-label">Производительность:</span>
+                        <span class="node-panel__production-value">{{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}</span>
                     </div>
                 </div>
             </div>
 
-            <div class="panel-actions">
-                <button class="delete-btn" @click="deleteNode">
+            <div class="node-panel__actions">
+                <button class="node-panel__delete-btn" @click="deleteNode">
                     Удалить ноду
                 </button>
             </div>
         </div>
     </div>
 
-            <!-- Коэффициент производительности -->
-            <div class="coefficient-section" v-if="selectedNode">
-                <h4>Коэффициент производительности</h4>
-                <div class="coefficient-input">
-                    <input type="number" v-model.number="coefficientValue" :min="0" :step="0.1" placeholder="Коэффициент" @input="updateCoefficient" />
-                    <span class="coefficient-unit">×</span>
-                </div>
-                <p class="coefficient-hint">Значение 1 означает нормальную скорость, 2 – удвоенную и т.д.</p>
-            </div>
+    <!-- Коэффициент производительности -->
+    <div class="node-panel__coefficient-section" v-if="selectedNode">
+        <h4 class="node-panel__section-title">Коэффициент производительности</h4>
+        <div class="node-panel__coefficient-input">
+            <input type="number" v-model.number="coefficientValue" :min="0" :step="0.1" placeholder="Коэффициент" @input="updateCoefficient" />
+            <span class="node-panel__coefficient-unit">×</span>
+        </div>
+        <p class="node-panel__coefficient-hint">Значение 1 означает нормальную скорость, 2 – удвоенную и т.д.</p>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -292,8 +292,8 @@
     }
 </script>
 
-<style scoped>
-    .edit-panel {
+<style lang="scss" scoped>
+    .node-panel {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -306,423 +306,382 @@
         z-index: 100;
         display: flex;
         flex-direction: column;
-    }
 
-    .panel-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .5rem 1.5rem;
-        border-bottom: 1px solid #e5e7eb;
-        background: #f8fafc;
-    }
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .5rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f8fafc;
+        }
 
-    .header-content {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
+        &__header-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-    .header-icon {
-        flex-shrink: 0;
-    }
+        &__header-icon {
+            flex-shrink: 0;
+        }
 
-    .panel-header h3 {
-        margin: 0;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #111827;
-    }
+        &__title {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+        }
 
-    .close-btn {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: #6b7280;
-        padding: 0.25rem;
-        border-radius: 4px;
-        transition: background-color 0.2s;
-    }
+        &__close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
 
-    .close-btn:hover {
-        background-color: #f3f4f6;
-        color: #374151;
-    }
+            &:hover {
+                background-color: #f3f4f6;
+                color: #374151;
+            }
+        }
 
-    .panel-content {
-        padding: 1.5rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-    }
+        &__content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .recipes-section {
-        margin-bottom: 1.5rem;
-    }
+        &__recipes-section {
+            margin-bottom: 1.5rem;
+        }
 
-    .recipes-section h4 {
-        margin: 0 0 0.75rem 0;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #374151;
-    }
+        &__section-title {
+            margin: 0 0 0.75rem 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+        }
 
-    .recipes-container {
-        max-height: 200px;
-        overflow-y: auto;
-        border: 1px solid #e5e7eb;
-        border-radius: 6px;
-        padding: 0.5rem;
-        background: #f9fafb;
-    }
+        &__recipes-container {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 0.5rem;
+            background: #f9fafb;
 
-    .recipes-container::-webkit-scrollbar {
-        width: 6px;
-    }
+            &::-webkit-scrollbar {
+                width: 6px;
+            }
 
-    .recipes-container::-webkit-scrollbar-track {
-        background: #f1f5f9;
-        border-radius: 3px;
-    }
+            &::-webkit-scrollbar-track {
+                background: #f1f5f9;
+                border-radius: 3px;
+            }
 
-    .recipes-container::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 3px;
-    }
+            &::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 3px;
+            }
 
-    .recipes-container::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-    }
+            &::-webkit-scrollbar-thumb:hover {
+                background: #94a3b8;
+            }
+        }
 
-    .recipes-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
-        gap: 0.5rem;
-    }
+        &__recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+            gap: 0.5rem;
+        }
 
-    .recipe-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5rem;
-        border: 2px solid #e5e7eb;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.2s;
-        background: white;
-        width: 48px;
-        height: 48px;
-    }
+        &__recipe-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            width: 48px;
+            height: 48px;
 
-    .recipe-item:hover {
-        border-color: #3b82f6;
-        background: #f8fafc;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+            &:hover {
+                border-color: #3b82f6;
+                background: #f8fafc;
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
 
-    .recipe-item.recipe-selected {
-        border-color: #10b981;
-        background: #ecfdf5;
-    }
+            &_selected {
+                border-color: #10b981;
+                background: #ecfdf5;
+            }
+        }
 
-    .selected-recipe-section {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        background: #f8fafc;
-        border-radius: 8px;
-        border: 1px solid #e5e7eb;
-    }
+        &__selected-recipe-section {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
 
-    .selected-recipe-section h4 {
-        margin: 0 0 0.75rem 0;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #374151;
-    }
+        &__selected-recipe {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-    .selected-recipe {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
+        &__selected-recipe-icon {
+            flex-shrink: 0;
+        }
 
-    .selected-recipe-icon {
-        flex-shrink: 0;
-    }
+        &__selected-recipe-name {
+            flex: 1;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #111827;
+        }
 
-    .selected-recipe-name {
-        flex: 1;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #111827;
-    }
+        &__remove-recipe-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
 
-    .remove-recipe-btn {
-        background: #dc2626;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.2s;
-    }
+            &:hover {
+                background: #b91c1c;
+            }
+        }
 
-    .remove-recipe-btn:hover {
-        background: #b91c1c;
-    }
+        &__recipe-details {
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
 
-    .veins-section {
-        margin-bottom: 1.5rem;
-        padding: 1rem;
-        background: #f8fafc;
-        border-radius: 8px;
-        border: 1px solid #e5e7eb;
-    }
+        &__recipe-time {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    .veins-section h4 {
-        margin: 0 0 0.75rem 0;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #374151;
-    }
+        &__recipe-time-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #64748b;
+        }
 
-    .veins-input {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-    }
+        &__recipe-time-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
 
-    .veins-input input {
-        flex: 1;
-        padding: 0.5rem;
-        border: 1px solid #d1d5db;
-        border-radius: 4px;
-        font-size: 0.875rem;
-    }
+        &__recipe-inputs,
+        &__recipe-outputs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
 
-    .veins-input input:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
 
-    .veins-unit {
-        font-size: 0.875rem;
-        color: #6b7280;
-        font-weight: 500;
-    }
+        &__recipe-inputs-label,
+        &__recipe-outputs-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #64748b;
+            min-width: 3rem;
+        }
 
-    .production-info {
-        padding: 0.75rem;
-        background: #ecfdf5;
-        border-radius: 6px;
-        border: 1px solid #10b981;
-    }
+        &__recipe-items {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
 
-    .production-rate {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        &__recipe-item-quantity {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
 
-    .production-label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #065f46;
-    }
+        &__veins-section {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
 
-    .production-value {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #047857;
-    }
+        &__veins-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
 
-    .recipe-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+            input {
+                flex: 1;
+                padding: 0.5rem;
+                border: 1px solid #d1d5db;
+                border-radius: 4px;
+                font-size: 0.875rem;
 
-    .panel-actions {
-        margin-top: auto;
-    }
+                &:focus {
+                    outline: none;
+                    border-color: #3b82f6;
+                    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+                }
+            }
+        }
 
-    .delete-btn {
-        width: 100%;
-        padding: 0.75rem 1rem;
-        background: #dc2626;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: background-color 0.2s;
-    }
+        &__veins-unit {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
 
-    .delete-btn:hover {
-        background: #b91c1c;
-    }
+        &__production-info {
+            padding: 0.75rem;
+            background: #ecfdf5;
+            border-radius: 6px;
+            border: 1px solid #10b981;
+        }
 
-    /* Секция количества строений */
-    .building-count-section {
-        margin-bottom: 1.5rem;
-    }
+        &__production-rate {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .building-count-section h4 {
-        margin: 0 0 0.75rem 0;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #1f2937;
-    }
+        &__production-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #065f46;
+        }
 
-    .building-count-input {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-    }
+        &__production-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #047857;
+        }
 
-    .building-count-input input {
-        flex: 1;
-        padding: 0.5rem 0.75rem;
-        border: 1px solid #d1d5db;
-        border-radius: 6px;
-        font-size: 0.875rem;
-        background: white;
-        transition: border-color 0.2s;
-    }
+        &__building-count-section {
+            margin-bottom: 1.5rem;
+        }
 
-    .building-count-input input:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
+        &__building-count-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
 
-    .building-count-unit {
-        font-size: 0.875rem;
-        color: #6b7280;
-        font-weight: 500;
-        min-width: 2rem;
-    }
+            input {
+                flex: 1;
+                padding: 0.5rem 0.75rem;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                font-size: 0.875rem;
+                background: white;
+                transition: border-color 0.2s;
 
-    /* Детали рецепта */
-    .recipe-details {
-        margin-top: 0.75rem;
-        padding: 0.75rem;
-        background: #f8fafc;
-        border-radius: 6px;
-        border: 1px solid #e2e8f0;
-    }
+                &:focus {
+                    outline: none;
+                    border-color: #3b82f6;
+                    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+                }
+            }
+        }
 
-    .recipe-time {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
+        &__building-count-unit {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+            min-width: 2rem;
+        }
 
-    .recipe-time-label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #64748b;
-    }
+        &__actions {
+            margin-top: auto;
+        }
 
-    .recipe-time-value {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: #1e293b;
-    }
+        &__delete-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
 
-    .recipe-inputs,
-    .recipe-outputs {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
+            &:hover {
+                background: #b91c1c;
+            }
+        }
 
-    .recipe-inputs:last-child,
-    .recipe-outputs:last-child {
-        margin-bottom: 0;
-    }
+        &__coefficient-section {
+            margin-top: 1rem;
+        }
 
-    .recipe-inputs-label,
-    .recipe-outputs-label {
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #64748b;
-        min-width: 3rem;
-    }
+        &__coefficient-input {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
 
-    .recipe-items {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
+            input {
+                flex: 1;
+                padding: 0.5rem 0.75rem;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                font-size: 0.875rem;
+                background: white;
+                transition: border-color 0.2s;
 
-    .recipe-item {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        padding: 0.25rem 0.5rem;
-        background: white;
-        border-radius: 4px;
-        border: 1px solid #e2e8f0;
-    }
+                &:focus {
+                    outline: none;
+                    border-color: #3b82f6;
+                    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+                }
+            }
+        }
 
-    .recipe-item-quantity {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: #1e293b;
-    }
+        &__coefficient-unit {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+            min-width: 1.5rem;
+        }
 
-    /* Коэффициент производительности */
-    .coefficient-section {
-        margin-top: 1rem;
-    }
-
-    .coefficient-input {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .coefficient-input input {
-        flex: 1;
-        padding: 0.5rem 0.75rem;
-        border: 1px solid #d1d5db;
-        border-radius: 6px;
-        font-size: 0.875rem;
-        background: white;
-        transition: border-color 0.2s;
-    }
-
-    .coefficient-input input:focus {
-        outline: none;
-        border-color: #3b82f6;
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    .coefficient-unit {
-        font-size: 0.875rem;
-        color: #6b7280;
-        font-weight: 500;
-        min-width: 1.5rem;
-    }
-
-    .coefficient-hint {
-        font-size: 0.75rem;
-        color: #6b7280;
+        &__coefficient-hint {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
     }
 </style>

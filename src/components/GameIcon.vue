@@ -1,10 +1,10 @@
 <template>
     <!-- Резервируем корректное место под иконку -->
-    <div class="game-icon-wrap" :style="wrapStyle" :title="titleText">
-        <div v-if="!isLoading && !error && iconData" class="game-icon" :style="iconStyle" />
-        <div v-else-if="isLoading" class="game-icon loading" />
-        <div v-else-if="error" class="game-icon error" />
-        <div v-else class="game-icon not-found" />
+    <div class="game-icon" :style="wrapStyle" :title="titleText">
+        <div v-if="!isLoading && !error && iconData" class="game-icon__image" :style="iconStyle" />
+        <div v-else-if="isLoading" class="game-icon__placeholder game-icon__placeholder_loading" />
+        <div v-else-if="error" class="game-icon__placeholder game-icon__placeholder_error" />
+        <div v-else class="game-icon__placeholder game-icon__placeholder_not-found" />
     </div>
 </template>
 
@@ -69,71 +69,59 @@
     })
 </script>
 
-<style scoped>
-    .game-icon-wrap {
-        /* стили на всякий случай, можно убрать если не нужно */
-    }
-
+<style lang="scss" scoped>
     .game-icon {
         border-radius: 4px;
         overflow: hidden;
         flex-shrink: 0;
-    }
 
-    /* плейсхолдеры теперь внутри wrap, их не нужно вручную масштабировать */
-    .game-icon.loading {
-        width: 64px;
-        height: 64px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #f0f0f0;
-        border: 2px dashed #ccc;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform-origin: top left;
-        transform: scale(var(--scale, 1));
-    }
+        &__image {
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-    .game-icon.loading::after {
-        content: "⏳";
-        font-size: 0.6em;
-    }
+        &__placeholder {
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: top left;
+            transform: scale(var(--scale, 1));
 
-    .game-icon.error {
-        width: 64px;
-        height: 64px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #ffebee;
-        border: 2px solid #f44336;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+            &_loading {
+                background-color: #f0f0f0;
+                border: 2px dashed #ccc;
 
-    .game-icon.error::after {
-        content: "❌";
-        font-size: 0.6em;
-    }
+                &::after {
+                    content: "⏳";
+                    font-size: 0.6em;
+                }
+            }
 
-    .game-icon.not-found {
-        width: 64px;
-        height: 64px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        background-color: #fff3e0;
-        border: 2px solid #ff9800;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+            &_error {
+                background-color: #ffebee;
+                border: 2px solid #f44336;
 
-    .game-icon.not-found::after {
-        content: "❓";
-        font-size: 0.6em;
+                &::after {
+                    content: "❌";
+                    font-size: 0.6em;
+                }
+            }
+
+            &_not-found {
+                background-color: #fff3e0;
+                border: 2px solid #ff9800;
+
+                &::after {
+                    content: "❓";
+                    font-size: 0.6em;
+                }
+            }
+        }
     }
 </style>

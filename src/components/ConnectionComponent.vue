@@ -1,12 +1,12 @@
 <template>
     <!-- Невидимая широкая линия для увеличения области клика -->
-    <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" class="connection-hit-area" @click="onConnectionClick" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" />
+    <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" class="connection__hit-area" @click="onConnectionClick" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" />
 
     <!-- Видимая линия связи -->
     <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" :class="connectionClass" :stroke="connectionColor" :stroke-width="strokeWidth" :marker-end="markerEnd" pointer-events="none" />
 
     <!-- Отображение пропускной способности -->
-        <text v-if="throughputResult.throughput > 0 || connection" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
+    <text v-if="throughputResult.throughput > 0 || connection" :x="throughputTextX" :y="throughputTextY" class="connection__throughput-text" :class="{ 'connection__throughput-text_selected': isSelected }">
         {{ throughputText }}
     </text>
 </template>
@@ -73,9 +73,9 @@
 
     const connectionClass = computed(() => {
         const classes = ['connection']
-        if (props.isSelected) classes.push('connection-selected')
-        if (props.isHighlighted) classes.push('connection-highlighted')
-        if (isHovered.value) classes.push('connection-hovered')
+        if (props.isSelected) classes.push('connection_selected')
+        if (props.isHighlighted) classes.push('connection_highlighted')
+        if (isHovered.value) classes.push('connection_hovered')
         return classes.join(' ')
     })
 
@@ -196,39 +196,43 @@
     }
 </script>
 
-<style scoped>
-    .connection-hit-area {
-        stroke: transparent;
-        fill: none;
-        stroke-width: 20;
-        cursor: pointer;
-    }
-
+<style lang="scss" scoped>
     .connection {
         fill: none;
         cursor: pointer;
         transition: all 0.2s ease;
-    }
 
-    .connection-selected {
-        stroke-width: 3;
-    }
+        &__hit-area {
+            stroke: transparent;
+            fill: none;
+            stroke-width: 20;
+            cursor: pointer;
+        }
 
-    .connection-highlighted {
-        stroke-width: 2.5;
-    }
+        &_selected {
+            stroke-width: 3;
+        }
 
-    .throughput-text {
-        font-size: 12px;
-        font-weight: 600;
-        fill: #374151;
-        text-anchor: middle;
-        pointer-events: none;
-        user-select: none;
-    }
+        &_highlighted {
+            stroke-width: 2.5;
+        }
 
-    .throughput-text-selected {
-        fill: #1f2937;
-        font-weight: 700;
+        &_hovered {
+            stroke-width: 2.5;
+        }
+
+        &__throughput-text {
+            font-size: 12px;
+            font-weight: 600;
+            fill: #374151;
+            text-anchor: middle;
+            pointer-events: none;
+            user-select: none;
+
+            &_selected {
+                fill: #1f2937;
+                font-weight: 700;
+            }
+        }
     }
 </style>

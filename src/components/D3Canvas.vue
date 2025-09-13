@@ -1,21 +1,21 @@
 <template>
-    <div class="d3-canvas-container">
-        <div class="canvas-controls">
-            <button @click="toggleGrid" class="control-btn">
+    <div class="canvas">
+        <div class="canvas__controls">
+            <button @click="toggleGrid" class="canvas__control-btn">
                 {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
             </button>
-            <button @click="openBuildingSelector" class="control-btn">Добавить строение</button>
-            <button @click="toggleConnectionMode" class="control-btn" :class="{ 'active': isCreatingConnection, 'disabled': nodes.length < 2 }" :disabled="nodes.length < 2">
+            <button @click="openBuildingSelector" class="canvas__control-btn">Добавить строение</button>
+            <button @click="toggleConnectionMode" class="canvas__control-btn" :class="{ 'canvas__control-btn_active': isCreatingConnection, 'canvas__control-btn_disabled': nodes.length < 2 }" :disabled="nodes.length < 2">
                 {{ isCreatingConnection ? 'Отменить связь' : 'Добавить связь' }}
             </button>
-            <div class="zoom-controls">
-                <div class="zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
-                <button @click="resetView" class="control-btn">Сброс</button>
+            <div class="canvas__zoom-controls">
+                <div class="canvas__zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
+                <button @click="resetView" class="canvas__control-btn">Сброс</button>
             </div>
         </div>
 
-        <div ref="canvasContainer" class="canvas-container" @click="handleCanvasClick" @mousemove="handleMouseMove">
-            <svg ref="svgRef" class="d3-canvas">
+        <div ref="canvasContainer" class="canvas__container" @click="handleCanvasClick" @mousemove="handleMouseMove">
+            <svg ref="svgRef" class="canvas__svg">
                 <defs>
                     <pattern :id="patternId" patternUnits="userSpaceOnUse" :width="grid.step" :height="grid.step">
                         <circle :r="grid.dotRadius" :cx="grid.dotOffset" :cy="grid.dotOffset" :fill="grid.dotColor" />
@@ -40,17 +40,17 @@
 
                 <!-- ЕДИНАЯ зум-сцена: и сетка, и ноды -->
                 <g ref="viewportRef">
-                    <rect v-if="showGrid" class="grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
+                    <rect v-if="showGrid" class="canvas__grid-overlay" :fill="`url(#${patternId})`" :width="view.w * 10" :height="view.h * 10" :x="-view.w * 4.5" :y="-view.h * 4.5" />
 
                     <!-- Связи (рисуются под нодами) -->
-                    <g class="connections">
+                    <g class="canvas__connections">
                         <ConnectionComponent v-for="connection in connections" :key="connection.id" :connection="connection" :is-selected="selectedConnection?.id === connection.id" :from-node="getNodeById(connection.fromNodeId)" :to-node="getNodeById(connection.toNodeId)" :all-connections="connections" :all-nodes="nodes" @click="selectConnection" />
 
                         <!-- Предварительная связь при создании -->
-                        <line v-if="isCreatingConnection && selectedNodeId && previewConnection" :x1="previewConnection.fromX" :y1="previewConnection.fromY" :x2="previewConnection.toX" :y2="previewConnection.toY" class="preview-connection" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-selected)" />
+                        <line v-if="isCreatingConnection && selectedNodeId && previewConnection" :x1="previewConnection.fromX" :y1="previewConnection.fromY" :x2="previewConnection.toX" :y2="previewConnection.toY" class="canvas__preview-connection" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead-selected)" />
                     </g>
 
-                    <g class="nodes">
+                    <g class="canvas__nodes">
                         <NodeComponent v-for="node in nodes" :key="node.id" :node="node" :is-selected="selectedNode?.id === node.id || (isCreatingConnection && selectedNodeId === node.id)" :all-connections="connections" :all-nodes="nodes" />
                     </g>
                 </g>
@@ -61,18 +61,7 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel
-            :is-open="isEditPanelOpen"
-            :selected-node="selectedNode"
-            :all-connections="connections"
-            :all-nodes="nodes"
-            @close="closeEditPanel"
-            @delete="deleteNode"
-            @update-recipe="updateNodeRecipe"
-            @update-veins="updateNodeVeins"
-            @update-building-count="updateNodeBuildingCount"
-            @update-coefficient="updateNodeCoefficient"
-        />
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" :all-connections="connections" :all-nodes="nodes" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" @update-building-count="updateNodeBuildingCount" @update-coefficient="updateNodeCoefficient" />
 
         <!-- Панель редактирования связи -->
         <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" :connections="connections" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
@@ -483,93 +472,92 @@
     })
 </script>
 
-<style scoped>
-    .d3-canvas-container {
+<style lang="scss" scoped>
+    .canvas {
         width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
-    }
 
-    .canvas-controls {
-        display: flex;
-        gap: 1rem;
-        padding: 1rem;
-        background: #f5f5f5;
-        border-bottom: 1px solid #ddd;
-        align-items: center;
-    }
+        &__controls {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
 
-    .control-btn {
-        padding: 0.5rem 1rem;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background-color 0.2s;
-    }
+        &__control-btn {
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
 
-    .control-btn:hover {
-        background: #0056b3;
-    }
+            &:hover {
+                background: #0056b3;
+            }
 
-    .control-btn.active {
-        background: #28a745;
-    }
+            &_active {
+                background: #28a745;
 
-    .control-btn.active:hover {
-        background: #218838;
-    }
+                &:hover {
+                    background: #218838;
+                }
+            }
 
-    .control-btn.disabled {
-        background: #6c757d;
-        cursor: not-allowed;
-        opacity: 0.6;
-    }
+            &_disabled {
+                background: #6c757d;
+                cursor: not-allowed;
+                opacity: 0.6;
 
-    .control-btn.disabled:hover {
-        background: #6c757d;
-    }
+                &:hover {
+                    background: #6c757d;
+                }
+            }
+        }
 
-    .zoom-controls {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-    }
+        &__zoom-controls {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
 
-    .zoom-info {
-        font-size: 14px;
-        color: #666;
-        font-weight: 500;
-    }
+        &__zoom-info {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
 
-    .canvas-container {
-        flex: 1;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border: 1px solid #ddd;
-        background: #f8fafc;
-        position: relative;
-    }
+        &__container {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            background: #f8fafc;
+            position: relative;
+        }
 
-    .d3-canvas {
-        display: block;
-        width: 100%;
-        height: 100%;
+        &__svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        &__preview-connection {
+            pointer-events: none;
+            opacity: 0.7;
+        }
     }
 
     /* лёгкая тень под блоками */
-    :deep(.nodes .node rect) {
+    :deep(.canvas__nodes .node rect) {
         filter: drop-shadow(0 1px 1px rgba(30, 41, 59, 0.06));
-    }
-
-    /* Предварительная связь */
-    .preview-connection {
-        pointer-events: none;
-        opacity: 0.7;
     }
 </style>

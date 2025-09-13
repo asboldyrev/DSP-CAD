@@ -1,5 +1,5 @@
 <template>
-    <g class="node" :class="{ 'node-selected': isSelected }" :data-node-id="node.id" :title="`${node.item.name} (${node.x.toFixed(0)}, ${node.y.toFixed(0)})`" @click="handleClick">
+    <g class="node" :class="{ 'node_selected': isSelected }" :data-node-id="node.id" :title="`${node.item.name} (${node.x.toFixed(0)}, ${node.y.toFixed(0)})`" @click="handleClick">
         <rect :x="node.x - 32" :y="node.y - 32" width="64" height="64" rx="8" ry="8" :fill="isSelected ? '#dbeafe' : 'white'" :stroke="isSelected ? '#3b82f6' : '#8aa0b4'" :stroke-width="isSelected ? '2.5' : '1.5'" />
         <foreignObject :x="node.x - 24" :y="node.y - 24" width="48" height="48">
             <GameIcon :id="node.item.id" :size="48" />
@@ -10,17 +10,17 @@
         </foreignObject>
 
         <!-- Количество строений в левом верхнем углу -->
-        <text v-if="node.buildingCount && node.buildingCount > 1" :x="node.x - 28" :y="node.y - 20" text-anchor="middle" class="building-count-text">
+        <text v-if="node.buildingCount && node.buildingCount > 1" :x="node.x - 28" :y="node.y - 20" text-anchor="middle" class="node__building-count-text">
             {{ node.buildingCount }}x
         </text>
 
         <!-- Количество жил для майнеров в правом верхнем углу -->
-        <text v-if="node.veins && node.veins > 1 && ProductionCalculator.isMiner(node.item.id)" :x="node.x + 28" :y="node.y - 20" text-anchor="middle" class="veins-count-text">
+        <text v-if="node.veins && node.veins > 1 && ProductionCalculator.isMiner(node.item.id)" :x="node.x + 28" :y="node.y - 20" text-anchor="middle" class="node__veins-count-text">
             {{ node.veins }} жил
         </text>
 
         <!-- Производительность под нодой -->
-        <text v-if="productionResult.rate > 0 || (node.recipe && ProductionCalculator.isProcessor(node))" :x="node.x" :y="node.y + 50" text-anchor="middle" class="production-text">
+        <text v-if="productionResult.rate > 0 || (node.recipe && ProductionCalculator.isProcessor(node))" :x="node.x" :y="node.y + 50" text-anchor="middle" class="node__production-text">
             {{ productionResult.rate.toFixed(productionResult.inputPrecision || 2) }} {{ productionResult.unit }}
         </text>
     </g>
@@ -78,25 +78,27 @@
     }
 </script>
 
-<style scoped>
-    .production-text {
-        font-size: 10px;
-        font-weight: 500;
-        fill: #10b981;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+<style lang="scss" scoped>
+    .node {
+        &__production-text {
+            font-size: 10px;
+            font-weight: 500;
+            fill: #10b981;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
 
-    .building-count-text {
-        font-size: 12px;
-        font-weight: 700;
-        fill: #374151;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-    }
+        &__building-count-text {
+            font-size: 12px;
+            font-weight: 700;
+            fill: #374151;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
 
-    .veins-count-text {
-        font-size: 11px;
-        font-weight: 600;
-        fill: #7c3aed;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        &__veins-count-text {
+            font-size: 11px;
+            font-weight: 600;
+            fill: #7c3aed;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
     }
 </style>
