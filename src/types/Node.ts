@@ -1,5 +1,5 @@
 import type { Item } from './Item'
-import type { Recipe } from './Recipes'
+import type { Recipe } from './Recipe'
 
 export interface Node {
   id: number

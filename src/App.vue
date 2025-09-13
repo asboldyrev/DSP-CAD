@@ -6,7 +6,7 @@
   import ConnectionEditPanel from './components/ConnectionEditPanel.vue'
   import type { Node } from '@/types/Node'
   import type { Connection } from '@/types/Connection'
-  import type { Recipe } from '@/types/Recipes'
+  import type { Recipe } from '@/types/Recipe'
   import type { Item } from '@/types/Item'
   import { useNodesStore } from '@/stores/nodes'
   import { useConnectionsStore } from '@/stores/connectionsStore'

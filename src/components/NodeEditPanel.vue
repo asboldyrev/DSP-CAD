@@ -228,7 +228,7 @@
 <script setup lang="ts">
   import { computed, onMounted, watch, ref } from 'vue'
   import type { Node } from '@/types/Node'
-  import type { Recipe } from '@/types/Recipes'
+  import type { Recipe } from '@/types/Recipe'
   import type { Connection } from '@/types/Connection'
   import GameIcon from './GameIcon.vue'
   import BaseButton from './BaseButton.vue'

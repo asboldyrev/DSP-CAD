@@ -1,5 +1,5 @@
 import { ref, computed } from 'vue'
-import type { Recipe } from '@/types/Recipes'
+import type { Recipe } from '@/types/Recipe'
 
 const recipesData = ref<Recipe[]>([])
 const isLoading = ref(false)
