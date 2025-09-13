@@ -26,13 +26,6 @@ export class OutputDistributionCalculator {
         allNodes: Node[],
         allConnections?: Connection[]
     ): OutputDistributionResult {
-        console.log('OutputDistributionCalculator.calculateOutputDistribution:', {
-            sourceNodeId: sourceNode.id,
-            sourceNodeName: sourceNode.item.name,
-            outgoingConnections: outgoingConnections.length,
-            hasRecipe: !!sourceNode.recipe
-        })
-
         if (!sourceNode.recipe || outgoingConnections.length === 0) {
             return {
                 distributions: [],
@@ -64,18 +57,12 @@ export class OutputDistributionCalculator {
         // базовой производительности, мы пропорционально уменьшаем скорости
         // распределения для всех ресурсов.  Если равен, коэффициент = 1.
         const scaleFactor = baseTotalRate > 0 ? Math.min(1, actualTotalRate / baseTotalRate) : 0
-        // console.log('Total production rate:', totalProductionRate)
         
         // Группируем связи по ресурсам
         const connectionsByResource = new Map<string, Connection[]>()
         
         for (const connection of outgoingConnections) {
             const resourceId = connection.selectedResource || this.getDefaultResource(sourceNode, connection, allNodes)
-            console.log('Connection resource:', {
-                connectionId: connection.id,
-                selectedResource: connection.selectedResource,
-                defaultResource: resourceId
-            })
             if (resourceId) {
                 if (!connectionsByResource.has(resourceId)) {
                     connectionsByResource.set(resourceId, [])
@@ -84,11 +71,6 @@ export class OutputDistributionCalculator {
             }
         }
         
-        console.log('Connections by resource:', Array.from(connectionsByResource.entries()).map(([resource, connections]) => ({
-            resource,
-            connections: connections.length
-        })))
-
         const distributions: OutputDistribution[] = []
         let totalAllocatedRate = 0
 
@@ -116,9 +98,6 @@ export class OutputDistributionCalculator {
             }
         }
         
-        console.log('Final distributions:', distributions)
-        console.log('Total allocated rate:', totalAllocatedRate)
-
         return {
             distributions,
             totalAllocatedRate,
@@ -134,37 +113,25 @@ export class OutputDistributionCalculator {
      */
     private static getResourceProductionRate(sourceNode: Node, resourceId: string): number {
         if (!sourceNode.recipe) {
-            console.log('No recipe for node:', sourceNode.name)
             return 0
         }
 
         // Получаем общую производительность источника (базовую, без учета входных ресурсов)
         const totalRate = this.getBaseProductionRate(sourceNode)
-        console.log('Total rate for resource calculation:', totalRate)
         
         // Получаем выходные ресурсы рецепта
         const outputEntries = Object.entries(sourceNode.recipe.out as unknown as Record<string, number>)
         const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
-        console.log('Recipe outputs:', outputEntries)
-        console.log('Total output per cycle:', totalOutputPerCycle)
         
         // Находим количество конкретного ресурса за цикл
         const resourcePerCycle = outputEntries.find(([id]) => id === resourceId)?.[1] || 0
-        console.log('Looking for resource:', resourceId, 'Found quantity:', resourcePerCycle)
         
         // Рассчитываем долю этого ресурса в общей производительности
         if (totalOutputPerCycle === 0) {
-            console.log('Total output per cycle is 0')
             return 0
         }
         
         const resourceRate = totalRate * (resourcePerCycle / totalOutputPerCycle)
-        console.log('Resource rate calculation:', {
-            totalRate,
-            resourcePerCycle,
-            totalOutputPerCycle,
-            resourceRate
-        })
         
         return resourceRate
     }
