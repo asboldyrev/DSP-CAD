@@ -1,16 +1,16 @@
 <template>
     <div class="canvas">
         <div class="canvas__controls">
-            <button @click="toggleGrid" class="canvas__control-btn">
+            <BaseButton @click="toggleGrid" :icon="showGrid ? 'ri-eye-off-line' : 'ri-eye-line'">
                 {{ showGrid ? 'Скрыть сетку' : 'Показать сетку' }}
-            </button>
-            <button @click="openBuildingSelector" class="canvas__control-btn">Добавить строение</button>
-            <button @click="toggleConnectionMode" class="canvas__control-btn" :class="{ 'canvas__control-btn_active': isCreatingConnection, 'canvas__control-btn_disabled': nodes.length < 2 }" :disabled="nodes.length < 2">
+            </BaseButton>
+            <BaseButton @click="openBuildingSelector" icon="ri-add-line">Добавить строение</BaseButton>
+            <BaseButton @click="toggleConnectionMode" :icon="isCreatingConnection ? 'ri-close-line' : 'ri-links-line'" :active="isCreatingConnection" :disabled="nodes.length < 2">
                 {{ isCreatingConnection ? 'Отменить связь' : 'Добавить связь' }}
-            </button>
+            </BaseButton>
             <div class="canvas__zoom-controls">
                 <div class="canvas__zoom-info">Масштаб: {{ Math.round(zoomLevel * 100) }}%</div>
-                <button @click="resetView" class="canvas__control-btn">Сброс</button>
+                <BaseButton @click="resetView" icon="ri-refresh-line">Сброс</BaseButton>
             </div>
         </div>
 
@@ -73,11 +73,12 @@
     import * as d3 from 'd3'
     import { useNodesStore } from '@/stores/nodes'
     import { useConnectionsStore } from '@/stores/connectionsStore'
-    import BuildingSelectorModal from './BuildingSelectorModal.vue'
-    import NodeComponent from './NodeComponent.vue'
-    import NodeEditPanel from './NodeEditPanel.vue'
-    import ConnectionComponent from './ConnectionComponent.vue'
-    import ConnectionEditPanel from './ConnectionEditPanel.vue'
+import BuildingSelectorModal from './BuildingSelectorModal.vue'
+import NodeComponent from './NodeComponent.vue'
+import NodeEditPanel from './NodeEditPanel.vue'
+import ConnectionComponent from './ConnectionComponent.vue'
+import ConnectionEditPanel from './ConnectionEditPanel.vue'
+import BaseButton from './BaseButton.vue'
     import type { Item } from '@/types/Item'
     import type { Node } from '@/types/Node'
     import type { Recipe } from '@/types/Recipes'
@@ -488,38 +489,7 @@
             align-items: center;
         }
 
-        &__control-btn {
-            padding: 0.5rem 1rem;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.2s;
-
-            &:hover {
-                background: #0056b3;
-            }
-
-            &_active {
-                background: #28a745;
-
-                &:hover {
-                    background: #218838;
-                }
-            }
-
-            &_disabled {
-                background: #6c757d;
-                cursor: not-allowed;
-                opacity: 0.6;
-
-                &:hover {
-                    background: #6c757d;
-                }
-            }
-        }
+        // Стили для BaseButton уже определены в компоненте
 
         &__zoom-controls {
             margin-left: auto;

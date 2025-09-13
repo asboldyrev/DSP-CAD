@@ -10,7 +10,7 @@
                 </div>
                 <h3 class="connection-panel__title">Связь</h3>
             </div>
-            <button class="connection-panel__close-btn" @click="closePanel">×</button>
+            <BaseButton @click="closePanel" icon="ri-close-line" class="connection-panel__close-btn"></BaseButton>
         </div>
 
         <div class="connection-panel__content">
@@ -115,9 +115,9 @@
             </div>
 
             <div class="connection-panel__actions">
-                <button class="connection-panel__delete-btn" @click="deleteConnection">
+                <BaseButton @click="deleteConnection" icon="ri-delete-bin-line" remove>
                     Удалить связь
-                </button>
+                </BaseButton>
             </div>
         </div>
     </div>
@@ -125,14 +125,15 @@
 
 <script setup lang="ts">
     import { computed, onMounted } from 'vue'
-    import type { Connection } from '@/types/Connection'
-    import type { Node } from '@/types/Node'
-    import type { Item } from '@/types/Item'
-    import GameIcon from './GameIcon.vue'
-    import { useBeltsStore } from '@/stores/beltsStore'
-    import { useItemsStore } from '@/stores/itemsStore'
-    import { useRecipesStore } from '@/stores/recipesStore'
-    import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
+import type { Connection } from '@/types/Connection'
+import type { Node } from '@/types/Node'
+import type { Item } from '@/types/Item'
+import GameIcon from './GameIcon.vue'
+import BaseButton from './BaseButton.vue'
+import { useBeltsStore } from '@/stores/beltsStore'
+import { useItemsStore } from '@/stores/itemsStore'
+import { useRecipesStore } from '@/stores/recipesStore'
+import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
 
     interface Props {
         isOpen: boolean
@@ -366,18 +367,21 @@
         }
 
         &__close-btn {
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
             font-size: 1.5rem;
-            color: #6b7280;
-            cursor: pointer;
+            color: #6b7280 !important;
             padding: 0.25rem;
             border-radius: 4px;
             transition: all 0.2s;
 
             &:hover {
-                background: #f3f4f6;
-                color: #374151;
+                background: #f3f4f6 !important;
+                color: #374151 !important;
+            }
+
+            .base-button__icon {
+                margin-right: 0 !important;
             }
         }
 
@@ -632,19 +636,6 @@
 
         &__delete-btn {
             width: 100%;
-            padding: 0.75rem 1rem;
-            background: #dc2626;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-
-            &:hover {
-                background: #b91c1c;
-            }
         }
     }
 

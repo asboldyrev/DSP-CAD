@@ -7,7 +7,7 @@
                 </div>
                 <h3 class="node-panel__title">{{ selectedNode?.item.name }}</h3>
             </div>
-            <button class="node-panel__close-btn" @click="closePanel">×</button>
+            <BaseButton @click="closePanel" icon="ri-close-line" class="node-panel__close-btn"></BaseButton>
         </div>
 
         <div class="node-panel__content">
@@ -31,9 +31,7 @@
                         <GameIcon :key="`selected-recipe-${selectedNode.id}-${selectedNode.recipe.id}`" :id="selectedNode.recipe.id" :size="32" />
                     </div>
                     <span class="node-panel__selected-recipe-name">{{ selectedNode.recipe.name }}</span>
-                    <button class="node-panel__remove-recipe-btn" @click="removeRecipe" title="Удалить рецепт">
-                        ×
-                    </button>
+                    <BaseButton @click="removeRecipe" icon="ri-close-line" remove title="Удалить рецепт"></BaseButton>
                 </div>
 
                 <!-- Детали рецепта -->
@@ -96,9 +94,9 @@
             </div>
 
             <div class="node-panel__actions">
-                <button class="node-panel__delete-btn" @click="deleteNode">
+                <BaseButton @click="deleteNode" icon="ri-delete-bin-line" remove>
                     Удалить ноду
-                </button>
+                </BaseButton>
             </div>
         </div>
     </div>
@@ -116,14 +114,15 @@
 
 <script setup lang="ts">
     import { computed, onMounted, watch, ref } from 'vue'
-    import type { Node } from '@/types/Node'
-    import type { Recipe } from '@/types/Recipes'
-    import type { Connection } from '@/types/Connection'
-    import GameIcon from './GameIcon.vue'
-    import { useRecipesStore } from '@/stores/recipesStore'
-    import { useProducersStore } from '@/stores/producersStore'
-    import { ProductionCalculator } from '@/utils/ProductionCalculator'
-    import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
+import type { Node } from '@/types/Node'
+import type { Recipe } from '@/types/Recipes'
+import type { Connection } from '@/types/Connection'
+import GameIcon from './GameIcon.vue'
+import BaseButton from './BaseButton.vue'
+import { useRecipesStore } from '@/stores/recipesStore'
+import { useProducersStore } from '@/stores/producersStore'
+import { ProductionCalculator } from '@/utils/ProductionCalculator'
+import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
 
     interface Props {
         isOpen: boolean
@@ -334,18 +333,21 @@
         }
 
         &__close-btn {
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
             font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
+            color: #6b7280 !important;
             padding: 0.25rem;
             border-radius: 4px;
             transition: background-color 0.2s;
 
             &:hover {
-                background-color: #f3f4f6;
-                color: #374151;
+                background-color: #f3f4f6 !important;
+                color: #374151 !important;
+            }
+
+            .base-button__icon {
+                margin-right: 0 !important;
             }
         }
 
@@ -452,22 +454,15 @@
         }
 
         &__remove-recipe-btn {
-            background: #dc2626;
-            color: white;
-            border: none;
-            border-radius: 50%;
             width: 24px;
             height: 24px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s;
+            border-radius: 50%;
+            padding: 0;
+            min-width: 24px;
 
-            &:hover {
-                background: #b91c1c;
+            .base-button__icon {
+                margin-right: 0 !important;
+                font-size: 1rem;
             }
         }
 
@@ -630,19 +625,6 @@
 
         &__delete-btn {
             width: 100%;
-            padding: 0.75rem 1rem;
-            background: #dc2626;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: background-color 0.2s;
-
-            &:hover {
-                background: #b91c1c;
-            }
         }
 
         &__coefficient-section {

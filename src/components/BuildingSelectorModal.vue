@@ -3,7 +3,7 @@
         <div class="modal__content" @click.stop>
             <div class="modal__header">
                 <h2 class="modal__title">Выберите строение</h2>
-                <button class="modal__close-btn" @click="closeModal">×</button>
+                <BaseButton @click="closeModal" icon="ri-close-line" class="modal__close-btn"></BaseButton>
             </div>
 
             <div class="modal__body">
@@ -32,10 +32,11 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, onMounted } from 'vue'
-    import { useItemsStore } from '@/stores/itemsStore'
-    import type { Item } from '@/types/Item'
-    import GameIcon from './GameIcon.vue'
+import { computed, onMounted } from 'vue'
+import { useItemsStore } from '@/stores/itemsStore'
+import type { Item } from '@/types/Item'
+import GameIcon from './GameIcon.vue'
+import BaseButton from './BaseButton.vue'
 
     interface Props {
         isOpen: boolean
@@ -119,18 +120,21 @@
         }
 
         &__close-btn {
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
             font-size: 1.5rem;
-            cursor: pointer;
-            color: #6b7280;
+            color: #6b7280 !important;
             padding: 0.25rem;
             border-radius: 4px;
             transition: background-color 0.2s;
 
             &:hover {
-                background-color: #f3f4f6;
-                color: #374151;
+                background-color: #f3f4f6 !important;
+                color: #374151 !important;
+            }
+
+            .base-button__icon {
+                margin-right: 0 !important;
             }
         }
 
