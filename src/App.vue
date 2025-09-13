@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { onMounted, ref } from 'vue'
   import D3Canvas from './components/D3Canvas.vue'
   import BaseSidebar from './components/BaseSidebar.vue'
   import NodeEditPanel from './components/NodeEditPanel.vue'
@@ -10,7 +10,9 @@
   import type { Item } from '@/types/Item'
   import { useNodesStore } from '@/stores/nodes'
   import { useConnectionsStore } from '@/stores/connectionsStore'
+  import { useReferenceStore } from '@/stores/referenceStore'
 
+  const referenceStore = useReferenceStore()
   // Состояние для панелей
   const isNodePanelOpen = ref(false)
   const isConnectionPanelOpen = ref(false)
@@ -98,6 +100,10 @@
   function handleConnectionUpdateSelectedResource(connectionId: number, resourceId: string) {
     connectionsStore.updateConnectionSelectedResource(connectionId, resourceId)
   }
+
+  onMounted(() => {
+    referenceStore.loadReference()
+  })
 </script>
 
 <template>

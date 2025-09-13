@@ -4,10 +4,7 @@
     class="modal"
     @click="closeModal"
   >
-    <div
-      class="modal__content"
-      @click.stop
-    >
+    <div class="modal__content" @click.stop>
       <div class="modal__header">
         <h2 class="modal__title">Выберите строение</h2>
         <BaseButton
@@ -18,32 +15,25 @@
       </div>
 
       <div class="modal__body">
-        <div
-          v-if="isLoading"
-          class="modal__loading"
-        >
+        <div v-if="referenceStore.isLoading" class="modal__loading">
           Загрузка строений...
         </div>
 
-        <div
-          v-else-if="error"
-          class="modal__error"
-        >
-          Ошибка загрузки: {{ error }}
+        <div v-else-if="referenceStore.error" class="modal__error">
+          Ошибка загрузки: {{ referenceStore.error }}
         </div>
 
-        <div
-          v-else
-          class="modal__buildings"
-        >
+        <div v-else class="modal__buildings">
+          {{ referenceStore.getItemsRowRange() }}
           <div
-            v-for="row in sortedRows"
+            v-for="row in referenceStore.getItemsRowRange"
             :key="row"
             class="modal__buildings-row"
           >
+          {{ referenceStore.getItemsByRow(row) }}
             <div class="modal__buildings-grid">
               <div
-                v-for="building in buildingsGrouped[row]"
+                v-for="building in referenceStore.getItemsByRow(row)"
                 :key="building.id"
                 class="modal__building-tile"
                 :title="building.name"
@@ -66,8 +56,8 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted } from 'vue'
-  import { useItemsStore } from '@/stores/itemsStore'
+  import { onMounted } from 'vue'
+  import { useReferenceStore } from '@/stores/referenceStore'
   import type { Item } from '@/types/Item'
   import GameIcon from './GameIcon.vue'
   import BaseButton from './BaseButton.vue'
@@ -84,25 +74,10 @@
   defineProps<Props>()
   const emit = defineEmits<Emits>()
 
-  const itemsStore = useItemsStore()
-  const { loadBuildings, loadProducers, getProducerBuildingsGroupedByRow, isLoading, error } =
-    itemsStore
-
-  // Получаем строения-производители, сгруппированные по строкам
-  const buildingsGrouped = computed(() => {
-    const grouped = getProducerBuildingsGroupedByRow()
-    return grouped.value || {}
-  })
-
-  // Получаем отсортированные строки
-  const sortedRows = computed(() => {
-    return Object.keys(buildingsGrouped.value)
-      .map(Number)
-      .sort((a, b) => a - b)
-  })
+  const referenceStore = useReferenceStore()
 
   onMounted(async () => {
-    await Promise.all([loadBuildings(), loadProducers()])
+    await referenceStore.loadReference()
   })
 
   function closeModal() {

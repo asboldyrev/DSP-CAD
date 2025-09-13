@@ -267,8 +267,7 @@
   import GameIcon from './GameIcon.vue'
   import BaseButton from './BaseButton.vue'
   import { useBeltsStore } from '@/stores/beltsStore'
-  import { useItemsStore } from '@/stores/itemsStore'
-  import { useRecipesStore } from '@/stores/recipesStore'
+  import { useReferenceStore } from '@/stores/referenceStore'
   import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
 
   interface Props {
@@ -292,23 +291,18 @@
   const emit = defineEmits<Emits>()
 
   const beltsStore = useBeltsStore()
-  const { loadBelts, getAllBelts, getAllSorters } = beltsStore
+  const { loadBelts } = beltsStore
 
-  const itemsStore = useItemsStore()
-  const { getItemById, loadBuildings, loadIcons } = itemsStore
-
-  const recipesStore = useRecipesStore()
-  const { loadRecipes, getRecipeById } = recipesStore
+  const referenceStore = useReferenceStore()
+  const { getItemById, getRecipeById, loadReference, getAllBelts, getAllSorters } = referenceStore
 
   // Получаем данные из стора
   const belts = computed(() => {
-    const beltIds = getAllBelts()
-    return beltIds.map((id) => getItemById(id)).filter(Boolean) as Item[]
+    return getAllBelts.value
   })
 
   const sorters = computed(() => {
-    const sorterIds = getAllSorters()
-    return sorterIds.map((id) => getItemById(id)).filter(Boolean) as Item[]
+    return getAllSorters.value
   })
 
   // Получаем доступные ресурсы из рецепта исходной ноды
@@ -387,7 +381,7 @@
   })
 
   onMounted(async () => {
-    await Promise.all([loadBelts(), loadBuildings(), loadIcons(), loadRecipes()])
+    await Promise.all([loadBelts(), loadReference()])
   })
 
   function closePanel() {

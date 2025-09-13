@@ -220,7 +220,7 @@
 <script setup lang="ts">
   import { computed, onMounted } from 'vue'
   import { CATEGORIES } from '@/enums/Category'
-  import { useItemsStore } from '@/stores/itemsStore'
+  import { useReferenceStore } from '@/stores/referenceStore'
   import GameIcon from './GameIcon.vue'
 
   interface Props {
@@ -229,11 +229,11 @@
 
   const props = defineProps<Props>()
 
-  const itemsStore = useItemsStore()
-  const { loadItems, getItemById, isLoading, error } = itemsStore
+  const referenceStore = useReferenceStore()
+  const { loadReference, getItemById, isLoading, error } = referenceStore
 
   onMounted(() => {
-    loadItems()
+    loadReference()
   })
 
   const item = getItemById(props.id)

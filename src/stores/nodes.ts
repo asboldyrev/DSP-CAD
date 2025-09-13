@@ -4,8 +4,7 @@ import type { Node } from '@/types/Node'
 import type { NodeState } from '@/types/NodeState'
 import type { Recipe } from '@/types/Recipe'
 import type { Item } from '@/types/Item'
-import { useItemsStore } from './itemsStore'
-import { useRecipesStore } from './recipesStore'
+import { useReferenceStore } from './referenceStore'
 
 // Internal list of NodeState objects used for persistence and mutation.
 const nodeStates = ref<NodeState[]>([])
@@ -19,8 +18,7 @@ const nodeStates = ref<NodeState[]>([])
  */
 export const useNodesStore = defineStore('nodes', () => {
   // Access to item and recipe dictionaries.
-  const itemsStore = useItemsStore()
-  const recipesStore = useRecipesStore()
+  const referenceStore = useReferenceStore()
 
   /**
    * Returns a list of Node objects by resolving itemId and recipeId into
@@ -63,11 +61,11 @@ export const useNodesStore = defineStore('nodes', () => {
     }
     // Computed refs for derived properties
     const itemRef = computed<Item | undefined>(() => {
-      return itemsStore.getItemById(state.itemId) as Item | undefined
+      return referenceStore.getItemById(state.itemId).value as Item | undefined
     })
     const recipeRef = computed<Recipe | undefined>(() => {
       if (state.recipeId) {
-        const refRecipe = recipesStore.getRecipeById(state.recipeId)
+        const refRecipe = referenceStore.getRecipeById(state.recipeId)
         return refRecipe.value as Recipe | undefined
       }
       return undefined

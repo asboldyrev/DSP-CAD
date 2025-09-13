@@ -232,7 +232,7 @@
   import type { Connection } from '@/types/Connection'
   import GameIcon from './GameIcon.vue'
   import BaseButton from './BaseButton.vue'
-  import { useRecipesStore } from '@/stores/recipesStore'
+  import { useReferenceStore } from '@/stores/referenceStore'
   import { useProducersStore } from '@/stores/producersStore'
   import { ProductionCalculator } from '@/utils/ProductionCalculator'
   import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
@@ -256,8 +256,8 @@
   const props = defineProps<Props>()
   const emit = defineEmits<Emits>()
 
-  const recipesStore = useRecipesStore()
-  const { loadRecipes, getRecipesByProducer } = recipesStore
+  const referenceStore = useReferenceStore()
+  const { loadReference, getRecipesByProducer } = referenceStore
 
   const producersStore = useProducersStore()
   const { loadProducers } = producersStore
@@ -335,7 +335,7 @@
   })
 
   onMounted(() => {
-    Promise.all([loadRecipes(), loadProducers()])
+    Promise.all([loadReference(), loadProducers()])
   })
 
   // Инициализируем значение ввода при смене ноды

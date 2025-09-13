@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
   import { computed, onMounted } from 'vue'
-  import { useIconsStore } from '@/stores/iconsStore'
+  import { useReferenceStore } from '@/stores/referenceStore'
 
   interface Props {
     id: string
@@ -36,14 +36,17 @@
   }
   const props = withDefaults(defineProps<Props>(), { size: 64 })
 
-  const iconsStore = useIconsStore()
-  const { loadIcons, getIconById, isLoading, error } = iconsStore
+  const referenceStore = useReferenceStore()
+  const { loadReference, getItemById, isLoading, error } = referenceStore
 
   onMounted(() => {
-    loadIcons()
+    loadReference()
   })
 
-  const iconData = getIconById(props.id)
+  const iconData = computed(() => {
+    const item = getItemById(props.id).value
+    return item?.icon
+  })
 
   // Внешняя обёртка — реальный размер для лэйаута
   const wrapStyle = computed(() => ({

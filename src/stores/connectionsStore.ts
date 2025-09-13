@@ -4,7 +4,7 @@ import type { Connection } from '@/types/Connection'
 import type { ConnectionData } from '@/types/ConnectionData'
 import type { Node } from '@/types/Node'
 import type { Item } from '@/types/Item'
-import { useItemsStore } from './itemsStore'
+import { useReferenceStore } from './referenceStore'
 
 /**
  * Store managing connections between nodes.  The raw state consists of
@@ -29,7 +29,7 @@ export const useConnectionsStore = defineStore('connections', () => {
   let nextConnectionId = 1
 
   // Access to item dictionary for resolving belt and sorter ids
-  const itemsStore = useItemsStore()
+  const referenceStore = useReferenceStore()
 
   /**
    * Resolves ConnectionData entries into full Connection objects.  The
@@ -40,9 +40,9 @@ export const useConnectionsStore = defineStore('connections', () => {
    */
   const connections = computed<Connection[]>(() => {
     return connectionData.value.map((cd) => {
-      const belt = cd.beltId ? itemsStore.getItemById(cd.beltId) : undefined
-      const inputSorter = cd.inputSorterId ? itemsStore.getItemById(cd.inputSorterId) : undefined
-      const outputSorter = cd.outputSorterId ? itemsStore.getItemById(cd.outputSorterId) : undefined
+      const belt = cd.beltId ? referenceStore.getItemById(cd.beltId).value : undefined
+      const inputSorter = cd.inputSorterId ? referenceStore.getItemById(cd.inputSorterId).value : undefined
+      const outputSorter = cd.outputSorterId ? referenceStore.getItemById(cd.outputSorterId).value : undefined
       return {
         id: cd.id,
         fromNodeId: cd.fromNodeId,
