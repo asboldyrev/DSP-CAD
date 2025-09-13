@@ -1,9 +1,10 @@
 {
   "recommendations": [
-    "Vue.volar",
+    "esbenp.prettier-vscode",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin",
     "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
-    "oxc.oxc-vscode",
-    "esbenp.prettier-vscode"
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next"
   ]
 }
