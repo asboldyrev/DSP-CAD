@@ -1,5 +1,5 @@
-import type { Node } from '@/types/Node'
-import type { Connection } from '@/types/Connection'
+import type { Node } from '@/domain/types/Node'
+import type { Connection } from '@/domain/types/Connection'
 import type { Item } from '@/types/Item'
 import { ProductionCalculator } from './ProductionCalculator'
 import { InputResourceCalculator } from './InputResourceCalculator'
@@ -29,31 +29,42 @@ export class ThroughputCalculator {
         outputSorter?: Item,
         belt?: Item,
         allConnections?: Connection[],
-        allNodes?: Node[]
+        allNodes?: Node[],
     ): ThroughputResult {
         // Получаем скорость производства исходной ноды с учетом распределения между связями
-        const producerRate = this.getDistributedProducerRate(connection, fromNode, allConnections, allNodes)
-        
+        const producerRate = this.getDistributedProducerRate(
+            connection,
+            fromNode,
+            allConnections,
+            allNodes,
+        )
+
         // Получаем скорости сортеров с учетом количества строений/жил
-        const fromNodeCount = this.isMiner(fromNode) ? (fromNode.veins || 1) : (fromNode.buildingCount || 1)
-        const toNodeCount = this.isMiner(toNode) ? (toNode.veins || 1) : (toNode.buildingCount || 1)
-        
-        const inputSorterRate = inputSorter ? this.getSorterRate(inputSorter, fromNodeCount) : Infinity
-        const outputSorterRate = outputSorter ? this.getSorterRate(outputSorter, toNodeCount) : Infinity
-        
+        const fromNodeCount = this.isMiner(fromNode)
+            ? fromNode.veins || 1
+            : fromNode.buildingCount || 1
+        const toNodeCount = this.isMiner(toNode) ? toNode.veins || 1 : toNode.buildingCount || 1
+
+        const inputSorterRate = inputSorter
+            ? this.getSorterRate(inputSorter, fromNodeCount)
+            : Infinity
+        const outputSorterRate = outputSorter
+            ? this.getSorterRate(outputSorter, toNodeCount)
+            : Infinity
+
         // Получаем скорость конвейера
         const beltRate = belt ? this.getBeltRate(belt) : Infinity
-        
+
         // Пропускная способность = минимум из всех скоростей
         const throughput = Math.min(producerRate, inputSorterRate, outputSorterRate, beltRate)
-        
+
         // Определяем узкие места
         const bottlenecks: string[] = []
         if (throughput === producerRate) bottlenecks.push('Производство')
         if (throughput === inputSorterRate) bottlenecks.push('Входной сортер')
         if (throughput === outputSorterRate) bottlenecks.push('Выходной сортер')
         if (throughput === beltRate) bottlenecks.push('Конвейер')
-        
+
         return {
             throughput,
             unit: 'шт/сек',
@@ -62,28 +73,32 @@ export class ThroughputCalculator {
                 producerRate,
                 inputSorterRate: inputSorterRate === Infinity ? 0 : inputSorterRate,
                 outputSorterRate: outputSorterRate === Infinity ? 0 : outputSorterRate,
-                beltRate: beltRate === Infinity ? 0 : beltRate
-            }
+                beltRate: beltRate === Infinity ? 0 : beltRate,
+            },
         }
     }
-    
+
     /**
      * Получает скорость производства ноды (для майнеров и процессоров)
      */
     static getProducerRate(node: Node, allConnections?: Connection[], allNodes?: Node[]): number {
         if (!node.recipe) return 0
-        
+
         // Для майнеров используем обычный расчет
         if (this.isMiner(node)) {
             const productionResult = ProductionCalculator.calculateProduction(node)
             return productionResult.rate
         }
-        
+
         // Для процессоров учитываем входные ресурсы
         if (this.isProcessor(node) && allConnections && allNodes) {
-            return InputResourceCalculator.calculateActualProductionRate(node, allConnections, allNodes)
+            return InputResourceCalculator.calculateActualProductionRate(
+                node,
+                allConnections,
+                allNodes,
+            )
         }
-        
+
         // Fallback для процессоров без связей
         const productionResult = ProductionCalculator.calculateProduction(node)
         return productionResult.rate
@@ -96,7 +111,7 @@ export class ThroughputCalculator {
         connection: Connection,
         fromNode: Node,
         allConnections?: Connection[],
-        allNodes?: Node[]
+        allNodes?: Node[],
     ): number {
         if (!allConnections || !allNodes) {
             const rate = this.getProducerRate(fromNode, allConnections, allNodes)
@@ -104,8 +119,8 @@ export class ThroughputCalculator {
         }
 
         // Получаем все исходящие связи от источника
-        const outgoingConnections = allConnections.filter(conn => conn.fromNodeId === fromNode.id)
-        
+        const outgoingConnections = allConnections.filter((conn) => conn.fromNodeId === fromNode.id)
+
         if (outgoingConnections.length <= 1) {
             // Если связь одна, используем полную производительность
             const rate = this.getProducerRate(fromNode, allConnections, allNodes)
@@ -118,11 +133,11 @@ export class ThroughputCalculator {
             fromNode,
             outgoingConnections,
             allNodes,
-            allConnections
+            allConnections,
         )
         return distributedRate
     }
-    
+
     /**
      * Получает скорость сортера (штук в секунду) с учетом количества строений
      */
@@ -131,7 +146,7 @@ export class ThroughputCalculator {
         const baseRate = sorter.machine?.speed || 0
         return baseRate * buildingCount
     }
-    
+
     /**
      * Получает скорость конвейера (штук в секунду)
      */
@@ -139,17 +154,17 @@ export class ThroughputCalculator {
         // Конвейеры имеют скорость в поле belt.speed
         return belt.belt?.speed || 0
     }
-    
+
     /**
      * Форматирует пропускную способность для отображения
      */
     static formatThroughput(result: ThroughputResult): string {
         if (result.throughput === 0) return '0 шт/сек'
-        
+
         // Всегда показываем в секундах
         return `${result.throughput.toFixed(2)} шт/сек`
     }
-    
+
     /**
      * Проверяет, является ли нода майнером
      */

@@ -103,27 +103,27 @@
         </div>
     </div>
 
-            <!-- Коэффициент производительности -->
-            <div class="coefficient-section" v-if="selectedNode">
-                <h4>Коэффициент производительности</h4>
-                <div class="coefficient-input">
-                    <input type="number" v-model.number="coefficientValue" :min="0" :step="0.1" placeholder="Коэффициент" @input="updateCoefficient" />
-                    <span class="coefficient-unit">×</span>
-                </div>
-                <p class="coefficient-hint">Значение 1 означает нормальную скорость, 2 – удвоенную и т.д.</p>
-            </div>
+    <!-- Коэффициент производительности -->
+    <div class="coefficient-section" v-if="selectedNode">
+        <h4>Коэффициент производительности</h4>
+        <div class="coefficient-input">
+            <input type="number" v-model.number="coefficientValue" :min="0" :step="0.1" placeholder="Коэффициент" @input="updateCoefficient" />
+            <span class="coefficient-unit">×</span>
+        </div>
+        <p class="coefficient-hint">Значение 1 означает нормальную скорость, 2 – удвоенную и т.д.</p>
+    </div>
 </template>
 
 <script setup lang="ts">
     import { computed, onMounted, watch, ref } from 'vue'
-    import type { Node } from '@/types/Node'
+    import type { Node } from '@/domain/types/Node'
     import type { Recipe } from '@/types/Recipes'
-    import type { Connection } from '@/types/Connection'
+    import type { Connection } from '@/domain/types/Connection'
     import GameIcon from './GameIcon.vue'
     import { useRecipesStore } from '@/stores/recipesStore'
     import { useProducersStore } from '@/stores/producersStore'
-    import { ProductionCalculator } from '@/utils/ProductionCalculator'
-    import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
+    import { ProductionCalculator } from '@/domain/utils/ProductionCalculator'
+    import { InputResourceCalculator } from '@/domain/utils/InputResourceCalculator'
 
     interface Props {
         isOpen: boolean

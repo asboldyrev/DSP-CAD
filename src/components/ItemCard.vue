@@ -84,7 +84,9 @@
                 <h4>Module Info</h4>
                 <div v-if="item.module.productivity !== undefined" class="stat-item">
                     <span class="stat-label">Productivity:</span>
-                    <span class="stat-value">+{{ (item.module.productivity * 100).toFixed(1) }}%</span>
+                    <span class="stat-value">
+                        +{{ (item.module.productivity * 100).toFixed(1) }}%
+                    </span>
                 </div>
                 <div v-if="item.module.speed !== undefined" class="stat-item">
                     <span class="stat-label">Speed:</span>
@@ -92,7 +94,9 @@
                 </div>
                 <div v-if="item.module.consumption !== undefined" class="stat-item">
                     <span class="stat-label">Consumption:</span>
-                    <span class="stat-value">+{{ (item.module.consumption * 100).toFixed(1) }}%</span>
+                    <span class="stat-value">
+                        +{{ (item.module.consumption * 100).toFixed(1) }}%
+                    </span>
                 </div>
                 <div v-if="item.module.sprays !== undefined" class="stat-item">
                     <span class="stat-label">Sprays:</span>
@@ -122,13 +126,19 @@
                         </span>
                     </div>
                 </div>
-                <div v-if="item.technology.unlockedRecipes && item.technology.unlockedRecipes.length > 0" class="stat-item">
+                <div v-if="
+                    item.technology.unlockedRecipes &&
+                    item.technology.unlockedRecipes.length > 0
+                " class="stat-item">
                     <span class="stat-label">Unlocks:</span>
                     <div class="unlocked-recipes">
                         <span v-for="recipe in item.technology.unlockedRecipes.slice(0, 5)" :key="recipe" class="recipe-tag">
                             {{ recipe }}
                         </span>
-                        <span v-if="item.technology.unlockedRecipes && item.technology.unlockedRecipes.length > 5" class="more-recipes">
+                        <span v-if="
+                            item.technology.unlockedRecipes &&
+                            item.technology.unlockedRecipes.length > 5
+                        " class="more-recipes">
                             +{{ item.technology.unlockedRecipes.length - 5 }} more
                         </span>
                     </div>
@@ -139,38 +149,38 @@
 </template>
 
 <script setup lang="ts">
-    import { computed, onMounted } from 'vue'
-    import { CATEGORIES } from '@/enums/Category'
-    import { useItemsStore } from '@/stores/itemsStore'
-    import GameIcon from './GameIcon.vue'
+    // import { computed, onMounted } from 'vue'
+    // import { CATEGORIES } from '@/types/core/category'
+    // import { useItemsStore } from '@/stores/itemsStore'
+    // import GameIcon from './GameIcon.vue'
 
-    interface Props {
-        id: string
-    }
+    // interface Props {
+    //     id: string
+    // }
 
-    const props = defineProps<Props>()
+    // const props = defineProps<Props>()
 
-    const itemsStore = useItemsStore()
-    const { loadItems, getItemById, isLoading, error } = itemsStore
+    // const itemsStore = useItemsStore()
+    // const { loadItems, getItemById, isLoading, error } = itemsStore
 
-    onMounted(() => {
-        loadItems()
-    })
+    // onMounted(() => {
+    //     loadItems()
+    // })
 
-    const item = getItemById(props.id)
+    // const item = getItemById(props.id)
 
-    const categoryName = computed(() => {
-        if (!item.value) return ''
-        const category = CATEGORIES.find(cat => cat.id === item.value!.category)
-        return category?.name || item.value!.category
-    })
+    // const categoryName = computed(() => {
+    //     if (!item.value) return ''
+    //     const category = CATEGORIES.find((cat) => cat.id === item.value!.category)
+    //     return category?.name || item.value!.category
+    // })
 
-    const itemCardClass = computed(() => ({
-        [`category-${item.value?.category}`]: !!item.value,
-        'has-machine': !!item.value?.machine,
-        'has-fuel': !!item.value?.fuel,
-        'has-module': !!item.value?.module
-    }))
+    // const itemCardClass = computed(() => ({
+    //     [`category-${item.value?.category}`]: !!item.value,
+    //     'has-machine': !!item.value?.machine,
+    //     'has-fuel': !!item.value?.fuel,
+    //     'has-module': !!item.value?.module,
+    // }))
 </script>
 
 <style scoped>

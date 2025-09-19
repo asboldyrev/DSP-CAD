@@ -1,5 +1,5 @@
-import type { Node } from '@/types/Node'
-import type { Connection } from '@/types/Connection'
+import type { Node } from '@/domain/types/Node'
+import type { Connection } from '@/domain/types/Connection'
 import { ThroughputCalculator } from './ThroughputCalculator'
 import { ProductionCalculator } from './ProductionCalculator'
 
@@ -24,13 +24,13 @@ export class OutputDistributionCalculator {
         sourceNode: Node,
         outgoingConnections: Connection[],
         allNodes: Node[],
-        allConnections?: Connection[]
+        allConnections?: Connection[],
     ): OutputDistributionResult {
         if (!sourceNode.recipe || outgoingConnections.length === 0) {
             return {
                 distributions: [],
                 totalAllocatedRate: 0,
-                isFullyUtilized: false
+                isFullyUtilized: false,
             }
         }
 
@@ -50,19 +50,25 @@ export class OutputDistributionCalculator {
             // called with connections and nodes.  Passing allConnections and
             // allNodes avoids recursion because it will not invoke
             // OutputDistributionCalculator again for this node during this call.
-            actualTotalRate = ThroughputCalculator.getProducerRate(sourceNode, allConnections, allNodes)
+            actualTotalRate = ThroughputCalculator.getProducerRate(
+                sourceNode,
+                allConnections,
+                allNodes,
+            )
         }
 
         // Определяем коэффициент масштабирования.  Если actualTotalRate меньше
         // базовой производительности, мы пропорционально уменьшаем скорости
         // распределения для всех ресурсов.  Если равен, коэффициент = 1.
         const scaleFactor = baseTotalRate > 0 ? Math.min(1, actualTotalRate / baseTotalRate) : 0
-        
+
         // Группируем связи по ресурсам
         const connectionsByResource = new Map<string, Connection[]>()
-        
+
         for (const connection of outgoingConnections) {
-            const resourceId = connection.selectedResource || this.getDefaultResource(sourceNode, connection, allNodes)
+            const resourceId =
+                connection.selectedResource ||
+                this.getDefaultResource(sourceNode, connection, allNodes)
             if (resourceId) {
                 if (!connectionsByResource.has(resourceId)) {
                     connectionsByResource.set(resourceId, [])
@@ -70,7 +76,7 @@ export class OutputDistributionCalculator {
                 connectionsByResource.get(resourceId)!.push(connection)
             }
         }
-        
+
         const distributions: OutputDistribution[] = []
         let totalAllocatedRate = 0
 
@@ -81,9 +87,9 @@ export class OutputDistributionCalculator {
             // Применяем коэффициент масштабирования, чтобы учитывалась фактическая
             // производительность, ограниченная входными ресурсами
             const scaledResourceRate = baseResourceRate * scaleFactor
-            
+
             // Равномерно распределяем между связями этого ресурса
-            
+
             const ratePerConnection = scaledResourceRate / connections.length
             for (const connection of connections) {
                 distributions.push({
@@ -92,19 +98,19 @@ export class OutputDistributionCalculator {
                     allocatedRate: ratePerConnection,
                     // maxPossibleRate отражает максимальную базовую скорость без
                     // учета входных ограничений.  Для обратной совместимости
-                    maxPossibleRate: baseResourceRate
+                    maxPossibleRate: baseResourceRate,
                 })
                 totalAllocatedRate += ratePerConnection
             }
         }
-        
+
         return {
             distributions,
             totalAllocatedRate,
             // isFullyUtilized показывает, что фактическая производительность
             // полностью распределена.  Сравниваем с actualTotalRate, а не с
             // базовой производительностью.
-            isFullyUtilized: Math.abs(totalAllocatedRate - actualTotalRate) < 0.01
+            isFullyUtilized: Math.abs(totalAllocatedRate - actualTotalRate) < 0.01,
         }
     }
 
@@ -118,40 +124,50 @@ export class OutputDistributionCalculator {
 
         // Получаем общую производительность источника (базовую, без учета входных ресурсов)
         const totalRate = this.getBaseProductionRate(sourceNode)
-        
+
         // Получаем выходные ресурсы рецепта
-        const outputEntries = Object.entries(sourceNode.recipe.out as unknown as Record<string, number>)
+        const outputEntries = Object.entries(
+            sourceNode.recipe.out as unknown as Record<string, number>,
+        )
         const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
-        
+
         // Находим количество конкретного ресурса за цикл
         const resourcePerCycle = outputEntries.find(([id]) => id === resourceId)?.[1] || 0
-        
+
         // Рассчитываем долю этого ресурса в общей производительности
         if (totalOutputPerCycle === 0) {
             return 0
         }
-        
+
         const resourceRate = totalRate * (resourcePerCycle / totalOutputPerCycle)
-        
+
         return resourceRate
     }
 
     /**
      * Получает ресурс по умолчанию для связи (если не указан selectedResource)
      */
-    private static getDefaultResource(sourceNode: Node, connection: Connection, allNodes: Node[]): string | null {
+    private static getDefaultResource(
+        sourceNode: Node,
+        connection: Connection,
+        allNodes: Node[],
+    ): string | null {
         if (!sourceNode.recipe) return null
 
         // Если источник производит только один ресурс, используем его
-        const outputEntries = Object.entries(sourceNode.recipe.out as unknown as Record<string, number>)
+        const outputEntries = Object.entries(
+            sourceNode.recipe.out as unknown as Record<string, number>,
+        )
         if (outputEntries.length === 1) {
             return outputEntries[0][0]
         }
 
         // Если несколько ресурсов, пытаемся определить по получателю
-        const toNode = allNodes.find(n => n.id === connection.toNodeId)
+        const toNode = allNodes.find((n) => n.id === connection.toNodeId)
         if (toNode?.recipe) {
-            const inputEntries = Object.entries(toNode.recipe.in as unknown as Record<string, number>)
+            const inputEntries = Object.entries(
+                toNode.recipe.in as unknown as Record<string, number>,
+            )
             // Ищем пересечение между выходом источника и входом получателя
             for (const [resourceId] of inputEntries) {
                 if (outputEntries.some(([id]) => id === resourceId)) {
@@ -171,10 +187,15 @@ export class OutputDistributionCalculator {
         sourceNode: Node,
         outgoingConnections: Connection[],
         allNodes: Node[],
-        allConnections?: Connection[]
+        allConnections?: Connection[],
     ): number {
-        const result = this.calculateOutputDistribution(sourceNode, outgoingConnections, allNodes, allConnections)
-        const distribution = result.distributions.find(d => d.connectionId === connectionId)
+        const result = this.calculateOutputDistribution(
+            sourceNode,
+            outgoingConnections,
+            allNodes,
+            allConnections,
+        )
+        const distribution = result.distributions.find((d) => d.connectionId === connectionId)
         return distribution?.allocatedRate || 0
     }
 
@@ -183,7 +204,7 @@ export class OutputDistributionCalculator {
      */
     private static getBaseProductionRate(node: Node): number {
         if (!node.recipe) return 0
-        
+
         // Используем ProductionCalculator напрямую, без учета входных ресурсов
         const productionResult = ProductionCalculator.calculateProduction(node)
         return productionResult.rate

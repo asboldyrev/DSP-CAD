@@ -28,11 +28,11 @@
 
 <script setup lang="ts">
     import { computed } from 'vue'
-    import type { Node } from '@/types/Node'
-    import type { Connection } from '@/types/Connection'
+    import type { Node } from '@/domain/types/Node'
+    import type { Connection } from '@/domain/types/Connection'
     import GameIcon from './GameIcon.vue'
-    import { ProductionCalculator } from '@/utils/ProductionCalculator'
-    import { InputResourceCalculator } from '@/utils/InputResourceCalculator'
+    import { ProductionCalculator } from '@/domain/utils/ProductionCalculator'
+    import { InputResourceCalculator } from '@/domain/utils/InputResourceCalculator'
 
     interface Props {
         node: Node

@@ -61,18 +61,7 @@
         <BuildingSelectorModal :is-open="isBuildingSelectorOpen" @close="closeBuildingSelector" @select="addBuildingNode" />
 
         <!-- Панель редактирования ноды -->
-        <NodeEditPanel
-            :is-open="isEditPanelOpen"
-            :selected-node="selectedNode"
-            :all-connections="connections"
-            :all-nodes="nodes"
-            @close="closeEditPanel"
-            @delete="deleteNode"
-            @update-recipe="updateNodeRecipe"
-            @update-veins="updateNodeVeins"
-            @update-building-count="updateNodeBuildingCount"
-            @update-coefficient="updateNodeCoefficient"
-        />
+        <NodeEditPanel :is-open="isEditPanelOpen" :selected-node="selectedNode" :all-connections="connections" :all-nodes="nodes" @close="closeEditPanel" @delete="deleteNode" @update-recipe="updateNodeRecipe" @update-veins="updateNodeVeins" @update-building-count="updateNodeBuildingCount" @update-coefficient="updateNodeCoefficient" />
 
         <!-- Панель редактирования связи -->
         <ConnectionEditPanel :is-open="isConnectionEditPanelOpen" :selected-connection="selectedConnection" :nodes="nodes" :connections="connections" @close="closeConnectionEditPanel" @delete="deleteConnection" @update-belt="updateConnectionBelt" @update-input-sorter="updateConnectionInputSorter" @update-output-sorter="updateConnectionOutputSorter" @update-sync-sorters="updateConnectionSyncSorters" @update-selected-resource="updateConnectionSelectedResource" />
@@ -90,9 +79,9 @@
     import ConnectionComponent from './ConnectionComponent.vue'
     import ConnectionEditPanel from './ConnectionEditPanel.vue'
     import type { Item } from '@/types/Item'
-    import type { Node } from '@/types/Node'
+    import type { Node } from '@/domain/types/Node'
     import type { Recipe } from '@/types/Recipes'
-    import type { Connection } from '@/types/Connection'
+    import type { Connection } from '@/domain/types/Connection'
 
     /** Refs + состояние */
     const canvasContainer = ref<HTMLElement>()

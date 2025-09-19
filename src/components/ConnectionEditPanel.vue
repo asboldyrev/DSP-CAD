@@ -125,14 +125,14 @@
 
 <script setup lang="ts">
     import { computed, onMounted } from 'vue'
-    import type { Connection } from '@/types/Connection'
-    import type { Node } from '@/types/Node'
+    import type { Connection } from '@/domain/types/Connection'
+    import type { Node } from '@/domain/types/Node'
     import type { Item } from '@/types/Item'
     import GameIcon from './GameIcon.vue'
     import { useBeltsStore } from '@/stores/beltsStore'
     import { useItemsStore } from '@/stores/itemsStore'
     import { useRecipesStore } from '@/stores/recipesStore'
-    import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
+    import { ThroughputCalculator } from '@/domain/utils/ThroughputCalculator'
 
     interface Props {
         isOpen: boolean

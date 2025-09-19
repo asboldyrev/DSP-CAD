@@ -6,16 +6,16 @@
     <line :x1="adjustedFromX" :y1="adjustedFromY" :x2="adjustedToX" :y2="adjustedToY" :class="connectionClass" :stroke="connectionColor" :stroke-width="strokeWidth" :marker-end="markerEnd" pointer-events="none" />
 
     <!-- Отображение пропускной способности -->
-        <text v-if="throughputResult.throughput > 0 || connection" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
+    <text v-if="throughputResult.throughput > 0 || connection" :x="throughputTextX" :y="throughputTextY" class="throughput-text" :class="{ 'throughput-text-selected': isSelected }">
         {{ throughputText }}
     </text>
 </template>
 
 <script setup lang="ts">
     import { computed, ref } from 'vue'
-    import type { Connection } from '@/types/Connection'
-    import type { Node } from '@/types/Node'
-    import { ThroughputCalculator } from '@/utils/ThroughputCalculator'
+    import type { Connection } from '@/domain/types/Connection'
+    import type { Node } from '@/domain/types/Node'
+    import { ThroughputCalculator } from '@/domain/utils/ThroughputCalculator'
 
     interface Props {
         connection: Connection
@@ -117,7 +117,7 @@
         // Fallback к предопределенным цветам по ID
         const beltColors: Record<string, string> = {
             'conveyor-belt-1': '#8b5cf6', // Фиолетовый
-            'conveyor-belt-2': '#06b6d4', // Голубой  
+            'conveyor-belt-2': '#06b6d4', // Голубой
             'conveyor-belt-3': '#10b981'  // Зеленый
         }
 
