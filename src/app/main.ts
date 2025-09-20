@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from '@/app/App.vue'
 import '@/app/style.css'
+import 'remixicon/fonts/remixicon.css'
 
 // Импортируем справочные сторы для загрузки
 import { useIconsStore } from '@/stores/iconsStore'
