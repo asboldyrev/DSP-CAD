@@ -1,60 +1,55 @@
+import { getProducers } from '@/api'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-
-export interface ProducersData {
-  miners: string[]
-  processors: string[]
-}
+import { ref, type Ref } from 'vue'
 
 export const useProducersStore = defineStore('producers', () => {
-  const producersData = ref<ProducersData | null>(null)
-  const isLoading = ref(false)
-  const error = ref<string | null>(null)
+    const producers = ref<ProducersData>({
+        miners: [],
+        processors: [],
+    })
+    const isLoading: Ref<boolean> = ref(false)
+    const error: Ref<string | null> = ref(null)
 
-  async function loadProducers() {
-    if (producersData.value) return // Уже загружены
+    async function producersLoad() {
+        if (producers.value?.miners?.length > 0 && producers.value?.processors?.length) return // Уже загружены
 
-    isLoading.value = true
-    error.value = null
+        isLoading.value = true
+        error.value = null
 
-    try {
-      const response = await fetch('/data/producers.json')
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-      producersData.value = await response.json()
-    } catch (err) {
-      error.value = err instanceof Error ? err.message : 'Unknown error'
-      console.error('Failed to load producers:', err)
-    } finally {
-      isLoading.value = false
+        await getProducers(isLoading, error).then((response) => {
+            producers.value = response
+        })
     }
-  }
 
-  function getAllMiners(): string[] {
-    return producersData.value?.miners || []
-  }
+    function getAllMiners(): string[] {
+        return producers.value?.miners || []
+    }
 
-  function getAllProcessors(): string[] {
-    return producersData.value?.processors || []
-  }
+    function getAllProcessors(): string[] {
+        return producers.value?.processors || []
+    }
 
-  function isMiner(buildingId: string): boolean {
-    return getAllMiners().includes(buildingId)
-  }
+    function isMiner(buildingId: string): boolean {
+        return getAllMiners().includes(buildingId)
+    }
 
-  function isProcessor(buildingId: string): boolean {
-    return getAllProcessors().includes(buildingId)
-  }
+    function isProcessor(buildingId: string): boolean {
+        return getAllProcessors().includes(buildingId)
+    }
 
-  return {
-    producersData,
-    isLoading,
-    error,
-    loadProducers,
-    getAllMiners,
-    getAllProcessors,
-    isMiner,
-    isProcessor
-  }
+    return {
+        isLoading,
+        error,
+
+        producersLoad,
+        getAllMiners,
+        getAllProcessors,
+        isMiner,
+        isProcessor,
+    }
 })
+
+interface ProducersData {
+    miners: string[]
+    processors: string[]
+}

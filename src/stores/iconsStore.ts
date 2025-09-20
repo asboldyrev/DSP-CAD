@@ -1,44 +1,40 @@
-import { ref, computed } from 'vue'
+import { defineStore } from 'pinia'
+import { computed, ref, type ComputedRef, type Ref } from 'vue'
 import type { Icon } from '@/data-source/dto/icon.dto'
+import { getIcons } from '@/api'
 
-const iconsData = ref<Icon[]>([])
-const isLoading = ref(false)
-const error = ref<string | null>(null)
+export const useIconsStore = defineStore('icons', () => {
+    const icons: Ref<Icon[]> = ref([])
 
-export const useIconsStore = () => {
-    const loadIcons = async () => {
-        if (iconsData.value.length > 0) return // Уже загружены
+    const isLoading: Ref<boolean> = ref(false)
+    const error: Ref<string | null> = ref(null)
+
+    async function iconsLoad() {
+        if (icons.value.length > 0) return // Уже загружены
 
         isLoading.value = true
         error.value = null
 
-        try {
-            const response = await fetch('/data/icons.json')
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
-            iconsData.value = await response.json()
-        } catch (err) {
-            error.value = err instanceof Error ? err.message : 'Failed to load icons data'
-            console.error('Error loading icons:', err)
-        } finally {
-            isLoading.value = false
-        }
+        await getIcons(isLoading, error).then((response) => {
+            response.forEach((element: Icon) => {
+                icons.value.push(element)
+            })
+        })
     }
 
-    const getIconById = (id: string) => {
-        return computed(() => iconsData.value.find((icon: Icon) => icon.id === id))
+    const getIconById = (id: string): ComputedRef<Icon | undefined> => {
+        return computed(() => icons.value.find((icon: Icon) => icon.id === id))
     }
 
-    const getAllIcons = computed(() => iconsData.value)
+    const allIcons = computed(() => icons.value)
 
     return {
-        // Состояние
-        iconsData: computed(() => iconsData.value),
-        isLoading: computed(() => isLoading.value),
-        error: computed(() => error.value),
+        isLoading,
+        error,
 
-        // Методы
-        loadIcons,
+        iconsLoad,
         getIconById,
-        getAllIcons,
+
+        allIcons,
     }
-}
+})

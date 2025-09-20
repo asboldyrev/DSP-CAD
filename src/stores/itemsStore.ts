@@ -2,75 +2,41 @@ import { ref, computed } from 'vue'
 import type { Item } from '@/data-source/dto/item.dto'
 import { useProducersStore } from '@/stores/producersStore'
 import { useIconsStore } from '@/stores/iconsStore'
+import { getItems } from '@/api'
+import { defineStore } from 'pinia'
 
-const buildingsData = ref<Item[]>([])
-const isLoading = ref(false)
-const error = ref<string | null>(null)
+export const useItemsStore = defineStore('items', () => {
+    const buildings = ref<Item[]>([])
+    const isLoading = ref(false)
+    const error = ref<string | null>(null)
 
-export const useItemsStore = () => {
     const producersStore = useProducersStore()
-    const iconsStore = useIconsStore()
 
-    const loadBuildings = async () => {
-        if (buildingsData.value.length > 0) return // Уже загружены
+    // const producersStore = useProducersStore()
+    // const iconsStore = useIconsStore()
 
-        isLoading.value = true
-        error.value = null
+    async function loadBuildings() {
+        if (buildings.value.length > 0) return // Уже загружены
 
-        try {
-            const [buildingsResponse] = await Promise.all([fetch('/data/Items/buildings.json')])
-
-            if (!buildingsResponse.ok) {
-                throw new Error(`HTTP error! status: ${buildingsResponse.status}`)
-            }
-
-            const buildings = await buildingsResponse.json()
-
-            await iconsStore.loadIcons()
-
-            buildingsData.value = buildings.map((building: Item) => ({
-                ...building,
-                icon: iconsStore.getIconById(building.id),
-            }))
-        } catch (err) {
-            error.value = err instanceof Error ? err.message : 'Failed to load buildings data'
-            console.error('Error loading buildings:', err)
-        } finally {
-            isLoading.value = false
-        }
+        await getItems(isLoading, error).then((response) => (buildings.value = response))
     }
 
-    const loadProducers = async () => {
-        await producersStore.loadProducers()
+    function getItemById(id: string) {
+        const item = computed(() => buildings.value.find((item: Item) => item.id === id))
+
+        if (!item.value) return undefined
+
+        return item.value
     }
 
-    const loadIcons = async () => {
-        await iconsStore.loadIcons()
+    function getBuildingsByRow(row: number) {
+        return computed(() => buildings.value.filter((item: Item) => item.row === row))
     }
 
-    const getItemById = (id: string) => {
-        const item = buildingsData.value.find((item: Item) => item.id === id)
-        if (!item) return undefined
-
-        if (!item.icon) {
-            const icon = iconsStore.getIconById(id)
-            return {
-                ...item,
-                icon,
-            }
-        }
-
-        return item
-    }
-
-    const getBuildingsByRow = (row: number) => {
-        return computed(() => buildingsData.value.filter((item: Item) => item.row === row))
-    }
-
-    const getBuildingsGroupedByRow = () => {
+    function getBuildingsGroupedByRow() {
         return computed(() => {
             const grouped: { [key: number]: Item[] } = {}
-            buildingsData.value.forEach((item) => {
+            buildings.value.forEach((item) => {
                 const row = item.row ?? 0
                 if (!grouped[row]) {
                     grouped[row] = []
@@ -81,25 +47,24 @@ export const useItemsStore = () => {
         })
     }
 
-    const getAllBuildings = computed(() => buildingsData.value)
+    // const getProducerBuildings = () => {
+    //     return computed(() => {
+    //         const producerIds = [
+    //             ...producersStore.getAllMiners(),
+    //             ...producersStore.getAllProcessors(),
+    //         ]
+    //         return buildings.value.filter((building) => producerIds.includes(building.id))
+    //     })
+    // }
 
-    const getProducerBuildings = () => {
+    function getProducerBuildingsGroupedByRow() {
         return computed(() => {
             const producerIds = [
                 ...producersStore.getAllMiners(),
                 ...producersStore.getAllProcessors(),
             ]
-            return buildingsData.value.filter((building) => producerIds.includes(building.id))
-        })
-    }
 
-    const getProducerBuildingsGroupedByRow = () => {
-        return computed(() => {
-            const producerIds = [
-                ...producersStore.getAllMiners(),
-                ...producersStore.getAllProcessors(),
-            ]
-            const producerBuildings = buildingsData.value.filter((building) =>
+            const producerBuildings = buildings.value.filter((building) =>
                 producerIds.includes(building.id),
             )
 
@@ -115,21 +80,20 @@ export const useItemsStore = () => {
         })
     }
 
+    const getAllBuildings = computed(() => buildings.value)
+
     return {
         // Состояние
-        buildingsData: computed(() => buildingsData.value),
-        isLoading: computed(() => isLoading.value),
-        error: computed(() => error.value),
+        isLoading,
+        error,
 
         // Методы
         loadBuildings,
-        loadProducers,
-        loadIcons,
         getItemById,
         getBuildingsByRow,
         getBuildingsGroupedByRow,
-        getAllBuildings,
-        getProducerBuildings,
         getProducerBuildingsGroupedByRow,
+
+        getAllBuildings,
     }
-}
+})
