@@ -16,8 +16,12 @@ export async function getBelts(isLoading: Ref, error: Ref<string | null>): Promi
     return request('/data/belts.json', isLoading, error)
 }
 
-export async function getItems(isLoading: Ref, error: Ref<string | null>): Promise<any> {
+export async function getBuildings(isLoading: Ref, error: Ref<string | null>): Promise<any> {
     return request('/data/items/buildings.json', isLoading, error)
+}
+
+export async function getComponents(isLoading: Ref, error: Ref<string | null>): Promise<any> {
+    return request('/data/items/components.json', isLoading, error)
 }
 
 async function request(url: string, isLoading: Ref, error: Ref<string | null>): Promise<any> {

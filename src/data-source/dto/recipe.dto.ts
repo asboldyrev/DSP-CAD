@@ -1,7 +1,5 @@
-import type { Category } from '@/data-source/category'
-
 export interface Recipe {
-    category: Category
+    category: string
     id: string
     name: string
     time: number

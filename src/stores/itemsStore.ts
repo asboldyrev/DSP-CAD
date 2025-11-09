@@ -2,11 +2,12 @@ import { ref, computed } from 'vue'
 import type { Item } from '@/data-source/dto/item.dto'
 import { useProducersStore } from '@/stores/producersStore'
 import { useIconsStore } from '@/stores/iconsStore'
-import { getItems } from '@/api'
+import { getBuildings, getComponents } from '@/api'
 import { defineStore } from 'pinia'
 
 export const useItemsStore = defineStore('items', () => {
     const buildings = ref<Item[]>([])
+    const components = ref<Item[]>([])
     const isLoading = ref(false)
     const error = ref<string | null>(null)
 
@@ -15,14 +16,25 @@ export const useItemsStore = defineStore('items', () => {
     // const producersStore = useProducersStore()
     // const iconsStore = useIconsStore()
 
-    async function loadBuildings() {
+    async function loadItems() {
         if (buildings.value.length > 0) return // Уже загружены
 
-        await getItems(isLoading, error).then((response) => (buildings.value = response))
+        await getBuildings(isLoading, error).then((response) => (buildings.value = response))
+        await getComponents(isLoading, error).then((response) => (components.value = response))
     }
 
     function getItemById(id: string) {
-        const item = computed(() => buildings.value.find((item: Item) => item.id === id))
+        const item = computed(() => {
+            const building = buildings.value.find((item: Item) => {
+                return item.id === id
+            })
+
+            if (building) return building
+
+            return components.value.find((item: Item) => {
+                return item.id === id
+            })
+        })
 
         if (!item.value) return undefined
 
@@ -88,7 +100,7 @@ export const useItemsStore = defineStore('items', () => {
         error,
 
         // Методы
-        loadBuildings,
+        loadItems,
         getItemById,
         getBuildingsByRow,
         getBuildingsGroupedByRow,

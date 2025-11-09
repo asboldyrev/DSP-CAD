@@ -5,7 +5,7 @@ export interface Item {
     category: Category
     id: string
     name: string
-    row?: number
+    row: number
     stack?: number
     machine?: Machine
     fuel?: Fuel

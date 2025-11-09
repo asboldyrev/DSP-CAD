@@ -1,17 +1,5 @@
-import type { Node } from '@/domain/types/Node'
-import type { Recipe } from '@/types/Recipes'
-import { useProducersStore } from '@/stores/producersStore'
-
-export interface ProductionResult {
-    rate: number
-    unit: string
-    inputLabel: string
-    inputType: 'veins' | 'rate' | 'buildings'
-    inputMin: number
-    inputMax: number
-    inputStep: number
-    inputPrecision: number
-}
+import type { Node } from '@/data-source/dto/node.dto'
+import type { ProductionResult } from '@/data-source/dto/productionResult'
 
 export class ProductionCalculator {
     /**
@@ -53,7 +41,7 @@ export class ProductionCalculator {
     private static calculateMiningMachineProduction(node: Node): ProductionResult {
         const recipe = node.recipe!
         const building = node.item
-        const veins = node.veins || 1
+        const veins = node.factor || 1
 
         // Получаем количество предметов на выходе из рецепта
         const outQty = Object.values(recipe.out)[0] || 1
@@ -75,7 +63,8 @@ export class ProductionCalculator {
 
         return {
             rate,
-            unit: 'шт/сек',
+            inputUnit: 'шт',
+            outputUnit: 'шт/сек',
             inputLabel: 'Количество жил',
             inputType: 'veins',
             inputMin: 1,
@@ -90,14 +79,15 @@ export class ProductionCalculator {
      */
     private static calculateOilExtractorProduction(node: Node): ProductionResult {
         // Для oil-extractor скорость добычи указывается напрямую
-        let rate = node.veins || 0
+        let rate = node.factor || 0
         // Apply productivity coefficient
         const coefficient = node.coefficient ?? 1
         rate = rate * coefficient
 
         return {
             rate,
-            unit: 'шт/сек',
+            inputUnit: 'шт/сек',
+            outputUnit: 'шт/сек',
             inputLabel: 'Скорость добычи',
             inputType: 'rate',
             inputMin: 0,
@@ -112,14 +102,15 @@ export class ProductionCalculator {
      */
     private static calculateRayReceiverProduction(node: Node): ProductionResult {
         // Для ray-receiver скорость добычи указывается напрямую (целое число)
-        let rate = node.veins || 0
+        let rate = node.factor || 0
         // Apply productivity coefficient
         const coefficient = node.coefficient ?? 1
         rate = rate * coefficient
 
         return {
             rate,
-            unit: 'шт/сек',
+            inputUnit: '',
+            outputUnit: 'шт/сек',
             inputLabel: 'Скорость добычи',
             inputType: 'rate',
             inputMin: 0,
@@ -135,7 +126,7 @@ export class ProductionCalculator {
     private static calculateWaterPumpProduction(node: Node): ProductionResult {
         const recipe = node.recipe!
         const building = node.item
-        const buildings = node.veins || 1
+        const buildings = node.factor || 1
 
         // Получаем количество предметов на выходе из рецепта
         const outQty = Object.values(recipe.out)[0] || 1
@@ -157,7 +148,8 @@ export class ProductionCalculator {
 
         return {
             rate,
-            unit: 'шт/сек',
+            inputUnit: '',
+            outputUnit: 'шт/сек',
             inputLabel: 'Количество построек',
             inputType: 'buildings',
             inputMin: 1,
@@ -173,74 +165,12 @@ export class ProductionCalculator {
     private static getEmptyResult(): ProductionResult {
         return {
             rate: 0,
-            unit: 'шт/сек',
+            inputUnit: 'шт/сек',
+            outputUnit: 'шт/сек',
             inputLabel: '',
             inputType: 'veins',
             inputMin: 0,
             inputMax: 0,
-            inputStep: 1,
-            inputPrecision: 0,
-        }
-    }
-
-    /**
-     * Проверяет, является ли строение майнером
-     */
-    static isMiner(buildingId: string): boolean {
-        const producersStore = useProducersStore()
-        return producersStore.isMiner(buildingId)
-    }
-
-    /**
-     * Проверяет, является ли строение процессором
-     */
-    static isProcessor(node: Node): boolean {
-        // Получаем список процессоров напрямую из producers.json
-        const processors = [
-            'assembling-machine-1',
-            'assembling-machine-2',
-            'assembling-machine-3',
-            'df-recomposing-assembler',
-            'energy-exchanger',
-            'arc-smelter',
-            'plane-smelter',
-            'df-negentropy-smelter',
-            'oil-refinery',
-            'chemical-plant',
-            'quantum-chemical-plant',
-            'fractionator',
-            'miniature-particle-collider',
-            'matrix-lab',
-            'df-self-evolution-lab',
-        ]
-        return processors.includes(node.item.id)
-    }
-
-    /**
-     * Расчет производительности для процессоров
-     */
-    private static calculateProcessorProduction(node: Node): ProductionResult {
-        const recipe = node.recipe!
-        const buildingCount = node.buildingCount || 1
-        const buildingSpeed = node.item.machine?.speed || 1
-
-        // Рассчитываем базовую скорость производства (предметов в секунду)
-        // Формула: (количество_выхода / время_рецепта) * скорость_строения * количество_строений
-        const outputEntries = Object.entries(recipe.out as unknown as Record<string, number>)
-        const totalOutputPerCycle = outputEntries.reduce((sum, [_, quantity]) => sum + quantity, 0)
-
-        let baseRate = (totalOutputPerCycle / recipe.time) * buildingSpeed * buildingCount
-        // Apply productivity coefficient
-        const coefficient = node.coefficient ?? 1
-        baseRate = baseRate * coefficient
-
-        return {
-            rate: baseRate,
-            unit: 'шт/сек',
-            inputLabel: 'Количество строений',
-            inputType: 'buildings',
-            inputMin: 1,
-            inputMax: 100,
             inputStep: 1,
             inputPrecision: 0,
         }

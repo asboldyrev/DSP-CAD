@@ -1,5 +1,36 @@
 <script setup lang="ts">
-  import D3Canvas from '@/components/D3Canvas.vue';
+  import D3Canvas from '@/components/canvas/D3Canvas.vue';
+  import SidebarFrame from '@/components/SidebarFrame.vue';
+  import { useNodesStore } from '@/stores/nodesStore';
+  import { computed, defineAsyncComponent, ref, watch } from 'vue';
+
+  // id цели для заголовка (важно прокинуть в дочерние панели)
+  const headerTargetId = 'sidebar-header-target'
+
+  const nodesStore = useNodesStore()
+
+  // Регистр панелей (ленивая загрузка)
+  const panes = {
+    BuildingSelector: defineAsyncComponent(() => import('@/components/Sidebar/BuildingSelector.vue')),
+    Edit: defineAsyncComponent(() => import('@/components/Sidebar/BuildingEdit.vue')),
+  } as const
+
+  type PaneKey = keyof typeof panes
+  const activeKey = ref<PaneKey>('BuildingSelector')
+  const ActivePane = computed(() => panes[activeKey.value])
+
+  function switchPane(key: PaneKey) {
+    activeKey.value = key
+  }
+
+  watch(() => nodesStore.selectedNode, (to) => {
+    if (to) {
+      switchPane('Edit')
+    } else {
+      switchPane('BuildingSelector')
+    }
+  })
+
 </script>
 
 <template>
@@ -12,7 +43,11 @@
       <div class="app-canvas">
         <D3Canvas />
       </div>
-      <div class="app-sidebar">2</div>
+      <div class="app-sidebar">
+        <SidebarFrame :header-target-id="headerTargetId">
+          <component :is="ActivePane" :header-target-id="headerTargetId" />
+        </SidebarFrame>
+      </div>
     </main>
   </div>
 </template>
@@ -65,7 +100,9 @@
   }
 
   .app-sidebar {
-    width: 400px;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .favicon {

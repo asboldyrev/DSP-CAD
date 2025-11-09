@@ -1,3 +1,5 @@
+import type { Icon } from './dto/icon.dto'
+
 export class Category {
     categories: CategoryInfo[] = [
         {
@@ -24,7 +26,7 @@ export class Category {
 
     id: string
     name: string
-    icon: string | undefined
+    icon: string | undefined | Icon
 
     constructor(id: string) {
         const category = this.getById(id)
@@ -52,5 +54,5 @@ export class Category {
 export interface CategoryInfo {
     id: string
     name: string
-    icon?: string
+    icon?: string | Icon
 }
